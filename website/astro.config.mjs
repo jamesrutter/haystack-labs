@@ -6,12 +6,12 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Haystack Labs",
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/jamesrutter/haystack-labs",
         },
       ],
       sidebar: [
