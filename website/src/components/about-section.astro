@@ -1,0 +1,209 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section class={`about ${className || ''}`}>
+  <div class="about__container">
+    <div class="about__content">
+      <div class="about__text">
+        <h2 class="about__title">WHAT MAKES LABS SPECIAL?</h2>
+        
+        <div class="about__features">
+          <div class="about__feature">
+            <h3 class="about__feature-title">Residency for Machines:</h3>
+            <p class="about__feature-description">
+              Technology experiences new creative contexts, exploring possibilities beyond 
+              traditional applications.
+            </p>
+          </div>
+          
+          <div class="about__feature">
+            <h3 class="about__feature-title">Semi-structured Format:</h3>
+            <p class="about__feature-description">
+              Morning planning meetings and evening presentations with flexible time for 
+              deep experimentation.
+            </p>
+          </div>
+          
+          <div class="about__feature">
+            <h3 class="about__feature-title">Historic Venue:</h3>
+            <p class="about__feature-description">
+              Haystack's renowned studios provide a foundation of craft knowledge and traditional 
+              making wisdom.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__testimonial">
+        <blockquote class="about__quote">
+          "Haystack Labs is like a residency for machines / machine residency because 
+          machines (like the artists) are going to a new context and exploring creative 
+          possibilities."
+        </blockquote>
+        <cite class="about__citation">— Sophia Brueckner, Labs '23</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--color-background);
+    padding: var(--space-5xl) 0;
+  }
+
+  .about__container {
+    max-width: var(--container-7xl);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  .about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5xl);
+    align-items: start;
+  }
+
+  .about__title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--space-2xl);
+    color: var(--color-text-primary);
+  }
+
+  .about__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .about__feature {
+    position: relative;
+    padding-left: var(--space-lg);
+  }
+
+  .about__feature::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+  }
+
+  .about__feature-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+  }
+
+  .about__feature-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .about__testimonial {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-haystack-light-seafoam-green));
+    padding: var(--space-3xl);
+    border-radius: var(--radius-xl);
+    position: relative;
+  }
+
+  .about__testimonial::before {
+    content: """;
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    font-size: var(--font-size-6xl);
+    color: var(--color-background);
+    font-family: var(--font-family-secondary);
+    line-height: 1;
+  }
+
+  .about__quote {
+    font-family: var(--font-family-secondary);
+    font-style: italic;
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary);
+    margin: var(--space-xl) 0 var(--space-lg);
+    padding-left: var(--space-lg);
+  }
+
+  .about__citation {
+    font-family: var(--font-family-display);
+    font-style: normal;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    display: block;
+    text-align: right;
+  }
+
+  @media (max-width: 1024px) {
+    .about__content {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .about__testimonial {
+      padding: var(--space-2xl);
+    }
+
+    .about__quote {
+      font-size: var(--font-size-lg);
+      margin: var(--space-lg) 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: var(--space-3xl) 0;
+    }
+
+    .about__container {
+      padding: 0 var(--space-md);
+    }
+
+    .about__title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-xl);
+    }
+
+    .about__features {
+      gap: var(--space-xl);
+    }
+
+    .about__feature-title {
+      font-size: var(--font-size-base);
+    }
+
+    .about__testimonial {
+      padding: var(--space-xl);
+    }
+
+    .about__testimonial::before {
+      font-size: var(--font-size-4xl);
+      top: var(--space-md);
+      left: var(--space-md);
+    }
+
+    .about__quote {
+      font-size: var(--font-size-base);
+      padding-left: var(--space-md);
+    }
+  }
+</style> 

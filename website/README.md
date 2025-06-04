@@ -1,18 +1,21 @@
 # Haystack Labs Website 
 
+This website is built with Astro.
+
 ## 🚀 Project Structure
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+`public` - Static assets
+`src` - Source code
+
+`src/components` - Shared components
+`src/content` - Markdown content
+`src/layouts` - Astro layouts
+`src/pages` - Astro pages
+`src/styles` - CSS styles (reset.css and global.css)
+`src/utils` - Utility functions
+
+## Styling 
+
 
 ## 🧞 Commands
 
