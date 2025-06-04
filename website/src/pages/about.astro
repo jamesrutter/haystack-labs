@@ -1,500 +1,630 @@
 ---
-// About page for Haystack Labs
+import Layout from "../layouts/Layout.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Haystack Labs</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Merriweather", Georgia, serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #fff;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      header {
-        background-color: #28939d;
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-      }
-
-      h1 {
-        font-family: "Jost", sans-serif;
-        font-size: 3rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-      }
-
-      .subtitle {
-        font-size: 1.2rem;
-        font-weight: 300;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      main {
-        padding: 80px 0;
-      }
-
-      section {
-        margin-bottom: 80px;
-      }
-
-      h2 {
-        font-family: "Jost", sans-serif;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #003349;
-        margin-bottom: 30px;
-        border-bottom: 3px solid #7f9c90;
-        padding-bottom: 10px;
-      }
-
-      h3 {
-        font-family: "Jost", sans-serif;
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #28939d;
-        margin-bottom: 20px;
-        margin-top: 40px;
-      }
-
-      p {
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-        color: #555;
-      }
-
-      .highlight-quote {
-        background-color: #d1e0d7;
-        padding: 30px;
-        margin: 30px 0;
-        border-left: 5px solid #28939d;
-        font-style: italic;
-        font-size: 1.2rem;
-      }
-
-      .quote-attribution {
-        font-weight: bold;
-        color: #003349;
-        margin-top: 10px;
-      }
-
-      .timeline {
-        background-color: #f8f9fa;
-        padding: 40px;
-        border-radius: 10px;
-        margin: 30px 0;
-      }
-
-      .timeline-item {
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #ddd;
-      }
-
-      .timeline-item:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-      }
-
-      .year {
-        font-family: "Jost", sans-serif;
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #28939d;
-        margin-bottom: 10px;
-      }
-
-      .goals-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-      }
-
-      .goal-item {
-        background-color: #f8f9fa;
-        padding: 25px;
-        border-radius: 10px;
-        border-left: 4px solid #7f9c90;
-      }
-
-      .goal-number {
-        font-family: "Jost", sans-serif;
-        font-size: 2rem;
-        font-weight: bold;
-        color: #28939d;
-        margin-bottom: 10px;
-      }
-
-      .contact-section {
-        background-color: #003349;
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-        margin-top: 80px;
-      }
-
-      .contact-section h2 {
-        color: white;
-        border-bottom: 3px solid #28939d;
-      }
-
-      .contact-button {
-        display: inline-block;
-        background-color: #28939d;
-        color: white;
-        padding: 15px 30px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-family: "Jost", sans-serif;
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-top: 20px;
-        transition: background-color 0.3s;
-      }
-
-      .contact-button:hover {
-        background-color: #7f9c90;
-      }
-
-      ul {
-        margin-left: 30px;
-        margin-bottom: 20px;
-      }
-
-      li {
-        margin-bottom: 10px;
-        font-size: 1.1rem;
-        color: #555;
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2rem;
-        }
-
-        h2 {
-          font-size: 2rem;
-        }
-
-        .goals-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=Merriweather:wght@300;400;700;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>HAYSTACK LABS</h1>
-        <p class="subtitle">
-          Where craft meets technology in an experimental residential program
-          bringing together artists, designers, scientists, and makers
+<Layout
+  title="About - Haystack Labs"
+  description="Learn about Haystack Labs, an experimental craft & technology research residency program bringing together artists, designers, scientists, and makers to explore the integration of emerging technologies with traditional craft practices."
+>
+  <article class="about">
+    <!-- Hero Section -->
+    <section class="about__hero">
+      <div class="about__container">
+        <h1 class="about__hero-title">About Haystack Labs</h1>
+        <p class="about__hero-description">
+          An experimental craft & technology research residency program at
+          Haystack Mountain School of Crafts, in partnership with MIT Center for
+          Bits and Atoms.
         </p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <div class="container">
-        <section id="what-is">
-          <h2>What is Haystack Labs?</h2>
-          <p>
-            Haystack Labs is a one-week experimental residential program that
-            invites a diverse collection of creative professionals from around
-            the world to explore the relationship between craft and technology.
-            Over the span of the week, participants work on producing new
-            processes, tools, machines, and other resources that may inform the
-            craft community.
-          </p>
+    <!-- What is Haystack Labs -->
+    <section class="about__section">
+      <div class="about__container">
+        <h2 class="about__section-title">What is Haystack Labs?</h2>
+        <!-- Icon placeholder: ph-lightbulb -->
+        <div class="about__content-grid">
+          <div class="about__main-content">
+            <p class="about__text">
+              Haystack Labs is a one-week experimental program that invites a
+              diverse collection of creative professionals from around the world
+              to explore the relationship between craft and technology. Over the
+              span of the week, participants work on producing new processes,
+              tools, machines, and other resources that inform the craft
+              community.
+            </p>
+            <p class="about__text">
+              This is not a formal conference or summit, but rather a charrette
+              where people intensely collaborate during their time at Haystack
+              with the intention of producing projects that fall within the
+              craft and technology domain.
+            </p>
+          </div>
+          <div class="about__sidebar">
+            <div class="about__stats-card">
+              <h3 class="about__stats-title">By the Numbers</h3>
+              <!-- Icon placeholder: ph-chart-line -->
+              <div class="about__stat-item">
+                <span class="about__stat-number">150+</span>
+                <span class="about__stat-label">Participants</span>
+              </div>
+              <div class="about__stat-item">
+                <span class="about__stat-number">5</span>
+                <span class="about__stat-label">Years Running</span>
+              </div>
+              <div class="about__stat-item">
+                <span class="about__stat-number">40+</span>
+                <span class="about__stat-label">Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <p>
-            This is not a formal conference or summit, rather a charrette in
-            that people will be intensely working during their time at Haystack
-            with the intentions of producing projects that fall within the craft
-            and technology domain.
-          </p>
-
-          <div class="highlight-quote">
-            "Artist residencies are valuable because they take you out of your
-            usual context and shake up your thinking. Haystack + Fab Lab is
-            amazing because it takes these machines and puts them in an entirely
-            new creative context, which changes how you see them. Haystack Labs
-            is like a residency for machines / machine residency because
-            machines (like the artists) are going to a new context and exploring
-            creative possibilities."
-            <div class="quote-attribution">— Sophia Brueckner, Labs '23</div>
+    <!-- Brief History -->
+    <section class="about__section about__section--dark">
+      <div class="about__container">
+        <h2 class="about__section-title about__section-title--light">
+          A Brief History
+        </h2>
+        <!-- Icon placeholder: ph-clock-clockwise -->
+        <div class="about__timeline">
+          <div class="about__timeline-item">
+            <div class="about__timeline-year">2021</div>
+            <div class="about__timeline-content">
+              <h3 class="about__timeline-title">The Pilot Program</h3>
+              <p class="about__timeline-text">
+                Haystack Mountain School of Crafts and the MIT Center for Bits
+                and Atoms developed and piloted the first experimental
+                residential program (July 12-16). The week brought together
+                artists and scientists to explore the integration of emerging
+                technologies and processes for craft. 12 projects emerged from
+                the week, including ClayStack ceramic 3D printing, Urumbot
+                drawing machine, and pop-up bio labs.
+              </p>
+            </div>
           </div>
 
-          <h3>What Labs is NOT:</h3>
-          <ul>
-            <li>
-              <strong>A Conference</strong> — it is not a ticketed event or a collection
-              of talks, presentations, and workshops
-            </li>
-            <li>
-              <strong>A Residency</strong> — it is not a time for an individual to
-              come work solo on an independent project
-            </li>
-            <li>
-              <strong>Exclusively for digital fabrication projects</strong> — while
-              technology is usually a strong component, the definition of "technology"
-              can be stretched to include experimental materials and other forms
-              of research
-            </li>
-          </ul>
-
-          <h3>What Labs IS:</h3>
-          <ul>
-            <li>
-              <strong>An invitational program</strong> bringing together interdisciplinary
-              professionals
-            </li>
-            <li>
-              <strong>A collaborative environment</strong> similar to a Hackathon
-              (tech), Charrette (architecture), or Jam Session (music)
-            </li>
-            <li><strong>Interdisciplinary</strong> by design</li>
-            <li>
-              <strong>Free</strong> for participants (room & board provided)
-            </li>
-          </ul>
-        </section>
-
-        <section id="history">
-          <h2>A Brief History</h2>
-          <p>
-            Haystack Labs began as a collaboration between Haystack Mountain
-            School of Crafts and the MIT Center for Bits and Atoms, creating an
-            experimental program that has evolved and grown over five successful
-            years.
-          </p>
-
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="year">2021 - The Pilot</div>
-              <p>
-                <strong>July 12-16, 2021:</strong> Haystack Mountain School of Crafts
-                and the MIT Center for Bits and Atoms developed and piloted the first
-                experimental residential program. 12 projects emerged from the week,
-                combining artists and scientists to explore the integration of emerging
-                technologies and processes for craft. The pilot was so successful
-                it was expected to become a recurring event.
+          <div class="about__timeline-item">
+            <div class="about__timeline-year">2022</div>
+            <div class="about__timeline-content">
+              <h3 class="about__timeline-title">Expansion and Growth</h3>
+              <p class="about__timeline-text">
+                The program expanded to include a broader collection of people
+                from both craft and digital fabrication communities (May 23-27).
+                Over 40 people participated and contributed to various
+                innovative projects. New equipment was donated, including a
+                Form3L SLA printer, ShopBot Rotary Indexer, and Bantam CNC
+                machine.
               </p>
             </div>
+          </div>
 
-            <div class="timeline-item">
-              <div class="year">2022 - Expansion</div>
-              <p>
-                <strong>May 23-27, 2022:</strong> The program expanded to include
-                a broader collection of people from both craft and digital fabrication
-                communities. Over 40 people participated and contributed to various
-                innovative projects. New equipment was donated including a Form3L
-                SLA 3D printer, ShopBot Rotary Indexer, Bantam CNC, and Shaper Workstation.
-              </p>
-            </div>
-
-            <div class="timeline-item">
-              <div class="year">2023 - Continued Growth</div>
-              <p>
-                The program continued with 40 speakers across 5 nights of
-                presentations, featuring topics ranging from computer science
-                and coding to craft, design innovation, and community programs.
-                Participants came from prestigious institutions including MIT,
-                Harvard, Tufts, Yale, University of Michigan, and leading
+          <div class="about__timeline-item">
+            <div class="about__timeline-year">2023</div>
+            <div class="about__timeline-content">
+              <h3 class="about__timeline-title">Community Building</h3>
+              <p class="about__timeline-text">
+                The program featured 40 speakers across 5 nights of
+                presentations, covering topics from computer science and coding
+                to design innovation and computational design. Participants
+                included professors, artists, researchers, and industry leaders
+                from institutions like MIT, Stanford, Tufts University, and
                 companies like New Balance and Topologic.
               </p>
             </div>
+          </div>
 
-            <div class="timeline-item">
-              <div class="year">2024 - Innovation Focus</div>
-              <p>
-                <strong>September 6-9, 2024:</strong> The program focused on projects
-                including lattice structures, bio-printing and mycelium, digital
-                knitting, large format printing with wood composite, experimental
-                textiles, electronic sensors, and inflatables. Participants worked
-                on sustainability initiatives and accessible design pathways.
+          <div class="about__timeline-item">
+            <div class="about__timeline-year">2024</div>
+            <div class="about__timeline-content">
+              <h3 class="about__timeline-title">
+                Sustainability and Innovation
+              </h3>
+              <p class="about__timeline-text">
+                Held September 6-9, the program focused on projects including
+                lattice structures, bioplastics, metal clay experiments,
+                biomaterials, large format 3D printing, and electronic sensors.
+                The program continued to emphasize open-source documentation and
+                collaborative innovation.
               </p>
             </div>
+          </div>
 
-            <div class="timeline-item">
-              <div class="year">2025 - Looking Forward</div>
-              <p>
+          <div class="about__timeline-item">
+            <div class="about__timeline-year">2025</div>
+            <div class="about__timeline-content">
+              <h3 class="about__timeline-title">Looking Forward</h3>
+              <p class="about__timeline-text">
                 Building on five years of success, Haystack Labs continues to
-                evolve as a premier program bringing together the craft and
-                technology communities to push the boundaries of making and
-                innovation.
+                evolve as a unique incubation space for craft-technology
+                innovation, fostering collaborations between artists, makers,
+                researchers, and industry partners.
               </p>
             </div>
           </div>
-        </section>
-
-        <section id="format">
-          <h2>Program Format</h2>
-          <p>
-            The format of the program is semi-structured with plenty of
-            open-ended time to explore and experiment. The program combines
-            collaborative work time with structured sharing and learning
-            opportunities.
-          </p>
-
-          <h3>Daily Schedule</h3>
-          <ul>
-            <li>
-              <strong>Morning "Stand Up" Meetings:</strong> Project teams share progress
-              and ask questions to the group for things they might need help with.
-              These usually run 30 minutes to set participants free to work on their
-              projects.
-            </li>
-            <li>
-              <strong>Open Work Time:</strong> The rest of the day is entirely dependent
-              on what participants happen to be working on but could include pop-up
-              demos, tutorials, meetings, collaborative projects, experimentations,
-              investigations, deep-dives, and independent studio/lab time.
-            </li>
-            <li>
-              <strong>Evening Presentations:</strong> Short presentations in a rapid-fire
-              artist talk format, with participants having 5 minutes to present their
-              work.
-            </li>
-          </ul>
-
-          <h3>Project Teams</h3>
-          <p>
-            Approximately 5-8 groups are organized around a focus area, topic,
-            design challenge, or project. The groups are fluid so people can
-            interact with multiple groups as the program progresses. Each group
-            has an assigned representative or leader with a clear goal or
-            motivation to accomplish activities related to the group.
-          </p>
-
-          <h3>Studio Access</h3>
-          <p>
-            All studios (with the exception of Glass) are accessible for
-            participants to interact and experiment with. Studio experts in
-            particular fields of craft are invited as participants to help
-            facilitate crossover experimentation within studios and guide other
-            participants through new processes.
-          </p>
-
-          <h3>Documentation & Deliverables</h3>
-          <p>
-            Participants are expected to document their projects and help
-            contribute to the larger knowledge base of technology and craft.
-            Past iterations have produced short project videos, website
-            documentation, and open-source sharing of code and designs via
-            GitHub.
-          </p>
-        </section>
-
-        <section id="goals">
-          <h2>Program Goals</h2>
-          <p>
-            Haystack Labs aims to bridge the gap between traditional craft and
-            emerging technologies while fostering innovation and community.
-          </p>
-
-          <div class="goals-grid">
-            <div class="goal-item">
-              <div class="goal-number">01</div>
-              <p>
-                <strong
-                  >Make technology and/or experimental processes more accessible
-                  for artists</strong
-                > by providing hands-on experience and collaborative learning opportunities.
-              </p>
-            </div>
-
-            <div class="goal-item">
-              <div class="goal-number">02</div>
-              <p>
-                <strong
-                  >Bring new ideas, knowledge and resources to the school</strong
-                > that can benefit the broader Haystack community and future programs.
-              </p>
-            </div>
-
-            <div class="goal-item">
-              <div class="goal-number">03</div>
-              <p>
-                <strong
-                  >Provide professional development opportunities for
-                  participants</strong
-                > through interdisciplinary collaboration and exposure to new ways
-                of thinking and making.
-              </p>
-            </div>
-
-            <div class="goal-item">
-              <div class="goal-number">04</div>
-              <p>
-                <strong>Document new technologies and craft processes</strong> as
-                they are being developed, creating resources for future generations
-                of makers.
-              </p>
-            </div>
-
-            <div class="goal-item">
-              <div class="goal-number">05</div>
-              <p>
-                <strong>Cultivate an interdisciplinary community</strong> of professionals
-                and creatives interested in collaborating on experimental projects
-                that push boundaries.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <section class="contact-section">
-      <div class="container">
-        <h2>How to Participate</h2>
-        <p>
-          Haystack Labs is an invitational program. Invitations are best done
-          through past Haystack participants or through our Labs alumni network,
-          meaning current and past participants can nominate people to attend.
-        </p>
-
-        <p>
-          A good participant for Labs is collaborative, generous, has skills
-          that complement working groups, is passionate about learning and
-          educating others, and ideally is working on an interesting project or
-          research area conducive for collaboration.
-        </p>
-
-        <p>
-          If you would like to nominate someone to attend or are interested in
-          participating yourself, please get in touch with us:
-        </p>
-
-        <a href="mailto:fablab@haystack-mtn.org" class="contact-button"
-          >Contact fablab@haystack-mtn.org</a
-        >
+        </div>
       </div>
     </section>
-  </body>
-</html>
+
+    <!-- Program Format -->
+    <section class="about__section">
+      <div class="about__container">
+        <h2 class="about__section-title">Program Format</h2>
+        <!-- Icon placeholder: ph-calendar-check -->
+        <div class="about__format-grid">
+          <div class="about__format-card">
+            <h3 class="about__format-title">Semi-Structured Schedule</h3>
+            <!-- Icon placeholder: ph-clock -->
+            <p class="about__format-text">
+              The program features morning planning meetings with all
+              participants and evening short presentations. The rest of the day
+              depends on what participants are working on and may include pop-up
+              demos, tutorials, meetings, collaborative projects, and
+              independent studio/lab time.
+            </p>
+          </div>
+
+          <div class="about__format-card">
+            <h3 class="about__format-title">Daily Expectations</h3>
+            <!-- Icon placeholder: ph-users -->
+            <p class="about__format-text">
+              Participants attend morning planning meetings to share progress
+              and seek support from the group. A daily schedule of activities is
+              loosely assembled during these meetings. All participants help
+              document their projects and contribute to the larger knowledge
+              base of technology and craft.
+            </p>
+          </div>
+
+          <div class="about__format-card">
+            <h3 class="about__format-title">Studio Access</h3>
+            <!-- Icon placeholder: ph-wrench -->
+            <p class="about__format-text">
+              Studio experts in particular craft fields are invited as
+              participants to facilitate crossover experimentation within
+              studios and guide others through new processes. All studios
+              (except Glass) are accessible for participants to interact and
+              experiment with.
+            </p>
+          </div>
+
+          <div class="about__format-card">
+            <h3 class="about__format-title">Evening Presentations</h3>
+            <!-- Icon placeholder: ph-presentation-chart -->
+            <p class="about__format-text">
+              Each evening features rapid-fire artist talks where participants
+              have 5 minutes to present their work. These presentations are
+              grouped into themes like Art & Impact, Machines and Architectures,
+              Materials and Processes, and Design and Interfaces.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Goals -->
+    <section class="about__section about__section--alt">
+      <div class="about__container">
+        <h2 class="about__section-title">Program Goals</h2>
+        <!-- Icon placeholder: ph-target -->
+        <div class="about__goals-list">
+          <div class="about__goal-item">
+            <div class="about__goal-number">01</div>
+            <div class="about__goal-content">
+              <h3 class="about__goal-title">Make Technology Accessible</h3>
+              <p class="about__goal-text">
+                Make technology and experimental processes more accessible for
+                artists and creative professionals.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__goal-item">
+            <div class="about__goal-number">02</div>
+            <div class="about__goal-content">
+              <h3 class="about__goal-title">Bring New Knowledge</h3>
+              <p class="about__goal-text">
+                Bring new ideas, knowledge, and resources to Haystack Mountain
+                School of Crafts and the broader craft community.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__goal-item">
+            <div class="about__goal-number">03</div>
+            <div class="about__goal-content">
+              <h3 class="about__goal-title">Professional Development</h3>
+              <p class="about__goal-text">
+                Provide professional development opportunities for participants
+                through collaborative learning and skill sharing.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__goal-item">
+            <div class="about__goal-number">04</div>
+            <div class="about__goal-content">
+              <h3 class="about__goal-title">Document Innovation</h3>
+              <p class="about__goal-text">
+                Document new technologies and craft processes as they are being
+                developed, creating open-source resources for the community.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__goal-item">
+            <div class="about__goal-number">05</div>
+            <div class="about__goal-content">
+              <h3 class="about__goal-title">Cultivate Community</h3>
+              <p class="about__goal-text">
+                Cultivate an interdisciplinary community of professionals and
+                creatives interested in collaborating on experimental projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Participate -->
+    <section class="about__section about__section--cta">
+      <div class="about__container">
+        <h2 class="about__section-title">How to Participate</h2>
+        <!-- Icon placeholder: ph-hand-waving -->
+        <div class="about__participation">
+          <p class="about__participation-text">
+            Haystack Labs is an invitational program. If you're interested in
+            participating, please contact us at <a
+              href="mailto:fablab@haystack-mtn.org"
+              class="about__email-link">fablab@haystack-mtn.org</a
+            >.
+          </p>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .about {
+    --section-padding: var(--space-5xl);
+  }
+
+  /* Container */
+  .about__container {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding-inline: var(--space-lg);
+  }
+
+  /* Hero Section */
+  .about__hero {
+    background: linear-gradient(
+      135deg,
+      var(--color-haystack-navy) 0%,
+      var(--color-dark-teal) 100%
+    );
+    color: var(--color-text-primary-dark);
+    padding: var(--section-padding) 0;
+    text-align: center;
+  }
+
+  .about__hero-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-5xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-inverse);
+  }
+
+  .about__hero-description {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    max-width: 60ch;
+    margin-inline: auto;
+    color: var(--color-haystack-light-seafoam-green);
+  }
+
+  /* Content Sections */
+  .about__section {
+    padding: var(--section-padding) 0;
+    background: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  .about__section--alt {
+    background-color: var(--color-background-secondary);
+    color: var(--color-text-primary);
+  }
+
+  .about__section--dark {
+    background: var(--color-haystack-navy);
+    color: var(--color-text-primary-dark);
+  }
+
+  .about__section--cta {
+    background: var(--color-haystack-light-seafoam-green);
+    color: var(--color-text-primary);
+  }
+
+  .about__section-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3xl);
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    color: inherit;
+  }
+
+  .about__section-title--light {
+    color: var(--color-text-inverse);
+  }
+
+  /* Content Grid */
+  .about__content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .about__content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .about__text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-lg);
+    color: inherit;
+  }
+
+  /* Stats Card */
+  .about__stats-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-haystack-light-seafoam-green);
+  }
+
+  .about__stats-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-haystack-blue);
+  }
+
+  .about__stat-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .about__stat-number {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-blue);
+  }
+
+  .about__stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  /* Timeline */
+  .about__timeline {
+    max-width: var(--container-4xl);
+    margin-inline: auto;
+    position: relative;
+  }
+
+  .about__timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background: var(--color-haystack-seafoam-green);
+  }
+
+  .about__timeline-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    position: relative;
+  }
+
+  .about__timeline-year {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-light-seafoam-green);
+    text-align: center;
+    background: var(--color-haystack-blue);
+    border-radius: var(--radius-full);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  .about__timeline-title {
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-md);
+  }
+
+  .about__timeline-text {
+    color: var(--color-haystack-light-seafoam-green);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about__timeline::before {
+      display: none;
+    }
+
+    .about__timeline-item {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: var(--space-md);
+    }
+  }
+
+  /* Format Grid */
+  .about__format-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .about__format-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--color-haystack-blue);
+    transition: var(--transition-normal);
+  }
+
+  .about__format-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about__format-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-blue);
+    margin-bottom: var(--space-md);
+  }
+
+  .about__format-text {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  /* Goals Section */
+  .about__goals-list {
+    max-width: var(--container-4xl);
+    margin-inline: auto;
+  }
+
+  .about__goal-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+    align-items: center;
+  }
+
+  .about__goal-number {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-blue);
+    background: var(--color-surface);
+    border-radius: var(--radius-full);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .about__goal-title {
+    color: inherit;
+    margin-bottom: var(--space-sm);
+  }
+
+  .about__goal-text {
+    color: inherit;
+    opacity: 0.8;
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about__goal-item {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: var(--space-md);
+    }
+  }
+
+  /* Participation Section */
+  .about__participation {
+    max-width: var(--container-md);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .about__participation-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: inherit;
+    margin: 0;
+  }
+
+  .about__email-link {
+    color: var(--color-haystack-blue);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    transition: var(--transition-normal);
+  }
+
+  .about__email-link:hover {
+    color: var(--color-dark-teal);
+    text-decoration: underline;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .about {
+      --section-padding: var(--space-3xl);
+    }
+
+    .about__container {
+      padding-inline: var(--space-md);
+    }
+
+    .about__hero-title {
+      font-size: var(--font-size-4xl);
+    }
+
+    .about__hero-description {
+      font-size: var(--font-size-lg);
+    }
+
+    .about__section-title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .about__format-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about__format-card {
+      padding: var(--space-lg);
+    }
+  }
+</style>
