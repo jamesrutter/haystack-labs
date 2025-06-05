@@ -263,3 +263,110 @@
     letter-spacing: var(--letter-spacing-wider);
   }
 }
+
+@layer layout {
+  .wrapper {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding-inline: var(--space-lg);
+  }
+  .section {
+    padding: var(--space-5xl) var(--space-lg);
+  }
+  .actions {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .hero {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-primary-dark);
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    gap: var(--space-5xl);
+    align-items: center;
+    text-align: center;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+  }
+  .title {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-6xl);
+    line-height: var(--line-height-tight);
+    margin-block-end: var(--space-xl);
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-4xl);
+    }
+  }
+  .description {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    margin-block-end: var(--space-3xl);
+    max-width: 800px;
+    text-wrap: balance;
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-lg);
+    }
+  }
+}
+
+@layer component {
+  .btn {
+    display: inline-block;
+    padding: var(--space-md) var(--space-2xl);
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+    border: 2px solid transparent;
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+    border-color: var(--color-accent);
+    &:hover {
+      background-color: transparent;
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-primary-dark);
+    border-color: var(--color-text-primary-dark);
+    &:hover {
+      background-color: var(--color-text-primary-dark);
+      color: var(--color-background-dark);
+    }
+  }
+}
+
+@layer utility {
+  .accent {
+    color: var(--color-accent);
+  }
+}
