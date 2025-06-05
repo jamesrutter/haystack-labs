@@ -1,10 +1,45 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const people = await getCollection("people");
+const sortedPeople = people.sort((a, b) =>
+  a.data.name.localeCompare(b.data.name)
+);
 ---
 
 <Layout
   title="Participants - Haystack Labs"
   description="A collection of participants from Haystack Labs"
 >
-  <h1>Participants</h1>
+  <section class="section">
+    <div class="wrapper">
+      <h1 class="text-inverse">Participants</h1>
+      <div class="grid grid--3col">
+        {
+          sortedPeople.map((person) => (
+            <div class="card card--hover">
+              <h3>
+                <a href={`/participants/${person.slug}`}>{person.data.name}</a>
+              </h3>
+              {person.data.title && (
+                <p class="stat-label">{person.data.title}</p>
+              )}
+              {person.data.bio && <p>{person.data.bio}</p>}
+              {person.data.expertise && (
+                <div>
+                  <strong>Expertise:</strong>
+                  <ul>
+                    {person.data.expertise.map((skill) => (
+                      <li>{skill}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>

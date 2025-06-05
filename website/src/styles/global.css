@@ -272,6 +272,7 @@
   }
   .section {
     padding: var(--space-5xl) var(--space-lg);
+    min-height: calc(100vh - 600px);
   }
   .actions {
     display: flex;
