@@ -287,7 +287,7 @@
     background-color: var(--color-background-dark);
     color: var(--color-text-primary-dark);
     display: grid;
-    min-height: 100vh;
+
     grid-template-columns: 1fr;
     gap: var(--space-5xl);
     align-items: center;
@@ -310,6 +310,10 @@
     @media (max-width: 768px) {
       font-size: var(--font-size-4xl);
     }
+  }
+  .subtitle {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-thin);
   }
   .description {
     font-size: var(--font-size-xl);
@@ -383,6 +387,64 @@
     border-top: 4px solid var(--color-primary);
   }
 
+  .card h3 {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-blue);
+    margin-bottom: var(--space-md);
+  }
+
+  .card p {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .stats-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-haystack-light-seafoam-green);
+  }
+
+  .stats-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-lg);
+    color: var(--color-haystack-blue);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-haystack-blue);
+  }
+
+  .stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
   /* Grid layouts */
   .grid {
     display: grid;
@@ -426,6 +488,15 @@
     color: var(--color-text-primary);
   }
 
+  /* Section title styling */
+  .section h2 {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3xl);
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
   /* Timeline element */
   .timeline {
     position: relative;
@@ -436,16 +507,16 @@
   .timeline::before {
     content: "";
     position: absolute;
-    left: 30px;
-    top: 40px;
-    bottom: 40px;
+    left: 40px;
+    top: 50px;
+    bottom: 50px;
     width: 2px;
     background: var(--color-haystack-seafoam-green);
   }
 
   .timeline-item {
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 80px 1fr;
     gap: var(--space-xl);
     margin-bottom: var(--space-3xl);
     position: relative;
@@ -453,19 +524,20 @@
 
   .timeline-marker {
     font-family: var(--font-family-display);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: var(--font-weight-bold);
     color: var(--color-haystack-light-seafoam-green);
     text-align: center;
     background: var(--color-haystack-blue);
     border-radius: var(--radius-full);
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 10;
+    box-shadow: var(--shadow-md);
   }
 
   @media (max-width: 768px) {
@@ -487,13 +559,13 @@
   /* Number markers */
   .number-marker {
     font-family: var(--font-family-display);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
     color: var(--color-haystack-blue);
     background: var(--color-surface);
     border-radius: var(--radius-full);
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -504,5 +576,14 @@
 @layer utility {
   .accent {
     color: var(--color-accent);
+  }
+  .full-screen {
+    min-height: 100vh;
+  }
+  .align-left {
+    text-align: left;
+  }
+  .text-inverse {
+    color: var(--color-text-inverse);
   }
 }

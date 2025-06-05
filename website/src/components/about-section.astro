@@ -1,8 +1,10 @@
 ---
+
 ---
 
-<section class="section about-hero">
+<section class="section section--dark">
   <div class="wrapper">
+    <!-- Hero Content -->
     <div class="content">
       <h1 class="title">About Haystack Labs</h1>
       <p class="description">
@@ -11,15 +13,131 @@
         Bits and Atoms.
       </p>
     </div>
+
+    <!-- Main Content -->
+    <div class="about-content">
+      <h2 class="content-title">What is Haystack Labs?</h2>
+
+      <div class="content-grid">
+        <div class="text-content">
+          <p class="content-text">
+            Haystack Labs is a one-week experimental program that invites a
+            diverse collection of creative professionals from around the world
+            to explore the relationship between craft and technology. Over the
+            span of the week, participants work on producing new processes,
+            tools, machines, and other resources that inform the craft
+            community.
+          </p>
+          <p class="content-text">
+            This is not a formal conference or summit, but rather a charrette
+            where people intensely collaborate during their time at Haystack
+            with the intention of producing projects that fall within the craft
+            and technology domain.
+          </p>
+        </div>
+
+        <div class="stats-container">
+          <div class="stats-card">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Participants</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Years Running</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
-  .about-hero {
-    background: linear-gradient(
-      135deg,
-      var(--color-haystack-navy) 0%,
-      var(--color-dark-teal) 100%
-    );
+  .about-content {
+    margin-block-start: var(--space-5xl);
+    max-width: var(--container-6xl);
+    margin-inline: auto;
+  }
+
+  .content-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3xl);
+    color: var(--color-text-inverse);
+    text-align: left;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .content-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary-dark);
+    margin: 0;
+  }
+
+  .stats-container {
+    position: sticky;
+    top: var(--space-2xl);
+  }
+
+  .stats-card {
+    background: var(--color-surface);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--color-haystack-light-seafoam-green);
+  }
+
+  @media (max-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .stats-container {
+      position: static;
+    }
+
+    .content-title {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      margin-block-start: var(--space-3xl);
+    }
+
+    .content-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .content-text {
+      font-size: var(--font-size-base);
+    }
+
+    .stats-card {
+      padding: var(--space-xl);
+    }
   }
 </style>
