@@ -1,37 +1,45 @@
 ---
-interface Props {
-  class?: string;
-}
-
-const { class: className } = Astro.props;
+// Navigation.astro
+const currentPath = Astro.url.pathname;
 ---
 
-<header class={`header ${className || ""}`}>
-  <div class="header__container">
-    <div class="header__brand">
-      <a href="/" class="header__logo">
-        <span class="header__logo-icon"
-          ><img src="logo-icon.png" height="32px" /></span
-        >
-        <span class="header__logo-text">HAYSTACK LABS</span>
+<header class="header">
+  <div class="wrapper">
+    <div class="brand">
+      <a href="/" class="logo">
+        <span class="logo-icon"><img src="logo-icon.png" height="32px" /></span>
+        <span class="logo-text">HAYSTACK LABS</span>
       </a>
     </div>
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <a href="/" class="header__nav-link header__nav-link--active">HOME</a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a
+            href="/about"
+            class={`nav-link ${currentPath === "/about" ? "nav-link--active" : ""}`}
+            >ABOUT</a
+          >
         </li>
-        <li class="header__nav-item">
-          <a href="/about" class="header__nav-link">ABOUT</a>
+        <li class="nav-item">
+          <a
+            href="/projects"
+            class={`nav-link ${currentPath === "/projects" ? "nav-link--active" : ""}`}
+            >PROJECTS</a
+          >
         </li>
-        <li class="header__nav-item">
-          <a href="/projects" class="header__nav-link">PROJECTS</a>
+        <li class="nav-item">
+          <a
+            href="/participants"
+            class={`nav-link ${currentPath === "/participants" ? "nav-link--active" : ""}`}
+            >PARTICIPANTS</a
+          >
         </li>
-        <li class="header__nav-item">
-          <a href="/participants" class="header__nav-link">PARTICIPANTS</a>
-        </li>
-        <li class="header__nav-item">
-          <a href="/documentation" class="header__nav-link">RESOURCES</a>
+        <li class="nav-item">
+          <a
+            href="/resources"
+            class={`nav-link ${currentPath === "/resources" ? "nav-link--active" : ""}`}
+            >RESOURCES</a
+          >
         </li>
       </ul>
     </nav>
@@ -47,21 +55,19 @@ const { class: className } = Astro.props;
     z-index: var(--z-50);
   }
 
-  .header__container {
-    max-width: var(--container-7xl);
-    margin: 0 auto;
+  .wrapper {
     padding: var(--space-md) var(--space-lg);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .header__brand {
+  .brand {
     display: flex;
     align-items: center;
   }
 
-  .header__logo {
+  .logo {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
@@ -73,16 +79,16 @@ const { class: className } = Astro.props;
     letter-spacing: var(--letter-spacing-wide);
   }
 
-  .header__logo-icon {
+  .logo-icon {
     color: var(--color-primary);
     font-size: var(--font-size-xl);
   }
 
-  .header__logo-text {
+  .logo-text {
     text-transform: uppercase;
   }
 
-  .header__nav-list {
+  .nav-list {
     display: flex;
     list-style: none;
     margin: 0;
@@ -90,7 +96,7 @@ const { class: className } = Astro.props;
     gap: var(--space-xl);
   }
 
-  .header__nav-link {
+  .nav-link {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-medium);
     font-size: var(--font-size-sm);
@@ -103,22 +109,22 @@ const { class: className } = Astro.props;
     border-bottom: 2px solid transparent;
   }
 
-  .header__nav-link:hover,
-  .header__nav-link--active {
+  .nav-link:hover,
+  .nav-link--active {
     color: var(--color-primary);
     border-bottom-color: var(--color-primary);
   }
 
   @media (max-width: 768px) {
-    .header__container {
+    .wrapper {
       padding: var(--space-sm) var(--space-md);
     }
 
-    .header__nav-list {
+    .nav-list {
       gap: var(--space-lg);
     }
 
-    .header__nav-link {
+    .nav-link {
       font-size: var(--font-size-xs);
     }
   }
