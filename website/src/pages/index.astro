@@ -1,10 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import HeroSection from "@/components/hero-section.astro";
-import FeaturesSection from "@/components/features-section.astro";
+import Hero from "@/components/hero.astro";
+import Highlights from "@/components/highlights.astro";
 ---
 
 <Layout>
-  <HeroSection />
-  <FeaturesSection />
+  <Hero />
+  <Highlights />
 </Layout>
+
+<style>
+  .highlights {
+    background-color: var(--color-surface-secondary-transparent);
+    backdrop-filter: blur(10px);
+  }
+</style>
