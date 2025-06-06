@@ -14,30 +14,37 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
     <div class="wrapper">
       <h1 class="text-inverse">Projects</h1>
       <div class="grid grid--2col">
-        {sortedProjects.map((project) => (
-          <div class="card card--hover">
-            <h3>
-              <a href={`/projects/${project.slug}`}>{project.data.title}</a>
-            </h3>
-            <p>{project.data.description}</p>
-            {project.data.status && (
-              <p><strong>Status:</strong> {project.data.status}</p>
-            )}
-            {project.data.participants && (
-              <p><strong>Participants:</strong> {project.data.participants.join(", ")}</p>
-            )}
-            {project.data.tags && (
-              <div>
-                <strong>Tags:</strong>
-                {project.data.tags.map((tag) => (
-                  <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem;">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+        {
+          sortedProjects.map((project) => (
+            <div class="card card--hover">
+              <h3>
+                <a href={`/projects/${project.id}`}>{project.data.title}</a>
+              </h3>
+              <p>{project.data.description}</p>
+              {project.data.status && (
+                <p>
+                  <strong>Status:</strong> {project.data.status}
+                </p>
+              )}
+              {project.data.participants && (
+                <p>
+                  <strong>Participants:</strong>{" "}
+                  {project.data.participants.join(", ")}
+                </p>
+              )}
+              {project.data.tags && (
+                <div>
+                  <strong>Tags:</strong>
+                  {project.data.tags.map((tag) => (
+                    <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem;">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

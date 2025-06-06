@@ -1,9 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
-
-const years = await getCollection("years");
-const sortedYears = years.sort((a, b) => b.data.year - a.data.year);
 ---
 
 <Layout
@@ -13,20 +10,11 @@ const sortedYears = years.sort((a, b) => b.data.year - a.data.year);
   <section class="section">
     <div class="wrapper">
       <h1 class="text-inverse">Years</h1>
-      <div class="grid grid--2col">
-        {sortedYears.map((year) => (
-          <div class="card card--hover">
-            <h3>
-              <a href={`/years/${year.slug}`}>{year.data.title}</a>
-            </h3>
-            <p class="stat-label">{year.data.theme}</p>
-            {year.data.description && <p>{year.data.description}</p>}
-            {year.data.location && (
-              <p><strong>Location:</strong> {year.data.location}</p>
-            )}
-          </div>
-        ))}
-      </div>
+      <ul>
+        <li>
+          <a href="/years/2025">2025</a>
+        </li>
+      </ul>
     </div>
   </section>
 </Layout>

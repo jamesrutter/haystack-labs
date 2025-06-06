@@ -2,8 +2,8 @@
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const people = await getCollection("people");
-const sortedPeople = people.sort((a, b) =>
+const participants = await getCollection("participants");
+const sorted_participants = participants.sort((a, b) =>
   a.data.name.localeCompare(b.data.name)
 );
 ---
@@ -14,32 +14,27 @@ const sortedPeople = people.sort((a, b) =>
 >
   <section class="section">
     <div class="wrapper">
-      <h1 class="text-inverse">Participants</h1>
-      <div class="grid grid--3col">
+      <h1 class="title">Participants</h1>
+      <div class="participants">
         {
-          sortedPeople.map((person) => (
-            <div class="card card--hover">
-              <h3>
-                <a href={`/participants/${person.slug}`}>{person.data.name}</a>
-              </h3>
-              {person.data.title && (
-                <p class="stat-label">{person.data.title}</p>
-              )}
-              {person.data.bio && <p>{person.data.bio}</p>}
-              {person.data.expertise && (
-                <div>
-                  <strong>Expertise:</strong>
-                  <ul>
-                    {person.data.expertise.map((skill) => (
-                      <li>{skill}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+          sorted_participants.map((participant) => (
+            <p>
+              <a href={`/participants/${participant.id}`}>
+                {participant.data.name}
+              </a>
+            </p>
           ))
         }
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .participants {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-block-start: 1rem;
+  }
+</style>
