@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import { getCollection } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
 
 const projects = await getCollection("projects");
 const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
@@ -12,40 +13,195 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 >
   <section class="section">
     <div class="wrapper">
-      <h1 class="text-inverse">Projects</h1>
-      <div class="grid grid--2col">
+      <h1 class="title">Projects</h1>
+      <div class="projects-grid">
         {
           sortedProjects.map((project) => (
-            <div class="card card--hover">
-              <h3>
-                <a href={`/projects/${project.id}`}>{project.data.title}</a>
-              </h3>
-              <p>{project.data.description}</p>
-              {project.data.status && (
-                <p>
-                  <strong>Status:</strong> {project.data.status}
-                </p>
-              )}
-              {project.data.participants && (
-                <p>
-                  <strong>Participants:</strong>{" "}
-                  {project.data.participants.join(", ")}
-                </p>
-              )}
-              {project.data.tags && (
-                <div>
-                  <strong>Tags:</strong>
-                  {project.data.tags.map((tag: string) => (
-                    <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem;">
-                      {tag}
-                    </span>
-                  ))}
+            <a href={`/projects/${project.id}`} class="project-card">
+              <div class="project-card__content">
+                <div class="project-card__header">
+                  <h3 class="project-card__title">{project.data.title}</h3>
+                  <div class="project-card__arrow">
+                    <ArrowRight width="20" height="20" fill="currentColor" />
+                  </div>
                 </div>
-              )}
-            </div>
+
+                <p class="project-card__description">
+                  {project.data.description}
+                </p>
+
+                <div class="project-card__meta">
+                  {project.data.status && (
+                    <div class="project-card__status">
+                      <strong>Status:</strong> {project.data.status}
+                    </div>
+                  )}
+
+                  {project.data.participants && (
+                    <div class="project-card__participants">
+                      <strong>Participants:</strong>{" "}
+                      {project.data.participants.join(", ")}
+                    </div>
+                  )}
+
+                  {project.data.tags && (
+                    <div class="project-card__tags">
+                      {project.data.tags.map((tag: string) => (
+                        <span class="project-card__tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </a>
           ))
         }
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .project-card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-haystack-blue);
+  }
+
+  .project-card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--space-sm);
+  }
+
+  .project-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .project-card__title {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    transition: color var(--transition-normal);
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .project-card:hover .project-card__title {
+    color: var(--color-haystack-blue);
+  }
+
+  .project-card__arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .project-card:hover .project-card__arrow {
+    color: var(--color-haystack-blue);
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  .project-card__description {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+
+  .project-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: auto;
+    padding-top: var(--space-sm);
+  }
+
+  .project-card__status,
+  .project-card__participants {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-card__status strong,
+  .project-card__participants strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+  }
+
+  .project-card__tag {
+    background: var(--color-haystack-blue);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-normal);
+  }
+
+  .project-card:hover .project-card__tag {
+    background: var(--color-haystack-navy);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .project-card {
+      padding: var(--space-md);
+    }
+
+    .project-card__title {
+      font-size: var(--font-size-md);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .project-card {
+      padding: var(--space-sm);
+    }
+  }
+</style>

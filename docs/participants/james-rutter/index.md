@@ -1,7 +1,9 @@
 --- 
 name: James Rutter # full name 
-affiliation: Haystack Mountain School of Crafts # could be a list 
-years_attended: [2021,2022,2023,2024,2025] # list the years you have come to haystack labs
+year: 2025
+email: james@haystack-mtn.org
+website: https://www.haystack-mtn.org
+type: staff # participant or staff  
 ---
 
 Hi, I am James. I've been overseeing the Fab Lab at Haystack since 2019. I first came up to Haystack and worked in the Fab Lab in 2011. I use to work for AS220 in Providence, RI where I helped Fab Academy run for several years. 

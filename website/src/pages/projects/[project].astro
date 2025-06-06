@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import { getCollection, render } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -16,94 +17,520 @@ const { Content } = await render(project);
 
 <Layout
   title={`${project.data.title} - Haystack Labs`}
-  description={project.data.description}
+  description={project.data.description ||
+    `${project.data.title} project documentation`}
 >
   <section class="section">
     <div class="wrapper">
-      <header style="margin-bottom: var(--space-3xl);">
-        <h1 class="text-inverse">{project.data.title}</h1>
-        <p class="description">{project.data.description}</p>
+      <!-- Breadcrumb Navigation -->
+      <nav class="breadcrumb">
+        <a href="/projects/" class="breadcrumb-link">
+          <ArrowRight width="16" height="16" fill="currentColor" />
+          <span>Back to Projects</span>
+        </a>
+      </nav>
 
-        <div class="grid grid--3col" style="margin-top: var(--space-2xl);">
-          <div class="card">
-            <h3>Status</h3>
-            <p class="stat-number" style="font-size: var(--font-size-lg);">
-              {project.data.status || "Unknown"}
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Year</h3>
-            <p class="stat-number">{project.data.year}</p>
-          </div>
-
+      <!-- Project Header -->
+      <header class="project-header">
+        <div class="project-info">
+          <h1 class="project-title">{project.data.title}</h1>
           {
-            project.data.participants && (
-              <div class="card">
-                <h3>Participants</h3>
-                <ul>
-                  {project.data.participants.map((participant) => (
-                    <li>
-                      <a href={`/participants/${participant}`}>{participant}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            project.data.description && (
+              <p class="project-description">{project.data.description}</p>
             )
           }
         </div>
+        <div class="project-badges">
+          <div class="project-badge">{project.data.year}</div>
+          {
+            project.data.category && (
+              <div class="category-badge">{project.data.category}</div>
+            )
+          }
+        </div>
+      </header>
 
+      <!-- Project Metadata -->
+      <div class="project-meta">
+        <div class="meta-cards">
+          <div class="meta-card">
+            <h3 class="meta-label">Status</h3>
+            <p class="meta-value">{project.data.status || "In Progress"}</p>
+          </div>
+
+          {
+            project.data.participants &&
+              project.data.participants.length > 0 && (
+                <div class="meta-card">
+                  <h3 class="meta-label">
+                    {project.data.participants.length === 1
+                      ? "Participant"
+                      : "Participants"}
+                  </h3>
+                  <div class="participants-list">
+                    {project.data.participants.map((participant: string) => (
+                      <a
+                        href={`/participants/${participant}`}
+                        class="participant-link"
+                      >
+                        {participant
+                          .replace("-", " ")
+                          .replace(/\b\w/g, (l) => l.toUpperCase())}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )
+          }
+
+          {
+            project.data.hardware_used &&
+              project.data.hardware_used.length > 0 && (
+                <div class="meta-card">
+                  <h3 class="meta-label">Hardware</h3>
+                  <div class="hardware-list">
+                    {project.data.hardware_used.map((hardware: string) => (
+                      <span class="hardware-item">{hardware}</span>
+                    ))}
+                  </div>
+                </div>
+              )
+          }
+        </div>
+
+        <!-- Tags -->
         {
-          project.data.tags && (
-            <div style="margin-top: var(--space-xl);">
-              <strong>Tags:</strong>
-              {project.data.tags.map((tag) => (
-                <span style="background: var(--color-primary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem; display: inline-block;">
-                  {tag}
-                </span>
-              ))}
+          project.data.tags && project.data.tags.length > 0 && (
+            <div class="tags-section">
+              <div class="tags-list">
+                {project.data.tags.map((tag: string) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
             </div>
           )
         }
 
+        <!-- Action Links -->
         {
-          project.data.links && (
-            <div class="actions" style="margin-top: var(--space-2xl);">
-              {project.data.links.github && (
+          (project.data.website_url ||
+            project.data.github_repo ||
+            project.data.documentation_folder ||
+            project.data.links) && (
+            <div class="actions-section">
+              {project.data.website_url && (
+                <a
+                  href={project.data.website_url}
+                  target="_blank"
+                  class="action-link primary"
+                >
+                  <span>Visit Website</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              )}
+              {project.data.github_repo && (
+                <a
+                  href={project.data.github_repo}
+                  target="_blank"
+                  class="action-link"
+                >
+                  <span>View on GitHub</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              )}
+              {project.data.documentation_folder && (
+                <a
+                  href={project.data.documentation_folder}
+                  target="_blank"
+                  class="action-link"
+                >
+                  <span>Documentation</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              )}
+              {project.data.links?.github && (
                 <a
                   href={project.data.links.github}
                   target="_blank"
-                  class="btn btn-primary"
+                  class="action-link"
                 >
-                  View on GitHub
+                  <span>GitHub Repository</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
                 </a>
               )}
-              {project.data.links.website && (
-                <a
-                  href={project.data.links.website}
-                  target="_blank"
-                  class="btn btn-secondary"
-                >
-                  Visit Website
-                </a>
-              )}
-              {project.data.links.documentation && (
+              {project.data.links?.documentation && (
                 <a
                   href={project.data.links.documentation}
                   target="_blank"
-                  class="btn btn-secondary"
+                  class="action-link"
                 >
-                  View Documentation
+                  <span>View Documentation</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
                 </a>
               )}
             </div>
           )
         }
-      </header>
-
-      <div class="content">
-        <Content />
       </div>
     </div>
   </section>
+
+  <!-- Project Content -->
+  <div class="content">
+    <Content />
+  </div>
 </Layout>
+
+<style>
+  /* Breadcrumb Navigation */
+  .breadcrumb {
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: var(--transition-normal);
+    background: transparent;
+  }
+
+  .breadcrumb-link svg {
+    transform: rotate(180deg);
+    transition: var(--transition-normal);
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-haystack-seafoam-green);
+    background: var(--color-surface-secondary);
+    transform: translateX(-2px);
+  }
+
+  .breadcrumb-link:hover svg {
+    transform: rotate(180deg) translateX(2px);
+  }
+
+  /* Project Header */
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .project-title {
+    margin: 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+  }
+
+  .project-description {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 60ch;
+  }
+
+  .project-badges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-end;
+  }
+
+  .project-badge {
+    background: linear-gradient(
+      135deg,
+      var(--color-haystack-light-seafoam-green),
+      var(--color-haystack-seafoam-green)
+    );
+    color: var(--color-haystack-navy);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    min-width: 80px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-haystack-seafoam-green);
+  }
+
+  .category-badge {
+    background: var(--color-haystack-navy);
+    color: var(--color-haystack-light-seafoam-green);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: capitalize;
+    border: 1px solid var(--color-haystack-light-seafoam-green);
+  }
+
+  /* Project Metadata */
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .meta-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .meta-card {
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: var(--transition-normal);
+  }
+
+  .meta-card:hover {
+    border-color: var(--color-haystack-seafoam-green);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .meta-label {
+    margin: 0 0 var(--space-sm) 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-value {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+
+  .participants-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .participant-link {
+    color: var(--color-haystack-seafoam-green);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-normal);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .participant-link:hover {
+    color: var(--color-haystack-light-seafoam-green);
+    border-bottom-color: var(--color-haystack-light-seafoam-green);
+  }
+
+  .hardware-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .hardware-item {
+    background: var(--color-haystack-blue);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Tags */
+  .tags-section {
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    background: var(--color-haystack-navy);
+    color: var(--color-haystack-light-seafoam-green);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    transition: var(--transition-normal);
+  }
+
+  .tag:hover {
+    border-color: var(--color-haystack-seafoam-green);
+    background: var(--color-haystack-light-seafoam-green);
+    color: var(--color-haystack-navy);
+  }
+
+  /* Action Links */
+  .actions-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+
+  .action-link.primary {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-haystack-navy);
+    border-color: var(--color-haystack-seafoam-green);
+  }
+
+  .action-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-haystack-seafoam-green);
+  }
+
+  .action-link.primary:hover {
+    background: var(--color-haystack-light-seafoam-green);
+  }
+
+  .action-link svg {
+    transition: var(--transition-normal);
+  }
+
+  .action-link:hover svg {
+    transform: translateX(2px);
+  }
+
+  /* Content */
+  .content {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding-inline: var(--space-xl);
+  }
+
+  .content :global(h2) {
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-family-display);
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: var(--space-sm);
+  }
+
+  .content :global(h3) {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-family-display);
+    color: var(--color-text-primary);
+  }
+
+  .content :global(p) {
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-md);
+  }
+
+  .content :global(ul),
+  .content :global(ol) {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-lg);
+  }
+
+  .content :global(li) {
+    margin-bottom: var(--space-xs);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .breadcrumb {
+      padding-top: var(--space-md);
+    }
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+
+    .project-title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .project-badges {
+      align-items: flex-start;
+      flex-direction: row;
+    }
+
+    .meta-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .actions-section {
+      flex-direction: column;
+    }
+
+    .action-link {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-header {
+      padding: var(--space-lg) 0;
+    }
+
+    .project-title {
+      font-size: var(--font-size-2xl);
+    }
+
+    .project-description {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

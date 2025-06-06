@@ -1,17 +1,17 @@
 ---
 import Layout from "@/layouts/layout.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const years = await getCollection("years");
   return years.map((year) => ({
-    params: { year: year.slug },
+    params: { year: year.id },
     props: { year },
   }));
 }
 
 const { year } = Astro.props;
-const { Content } = await year.render();
+const { Content } = await render(year);
 ---
 
 <Layout
@@ -22,42 +22,11 @@ const { Content } = await year.render();
     <div class="wrapper">
       <header style="margin-bottom: var(--space-3xl);">
         <h1 class="text-inverse">{year.data.title}</h1>
-        {year.data.theme && <p class="subtitle">{year.data.theme}</p>}
         {
           year.data.description && (
             <p class="description">{year.data.description}</p>
           )
         }
-
-        <div class="stats-grid" style="margin-top: var(--space-2xl);">
-          {
-            year.data.location && (
-              <div class="stat-item">
-                <div class="stat-label">Location</div>
-                <div
-                  class="stat-number"
-                  style="font-size: var(--font-size-lg);"
-                >
-                  {year.data.location}
-                </div>
-              </div>
-            )
-          }
-          {
-            year.data.startDate && year.data.endDate && (
-              <div class="stat-item">
-                <div class="stat-label">Duration</div>
-                <div
-                  class="stat-number"
-                  style="font-size: var(--font-size-lg);"
-                >
-                  {new Date(year.data.startDate).toLocaleDateString()} -{" "}
-                  {new Date(year.data.endDate).toLocaleDateString()}
-                </div>
-              </div>
-            )
-          }
-        </div>
       </header>
 
       <div class="content">
