@@ -1,72 +1,112 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const people = await getCollection("people");
-  return people.map((person) => ({
-    params: { participant: person.slug },
-    props: { person },
+  const participants = await getCollection("participants");
+  return participants.map((participant) => ({
+    params: { participant: participant.id },
+    props: { participant },
   }));
 }
 
-const { person } = Astro.props;
-const { Content } = await person.render();
+const { participant } = Astro.props;
+const { Content } = await render(participant);
 ---
 
 <Layout
-  title={`${person.data.name} - Haystack Labs`}
-  description={person.data.bio || `Profile of ${person.data.name}`}
+  title={`${participant.data.name} - Haystack Labs`}
+  description={participant.data.bio || `Profile of ${participant.data.name}`}
 >
   <section class="section">
     <div class="wrapper">
       <header style="margin-bottom: var(--space-3xl);">
-        <h1 class="text-inverse">{person.data.name}</h1>
-        {person.data.title && (
-          <p class="subtitle">{person.data.title}</p>
-        )}
-        {person.data.bio && (
-          <p class="description">{person.data.bio}</p>
-        )}
-        
+        <h1 class="text-inverse">{participant.data.name}</h1>
+        {
+          participant.data.title && (
+            <p class="subtitle">{participant.data.title}</p>
+          )
+        }
+        {
+          participant.data.bio && (
+            <p class="description">{participant.data.bio}</p>
+          )
+        }
+
         <div class="grid grid--3col" style="margin-top: var(--space-2xl);">
-          {person.data.expertise && (
-            <div class="card">
-              <h3>Expertise</h3>
-              <ul>
-                {person.data.expertise.map((skill) => (
-                  <li>{skill}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          
-          {person.data.social && (
-            <div class="card">
-              <h3>Connect</h3>
-              <ul style="list-style: none; padding: 0;">
-                {person.data.website && (
-                  <li><a href={person.data.website} target="_blank">Website</a></li>
-                )}
-                {person.data.social.github && (
-                  <li><a href={`https://github.com/${person.data.social.github}`} target="_blank">GitHub</a></li>
-                )}
-                {person.data.social.twitter && (
-                  <li><a href={`https://twitter.com/${person.data.social.twitter}`} target="_blank">Twitter</a></li>
-                )}
-                {person.data.social.instagram && (
-                  <li><a href={`https://instagram.com/${person.data.social.instagram}`} target="_blank">Instagram</a></li>
-                )}
-                {person.data.social.linkedin && (
-                  <li><a href={`https://linkedin.com/in/${person.data.social.linkedin}`} target="_blank">LinkedIn</a></li>
-                )}
-              </ul>
-            </div>
-          )}
-          
+          {
+            participant.data.expertise && (
+              <div class="card">
+                <h3>Expertise</h3>
+                <ul>
+                  {participant.data.expertise.map((skill: string) => (
+                    <li>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+
+          {
+            participant.data.social && (
+              <div class="card">
+                <h3>Connect</h3>
+                <ul style="list-style: none; padding: 0;">
+                  {participant.data.website && (
+                    <li>
+                      <a href={participant.data.website} target="_blank">
+                        Website
+                      </a>
+                    </li>
+                  )}
+                  {participant.data.social.github && (
+                    <li>
+                      <a
+                        href={`https://github.com/${participant.data.social.github}`}
+                        target="_blank"
+                      >
+                        GitHub
+                      </a>
+                    </li>
+                  )}
+                  {participant.data.social.twitter && (
+                    <li>
+                      <a
+                        href={`https://twitter.com/${participant.data.social.twitter}`}
+                        target="_blank"
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                  )}
+                  {participant.data.social.instagram && (
+                    <li>
+                      <a
+                        href={`https://instagram.com/${participant.data.social.instagram}`}
+                        target="_blank"
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                  )}
+                  {participant.data.social.linkedin && (
+                    <li>
+                      <a
+                        href={`https://linkedin.com/in/${participant.data.social.linkedin}`}
+                        target="_blank"
+                      >
+                        LinkedIn
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )
+          }
+
           <div class="card">
             <h3>Program Year</h3>
-            <p class="stat-number">{person.data.year}</p>
+            <p class="stat-number">{participant.data.year}</p>
           </div>
         </div>
       </header>
