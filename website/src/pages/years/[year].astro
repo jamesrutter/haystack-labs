@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/layout.astro";
 import { getCollection, getEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -22,28 +22,41 @@ const { Content } = await year.render();
     <div class="wrapper">
       <header style="margin-bottom: var(--space-3xl);">
         <h1 class="text-inverse">{year.data.title}</h1>
-        {year.data.theme && (
-          <p class="subtitle">{year.data.theme}</p>
-        )}
-        {year.data.description && (
-          <p class="description">{year.data.description}</p>
-        )}
-        
+        {year.data.theme && <p class="subtitle">{year.data.theme}</p>}
+        {
+          year.data.description && (
+            <p class="description">{year.data.description}</p>
+          )
+        }
+
         <div class="stats-grid" style="margin-top: var(--space-2xl);">
-          {year.data.location && (
-            <div class="stat-item">
-              <div class="stat-label">Location</div>
-              <div class="stat-number" style="font-size: var(--font-size-lg);">{year.data.location}</div>
-            </div>
-          )}
-          {year.data.startDate && year.data.endDate && (
-            <div class="stat-item">
-              <div class="stat-label">Duration</div>
-              <div class="stat-number" style="font-size: var(--font-size-lg);">
-                {new Date(year.data.startDate).toLocaleDateString()} - {new Date(year.data.endDate).toLocaleDateString()}
+          {
+            year.data.location && (
+              <div class="stat-item">
+                <div class="stat-label">Location</div>
+                <div
+                  class="stat-number"
+                  style="font-size: var(--font-size-lg);"
+                >
+                  {year.data.location}
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
+          {
+            year.data.startDate && year.data.endDate && (
+              <div class="stat-item">
+                <div class="stat-label">Duration</div>
+                <div
+                  class="stat-number"
+                  style="font-size: var(--font-size-lg);"
+                >
+                  {new Date(year.data.startDate).toLocaleDateString()} -{" "}
+                  {new Date(year.data.endDate).toLocaleDateString()}
+                </div>
+              </div>
+            )
+          }
         </div>
       </header>
 

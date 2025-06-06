@@ -1,9 +1,11 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "@/layouts/layout.astro";
 import { getCollection } from "astro:content";
 
 const resources = await getCollection("resources");
-const sortedResources = resources.sort((a, b) => a.data.title.localeCompare(b.data.title));
+const sortedResources = resources.sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
 ---
 
 <Layout
@@ -14,31 +16,39 @@ const sortedResources = resources.sort((a, b) => a.data.title.localeCompare(b.da
     <div class="wrapper">
       <h1 class="text-inverse">Resources</h1>
       <div class="grid grid--3col">
-        {sortedResources.map((resource) => (
-          <div class="card card--hover">
-            <h3>
-              <a href={`/resources/${resource.slug}`}>{resource.data.title}</a>
-            </h3>
-            <p class="stat-label">{resource.data.type}</p>
-            <p>{resource.data.description}</p>
-            {resource.data.difficulty && (
-              <p><strong>Difficulty:</strong> {resource.data.difficulty}</p>
-            )}
-            {resource.data.author && (
-              <p><strong>Author:</strong> {resource.data.author}</p>
-            )}
-            {resource.data.tags && (
-              <div>
-                <strong>Tags:</strong>
-                {resource.data.tags.map((tag) => (
-                  <span style="background: var(--color-secondary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem;">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+        {
+          sortedResources.map((resource) => (
+            <div class="card card--hover">
+              <h3>
+                <a href={`/resources/${resource.slug}`}>
+                  {resource.data.title}
+                </a>
+              </h3>
+              <p class="stat-label">{resource.data.type}</p>
+              <p>{resource.data.description}</p>
+              {resource.data.difficulty && (
+                <p>
+                  <strong>Difficulty:</strong> {resource.data.difficulty}
+                </p>
+              )}
+              {resource.data.author && (
+                <p>
+                  <strong>Author:</strong> {resource.data.author}
+                </p>
+              )}
+              {resource.data.tags && (
+                <div>
+                  <strong>Tags:</strong>
+                  {resource.data.tags.map((tag) => (
+                    <span style="background: var(--color-secondary); color: white; padding: 0.25rem 0.5rem; margin: 0.25rem; border-radius: 0.25rem; font-size: 0.8rem;">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

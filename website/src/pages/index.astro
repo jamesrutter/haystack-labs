@@ -1,17 +1,119 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/hero.astro";
-import Highlights from "@/components/highlights.astro";
+import Scroll from "@/assets/scroll.svg";
+import Network from "@/assets/network.svg";
+import HandShake from "@/assets/handshake.svg";
+import Flask from "@/assets/flask.svg";
+import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout>
-  <Hero />
-  <Highlights />
+  <section class="section hero full-screen">
+    <div class="wrapper">
+      <div class="content">
+        <h1 class="title">
+          WHERE <span class="accent">CRAFT</span> MEETS<br />
+          TECHNOLOGY
+        </h1>
+        <p class="description">
+          An experimental residency program exploring the intersection of
+          traditional craft and emerging technologies at Haystack Mountain
+          School of Crafts
+        </p>
+        <div class="actions">
+          <a href="/participants" class="btn btn-primary">PEOPLE</a>
+          <a href="/projects" class="btn btn-primary">PROJECTS</a>
+          <a href="/years" class="btn btn-primary">YEARS</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span class="scroll-icon"><Scroll /></span>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="wrapper">
+      <div class="intro">
+        <h2 class="title">EXPERIMENTAL CRAFT & TECHNOLOGY</h2>
+        <p class="description">
+          Haystack Labs brings together artists, designers, material scientists,
+          machine builders, and coders to explore the integration of emerging
+          technologies and traditional craft processes.
+        </p>
+      </div>
+
+      <div class="grid grid--3col">
+        <div class="card">
+          <div class="card-icon">
+            <span class="icon"
+              ><Flask width={48} height={48} fill="currentColor" /></span
+            >
+          </div>
+          <h3 class="title">INTERDISCIPLINARY</h3>
+          <p class="description">
+            A unique blend of traditional craft disciplines with cutting-edge
+            technology, fostering innovation through diverse perspectives.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <span class="icon"
+              ><HandShake width={48} height={48} fill="currentColor" /></span
+            >
+          </div>
+          <h3 class="title">COLLABORATIVE</h3>
+          <p class="description">
+            Intensive week-long charrette format encouraging rapid prototyping,
+            experimentation, and knowledge sharing.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <span class="icon"
+              ><Network width={48} height={48} fill="currentColor" /></span
+            >
+          </div>
+          <h3 class="title">OPEN SOURCE</h3>
+          <p class="description">
+            All projects and knowledge are shared openly, contributing to a
+            growing repository of craft-technology innovations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .highlights {
-    background-color: var(--color-surface-secondary-transparent);
-    backdrop-filter: blur(10px);
+  .scroll-indicator {
+    position: absolute;
+    bottom: var(--space-2xl);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-icon {
+    font-size: var(--font-size-xl);
+    color: var(--color-accent);
+    transform: rotate(45deg);
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
   }
 </style>

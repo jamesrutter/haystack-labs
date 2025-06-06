@@ -272,7 +272,32 @@
   }
   .section {
     padding: var(--space-5xl) var(--space-lg);
-    min-height: calc(100vh - 600px);
+
+    .intro {
+      text-align: center;
+      max-width: 900px;
+      margin-inline: auto;
+      margin-block-end: var(--space-4xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xl);
+    }
+    .title {
+      font-family: var(--font-family-display);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-3xl);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      margin-bottom: var(--space-xl);
+    }
+    .description {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-relaxed);
+      text-align: center;
+      text-wrap: balance;
+    }
   }
   .actions {
     display: flex;
@@ -293,6 +318,12 @@
     gap: var(--space-5xl);
     align-items: center;
     text-align: center;
+    .title {
+      font-size: var(--font-size-6xl);
+    }
+    @media (max-width: 768px) {
+      font-size: var(--font-size-4xl);
+    }
   }
   .content {
     display: flex;
@@ -307,10 +338,6 @@
     line-height: var(--line-height-tight);
     margin-block-end: var(--space-xl);
     text-transform: uppercase;
-
-    @media (max-width: 768px) {
-      font-size: var(--font-size-4xl);
-    }
   }
   .subtitle {
     font-size: var(--font-size-4xl);
@@ -377,11 +404,50 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     transition: var(--transition-normal);
-  }
-
-  .card--hover:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    text-align: center;
+    .title {
+      font-family: var(--font-family-display);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-lg);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wide);
+      margin-bottom: var(--space-md);
+      color: var(--color-text-primary);
+    }
+    .description {
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+    .card-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+      );
+      border-radius: var(--radius-full);
+    }
+    .icon {
+      font-size: var(--font-size-2xl);
+      color: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    svg {
+      display: block;
+    }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
   }
 
   .card--accent {
