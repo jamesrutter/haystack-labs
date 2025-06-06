@@ -7,7 +7,8 @@ const currentPath = Astro.url.pathname;
   <div class="wrapper">
     <div class="brand">
       <a href="/" class="logo">
-        <span class="logo-icon"><img src="logo-icon.png" height="32px" /></span>
+        <span class="logo-icon"><img src="/logo-icon.png" height="32px" /></span
+        >
         <span class="logo-text">HAYSTACK LABS</span>
       </a>
     </div>
@@ -56,7 +57,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .wrapper {
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-sm) var(--space-lg);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -105,7 +106,6 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     color: var(--color-text-secondary);
     transition: var(--transition-fast);
-    padding: var(--space-sm) 0;
     border-bottom: 2px solid transparent;
   }
 
