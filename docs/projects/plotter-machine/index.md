@@ -1,5 +1,5 @@
 ---
-title: Digital Knitting & Textiles
+title: Plotter Machine
 year: 2025
 url: ""
 category: digital-fabrication

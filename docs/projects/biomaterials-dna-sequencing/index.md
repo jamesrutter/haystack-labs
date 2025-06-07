@@ -1,169 +1,63 @@
 ---
-title: Biomaterials - DNA Sequencing
+title: 2D Sketch to 3D Scan
 year: 2025
-website_url: ""
-category: biomaterials
+url: ""
+category: digital-fabrication
 type: project
-github_repo: ""
-documentation_folder: ""
 photos: []
 videos: []
-presentation_slides: ""
-deliverables: []
-code_repositories: []
-open_source_files: []
-publications: []
-technologies: []
-software_used: []
-hardware_used: []
-sustainability_focus: true
-community_benefit: ""
-educational_value: ""
+tools: ["3D Scanner"]
 tags:
   - project
-  - labs-2025
-  - biomaterials
-  - dna-sequencing
-  - biotechnology
+  - 3d-scanning
+  - sketch
+  - digital-fabrication
+  - tools
 ---
-
-# Biomaterials - DNA Sequencing
-
 ## Project Overview
-
-[Project exploring biomaterials through DNA sequencing applications - what it is, why it matters, what makes it interesting]
+*A one paragraph description of the project*
 
 ## Goals & Objectives
-
-[What the project aims to achieve during Labs week]
-
-### Primary Goals
-- 
-
-### Secondary Goals
-- 
-
-### Success Metrics
-- 
+*What were you aiming to achieve?*
 
 ## Background & Motivation
+*Context for the project. Why now? What problem does this address? Any inspiration?*
 
-[Context for the project - why now, what problem it addresses, inspiration]
-
-## Team Roles & Responsibilities
-
-### Lead Contributors
-- [To be assigned]
-
-### Expertise Areas
-- DNA sequencing techniques
-- Biomaterial development
-- Biotechnology applications
-
-## Methodology & Approach
-
-[How the team plans to tackle the project, methodology, workflow]
+## Contributors 
+*Who contributed to this project?*
 
 ## Technical Requirements
+*Equipment needed, materials required, software or other tools. Studio access?*
 
-### Equipment Needed
-- 
+## Applications & Integrations
+*How does this project fit into the larger context of craft?*
+*Does this project connect with any other projects? If so, please explain.*
 
-### Materials Required
-- 
+## Results
+*Outcomes, prototyping process, processes developed*
+*Insights, discoveries, findings*
+*Future Direction, follow-up work, ongoing collaborations*
+*Challenges & Limitations*
 
-### Software/Tools
-- 
-
-### Studio Access
-- 
-
-## Timeline & Milestones
-
-### Day 1 (Monday)
-- 
-
-### Day 2 (Tuesday)
-- 
-
-### Day 3 (Wednesday)
-- 
-
-### Day 4 (Thursday)
-- 
-
-### Day 5 (Friday)
-- 
-
-## Anticipated Challenges
-
-[Known obstacles, technical hurdles, resource constraints]
-
-## Potential Collaborations
-
-[How this project might connect with other Labs projects]
-
-## Expected Outcomes
-
-### Immediate Deliverables
-[What will be completed during Labs week]
-
-### Future Development
-[How the project might continue beyond Labs]
-
-### Knowledge Sharing
-[How results will be documented and shared]
-
-## Daily Updates
-
-### Monday
-[Progress, discoveries, pivots]
-
-### Tuesday
-[Progress, discoveries, pivots]
-
-### Wednesday
-[Progress, discoveries, pivots]
-
-### Thursday
-[Progress, discoveries, pivots]
-
-### Friday
-[Final outcomes, presentation prep]
-
-## Final Results
-
-### What We Built
-[Actual outcomes, prototypes, processes developed]
-
-### Key Learnings
-[Technical insights, process discoveries, unexpected findings]
-
-### Future Directions
-[Next steps, follow-up work, ongoing collaborations]
-
-### Open Source Contributions
-[Code, designs, documentation made available to community]
 
 ## Documentation
 
-### Process Documentation
-[Links to build logs, video documentation, progress photos]
+### Process
+*Methodology, approach, process photos, video documentation, procedures*
 
-### Technical Documentation
-[Schematics, code repositories, instruction manuals]
-
-### Presentation Materials
-[Final presentation slides, demo videos]
+### Artifacts
+*schematics, design files, code, manuals, instructions.*
 
 ## References & Related Work
-
-[Links to inspirational projects, technical papers, related Labs projects]
+*Inspirations work, reference materials, related projects, etc.*
 
 ## Acknowledgments
-
-[Thanks to collaborators, facilitators, equipment donors]
+*Any additional support or contributions?*
 
 ## Notes
+*Add any project notes, comments, lessons learned, etc.*
 
-[Internal project notes, lessons learned, administrative details] 
+--- 
+## Optional Sections 
+### Timeline & Milestones
+*Use this section as a log for activities throughout the week*

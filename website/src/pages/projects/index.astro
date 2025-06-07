@@ -37,10 +37,27 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
                     </div>
                   )}
 
+                  {project.data.category && (
+                    <div class="project-card__category">
+                      <strong>Category:</strong> {project.data.category}
+                    </div>
+                  )}
+
                   {project.data.participants && (
                     <div class="project-card__participants">
                       <strong>Participants:</strong>{" "}
                       {project.data.participants.join(", ")}
+                    </div>
+                  )}
+
+                  {project.data.tools && project.data.tools.length > 0 && (
+                    <div class="project-card__tools">
+                      <strong>Tools:</strong>
+                      <div class="tools-list">
+                        {project.data.tools.map((tool: string) => (
+                          <span class="tool-badge">{tool}</span>
+                        ))}
+                      </div>
                     </div>
                   )}
 
@@ -147,15 +164,49 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
   }
 
   .project-card__status,
+  .project-card__category,
   .project-card__participants {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
   }
 
   .project-card__status strong,
+  .project-card__category strong,
   .project-card__participants strong {
     color: var(--color-text-primary);
     font-weight: var(--font-weight-medium);
+  }
+
+  .project-card__tools {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-card__tools strong {
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tool-badge {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-haystack-navy);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-normal);
+  }
+
+  .project-card:hover .tool-badge {
+    background: var(--color-haystack-light-seafoam-green);
   }
 
   .project-card__tags {

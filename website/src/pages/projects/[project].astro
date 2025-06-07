@@ -84,6 +84,19 @@ const { Content } = await render(project);
           }
 
           {
+            project.data.tools && project.data.tools.length > 0 && (
+              <div class="meta-card">
+                <h3 class="meta-label">Tools</h3>
+                <div class="tools-list">
+                  {project.data.tools.map((tool: string) => (
+                    <span class="tool-item">{tool}</span>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+
+          {
             project.data.hardware_used &&
               project.data.hardware_used.length > 0 && (
                 <div class="meta-card">
@@ -113,11 +126,22 @@ const { Content } = await render(project);
 
         <!-- Action Links -->
         {
-          (project.data.website_url ||
+          (project.data.url ||
+            project.data.website_url ||
             project.data.github_repo ||
             project.data.documentation_folder ||
             project.data.links) && (
             <div class="actions-section">
+              {project.data.url && (
+                <a
+                  href={project.data.url}
+                  target="_blank"
+                  class="action-link primary"
+                >
+                  <span>Project URL</span>
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              )}
               {project.data.website_url && (
                 <a
                   href={project.data.website_url}
@@ -352,6 +376,21 @@ const { Content } = await render(project);
   .participant-link:hover {
     color: var(--color-haystack-light-seafoam-green);
     border-bottom-color: var(--color-haystack-light-seafoam-green);
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tool-item {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-haystack-navy);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
   }
 
   .hardware-list {

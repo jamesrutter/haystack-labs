@@ -1,15 +1,20 @@
 ---
-title: Digital Knitting & Textiles
+title: Project Title
 year: 2025
 url: ""
 category: digital-fabrication
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Tool 1", "Tool 2"]
 tags:
   - project
+  - relevant-tag-1
+  - relevant-tag-2
+  - category-tag
+  - tools
 ---
+
 ## Project Overview
 *A one paragraph description of the project*
 
@@ -35,14 +40,13 @@ tags:
 *Future Direction, follow-up work, ongoing collaborations*
 *Challenges & Limitations*
 
-
 ## Documentation
 
 ### Process
 *Methodology, approach, process photos, video documentation, procedures*
 
 ### Artifacts
-*schematics, design files, code, manuals, instructions.*
+*Schematics, design files, code, manuals, instructions.*
 
 ## References & Related Work
 *Inspirations work, reference materials, related projects, etc.*
@@ -56,4 +60,4 @@ tags:
 --- 
 ## Optional Sections 
 ### Timeline & Milestones
-*Use this section as a log for activities throughout the week*
+*Use this section as a log for activities throughout the week* 
