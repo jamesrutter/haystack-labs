@@ -1,26 +1,35 @@
 ---
-title: Microphotogrammetry & Microscopes
+title: Microscopy Documentation & Imaging
 year: 2025
 url: ""
-category: digital-fabrication
+category: documentation
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Motorized Microscope", "Camera System", "Image Processing"]
 tags:
   - project
+  - microscopy
+  - documentation
+  - imaging
+  - scientific-photography
 ---
 ## Project Overview
-*A one paragraph description of the project*
+Motorized microscope scans of feather structures and other specimens for detailed documentation and imaging, creating high-resolution records of micro-scale features and textures.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Create high-resolution microscopic documentation
+- Develop automated scanning techniques
+- Build comprehensive image archives
+- Explore micro-scale structures and textures
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project creates detailed visual records of natural and manufactured objects at microscopic scales, supporting both scientific documentation and artistic exploration.
 
 ## Contributors 
-*Who contributed to this project?*
+- Tiri Kananurak
+- Sebastian Morales-Prado (MORAKANA)
+- Microscopy group
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

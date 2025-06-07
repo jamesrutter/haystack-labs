@@ -1,30 +1,37 @@
 ---
-title: 2D Sketch to 3D Scan
+title: Portable Bio-Lab & DNA Sequencing
 year: 2025
 url: ""
-category: digital-fabrication
+category: biomaterials
 type: project
 photos: []
 videos: []
-tools: ["3D Scanner"]
+tools: ["Nanopore Sequencer", "Lab Equipment", "Microscope", "Incubator"]
 tags:
   - project
-  - 3d-scanning
-  - sketch
-  - digital-fabrication
-  - tools
+  - bio-lab
+  - dna-sequencing
+  - microbiology
+  - bioprospecting
+  - environmental-science
 ---
 ## Project Overview
-*A one paragraph description of the project*
+Portable bio-lab setup in the ceramics studio for land and sea bioprospecting, including nanopore DNA sequencing in a heated "hot-box" and bacterial pigment printing on various substrates.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Establish portable bio-lab capabilities in non-traditional space
+- Conduct environmental DNA sequencing of local samples
+- Develop bacterial pigment printing techniques
+- Create living "paintings" using cultured microbes
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project brings cutting-edge biotechnology tools to the craft context, enabling biological exploration and artistic creation using living systems and environmental samples.
 
 ## Contributors 
-*Who contributed to this project?*
+- Cyrus Clarke
+- Ayan Abukar  
+- Ekaterina Kormilitsyna
+- Bio-lab cohort
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

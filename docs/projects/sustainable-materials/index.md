@@ -1,33 +1,48 @@
 ---
-title: Sustainable Materials
+title: Algae Processing & Stereogram Generation
 year: 2025
 url: ""
-category: digital-fabrication
+category: biomaterials
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Algae Processing", "Pattern Generation", "Cyanotype", "Knitting Machine"]
 tags:
   - project
+  - biomaterials
+  - algae-processing
+  - stereograms
+  - pattern-generation
+  - sustainability
 ---
+
 ## Project Overview
-*A one paragraph description of the project*
+Algae material processing combined with stereogram/magic eye pattern creation, including conversion of patterns for knitting machine production and integration with cyanotype printing techniques.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Develop algae processing techniques for material applications
+- Create stereogram and magic eye pattern generation systems
+- Convert patterns for knitting machine compatibility
+- Integrate with sustainable printing processes
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project explores the intersection of sustainable material processing with computational pattern generation, creating new possibilities for bio-based artistic materials and automated pattern production.
 
 ## Contributors 
-*Who contributed to this project?*
+- Arthur Harsuvanakit (algae processing)
+- Pattern generation team
+- Knitting machine operators
+- Cyanotype printing team
 
 ## Technical Requirements
-*Equipment needed, materials required, software or other tools. Studio access?*
+- Algae cultivation and processing equipment
+- Pattern generation software
+- Knitting machine programming capabilities
+- Cyanotype chemistry and UV exposure setup
+- Image processing tools for stereogram creation
 
 ## Applications & Integrations
-*How does this project fit into the larger context of craft?*
-*Does this project connect with any other projects? If so, please explain.*
+This project connects sustainable material development with digital pattern generation and textile production, linking to other biomaterial and knitting projects during Labs.
 
 ## Results
 *Outcomes, prototyping process, processes developed*
@@ -35,14 +50,13 @@ tags:
 *Future Direction, follow-up work, ongoing collaborations*
 *Challenges & Limitations*
 
-
 ## Documentation
 
 ### Process
 *Methodology, approach, process photos, video documentation, procedures*
 
 ### Artifacts
-*schematics, design files, code, manuals, instructions.*
+*Schematics, design files, code, manuals, instructions.*
 
 ## References & Related Work
 *Inspirations work, reference materials, related projects, etc.*

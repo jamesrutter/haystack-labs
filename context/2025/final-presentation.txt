@@ -1,0 +1,815 @@
+Neil  0:01  
+We're going to do the picture show. We're going to do a wrap up discussion, and then we'll end with tax video for the picture show. There's 160 slides, and we want to do it in 30 minutes. So 15 seconds of slide. No, not at 15 seconds of slide, I'll click through and you can shout out,
+
+Zach Fredin  0:32  
+okay, can we you know when to go on, or will you cue us
+
+Speaker 1  0:39  
+with this upcoming Okay, go ahead. This is
+
+Unknown Speaker  0:55  
+better. I'd like
+
+Unknown Speaker  1:01  
+that slide in the background so background,
+
+Neil  1:05  
+so you can change it, and then video come. So I added usual. So this is the beloved New combined fiber diode laser, and we engraved it the pointing grade and copper stone, cardboard, embossing wood, Rebecca's great patterns, Chris on the shell. And then this is the milling machine. And this is why I didn't want to help anybody yesterday, because they wanted to finally get so this is $400 that's you have to upgrade it with this for $100 and then you buy that for $19 shockingly, thanks to our friends in Shenzhen, it's diamond impregnated bits, and you get to do this. And so this OT is the audio plugin. Sure. Yeah. Okay, so I was going to make a haystack logo, and Chris, of course, said, I want A bearing in a rock. And so,
+
+no audio. I
+
+Unknown Speaker  2:40  
+The truth is actually not that loud.
+
+Neil  2:56  
+And so this is a daring interim for extra credit with Kate, he started doing it in glass, and I tried fancy stuff that I wasn't happy with. And so this was just mods using a 10th step down two millimeter machining. And so in the lab is a great collection of rocks and pools, and so you can now prime.
+
+I brought this nice scanner, and then I brought the microscope, and Deborah went crazy with it, exploring her materials and cutting them circuits, and then just as a nice workstation, microphone. Okay, so next,
+
+as I click through, not narrate it, if you want to narrate it's a giant
+
+Unknown Speaker  3:54  
+tentacle that I'm on.
+
+Unknown Speaker  3:58  
+Who did the drawing those Mickey's.
+
+Speaker 2  4:01  
+Mickey did the drawing. We had a lot of fun. We had a lot of lot of team members, Chris and Laura and
+
+Unknown Speaker  4:07  
+Tom and I, and Mickey and Quentin, who
+
+Unknown Speaker  4:13  
+was central. Was it
+
+Unknown Speaker  4:16  
+the movement program, or were you using
+
+Speaker 2  4:18  
+action? It was, it was random movement with two stepper motors, and we were going to hook it up to live coding. We wanted more movement. I think the learning to take away is that, as I learned this morning, is what
+
+Neil  4:36  
+do you call it? Gear, head gear,
+
+Speaker 2  4:38  
+head motor. So a stepper motor. Even though it was really, really big, it didn't have enough to move.
+
+Neil  4:47  
+They don't have much park at low RPM.
+
+Unknown Speaker  4:50  
+What's, what's doing the
+
+Unknown Speaker  4:52  
+sorry, I made.
+
+Speaker 3  4:54  
+Yeah, there's two sir eyelashes. There's a server for each eyelid, and then there's this, really BB. Eight
+
+Speaker 2  5:00  
+kind of magnetic mechanism, moving the iris, cool.
+
+Neil  5:14  
+Big deal. Way back I want I get machine tools, but I don't want stinking computers. I worked on a really high tech solution of laser projector camera that was working, but was very complex to set up that didn't make complex easier. And as records, we decided everybody has a bit of inner bodette that we're going to have inner bodette. So Quentin and Tom came up with something that's simpler,
+
+Speaker 4  5:45  
+yeah, so you're just drawing a piece of food and that's it.
+
+Speaker 5  5:52  
+And that was my request two and a half years ago, was I just want to draw something
+
+Unknown Speaker  5:55  
+on a piece of wood and have it
+
+Speaker 6  5:57  
+do it Shopbot code like, can you just open the chat
+
+Speaker 4  6:01  
+box. Actually, shockingly, I used mods for that. Oh, amazing.
+
+Unknown Speaker  6:11  
+It
+
+Speaker 4  6:14  
+was really helpful because it meant the G code conversion took two minutes instead of, like, an
+
+Speaker 7  6:19  
+hour. Could you do just call outs on the wood? Like, I'd like this at a half a half inch deep, then I'd like a 45
+
+Speaker 8  6:26  
+degree angle on the side. They could do like, different colors. You just would write
+
+Speaker 4  6:30  
+it. Yeah, that's it. That's a really good idea.
+
+Speaker 5  6:34  
+Shout out to Taja for giving me that beautiful piece of log wood too. And
+
+Neil  6:39  
+to be clear, so quetmer frame first rectifies the coordinate system so you don't have to know the camera angle. Then it calibrates it, and then it gives it, positions it, and gives you the origin. And so just that, instead of the fancy laser projector, the simple frame does everything. And
+
+Speaker 4  7:00  
+then there was a nice trick where we used the Shabbat itself to build the rig so that it
+
+Unknown Speaker  7:07  
+knows where it
+
+Unknown Speaker  7:11  
+is. Three of them. So Tom, you got
+
+Unknown Speaker  7:17  
+any new problems? Yeah.
+
+Neil  7:20  
+Tom was wearing your breakfast that now that we've solved it doesn't
+
+Unknown Speaker  7:25  
+problem go away.
+
+Speaker 4  7:31  
+And we found other use cases for scale tags throughout the week. So I scanned some of my drawings. I scanned some seaweed with Rebecca, which is interesting because it lets us measure it very precisely. And then James wants to have a fun way to interact with platter, so you could just hand draw something and copy it.
+
+Neil  7:53  
+So Does somebody know here how to do this?
+
+Unknown Speaker  7:58  
+Yeah? I think so, yeah. Yeah.
+
+Speaker 4  8:03  
+And then that's just the detail. But James was, this
+
+Speaker 9  8:07  
+is the new problem. I guess. This is the when you, when you live trace or vectorize a hand drawing, you end up with these little open loops. And, yeah, Quentin solved that. Well, it's a stop. It's a step. Oh, this is part of our silver reindeve.
+
+Speaker 10  8:27  
+The machine started having smoke come out of it. The one in the carriage on the left, and then we're comparing the big carriages about 30 years ago and the one on the right, which was made within the last five years, just to understand how to fix it. This transistor burned out, right? And yeah. And then we investigated further. There is a solenoid. So we unwound the solenoid, and then Leo rewound it,
+
+Unknown Speaker  8:56  
+and
+
+Speaker 10  8:59  
+then, yeah. Here's some pictures of us working on it, but then there should be a video,
+
+Unknown Speaker  9:10  
+funny video today. Yeah,
+
+Unknown Speaker  9:22  
+yeah. He had
+
+Speaker 1  9:35  
+some live audio,
+
+Speaker 10  9:46  
+and then I had to, I had to actually, unsolder and flip the, oh,
+
+Unknown Speaker  9:51  
+you did. I did, yeah. So I needed polarity,
+
+Zach Fredin  9:54  
+which is unusual for solenoids, because there's a magnetic circuit that acts on a permanent magnet. So you had to give.
+
+Speaker 10  10:02  
+So much polarity to do
+
+Unknown Speaker  10:05  
+that. But then the needle sign over the transistor,
+
+Speaker 10  10:07  
+oh, yeah, Nicole pulled the transistor out of nowhere that like was a perfect match. Yeah, he had
+
+Unknown Speaker  10:15  
+power transistors around.
+
+Speaker 8  10:19  
+Power transistors. Not
+
+Unknown Speaker  10:22  
+power fetch
+
+Unknown Speaker  10:23  
+NPM. Power transistors are just like, oh, wow,
+
+Neil  10:29  
+way up there and way,
+
+let me go back to let me answer one of the wrap up discussion questions with these. These these are both teachable moments. One of the things I've been asked is, How do we keep going? There's no formal way to keep going. What comes out of here is all sorts of collaboration. So a group is planning to go visit Tom and have space in August in Brattleboro to spend quality time with bodette and the bedef problem. And coming out of this project is a really interesting project to develop an open design, modern version of these. So Hannah and Zach at all are going to be continuing to work on that. And so this continues, the way it continues is through those collaborations.
+
+Speaker 10  11:16  
+Yeah, if it hadn't started smoking, we wouldn't have, like, delves so deep into the brain and realize you could replace all of
+
+Neil  11:23  
+this inside. And this is such a pain point. It's expensive. They're hard to find. It's not current, yeah, and we don't have control over it, and so and
+
+Unknown Speaker  11:32  
+now we understand it better, and we're gonna understand it even better.
+
+Zach Fredin  11:35  
+The solar doesn't have a plunger. It acts on this crazy bracket. And then it like there's a permanent magnet that magnetizes the needle. Like the magnetic circuit is
+
+Neil  11:43  
+weird, and it's really interesting. Just to belabor everything you bring here breaks, and you learn something from it. And that's a perfect language, yeah,
+
+Speaker 10  11:54  
+yeah. And then so after this, I put some slides.
+
+Neil  12:00  
+We're pressing time, but we have
+
+Unknown Speaker  12:07  
+to do this again.
+
+Speaker 6  12:12  
+What are you doing? I'm testing the solenoid of the screw. Should stick. Okay?
+
+Unknown Speaker  12:25  
+It. This thing on the
+
+Speaker 10  12:40  
+bottom left was the bottom left was this actual control software I made. And there's another video in here somewhere about how we actually turned Rebecca's pattern into something that can be put into the control
+
+Neil  12:51  
+software. Are these Rebecca patterns? Yeah. So the
+
+Speaker 10  12:54  
+one, the previous one, was a wood pattern, and then the next one, this is another pattern that I turned into an honest area theorem. So it's a Magic Eye illusion that's hanging up over there.
+
+Neil  13:05  
+If you can cross your eyes, you can see it. Yeah, and this
+
+Speaker 11  13:10  
+is video, and then I upload it to pixel, and then I
+
+Speaker 10  13:22  
+outline, pixel. But then I have to, I don't want to fill in every pixel in pixels right now, and I open it in big master
+
+Speaker 8  13:35  
+pixels, you made it, but I'll read and I export it again.
+
+Speaker 10  13:40  
+And then I open it in on a stereogram. Because I have a film stereogram. And then I can fill in my white outline, and I make the back black, and then I can download that again. I can open the silver read light, and then
+
+Speaker 10  14:00  
+it'll probably go back into auto stereogram, just to make into
+
+Speaker 7  14:12  
+August, stereotype is to make the real stereograph. Got it any questions? We learned a lot, almost like there's like there could be a hidden message, hidden
+
+Unknown Speaker  14:19  
+please,
+
+Unknown Speaker  14:30  
+welcome to Woodstock 25 my
+
+Speaker 7  14:38  
+friends, you might wonder what happens at Woodstock 25 there are a lot of stages go to the next stage. Stage one has the pusilli noodles. It's really exciting. You're going to love them. The brown frown comes up on stage two, Apple starship is playing live on stage three, the Frisbee and the bean is on stage four, spiral madness and the poop a trons are on the.
+
+Unknown Speaker  15:00  
+And Woodstock is the closing game. Lots of stuff. Margo, when you came this week, what did you think we would get done, and how do you feel at the
+
+Speaker 12  15:17  
+end? Real quick, I really had no expectation, because we have no experience about drinking wood. So I think it was a great, great result, very inspiring, really, very nice experience. It was a collection
+
+Speaker 7  15:31  
+of, I think, concentrated serendipity, because almost everything was an accident, or somebody else helping us, like James would be, I think I've got one of those. And then someone else would be like, pull up a box.
+
+Neil  15:46  
+Wood and silk is like chocolate and peanut butter. They're due to be together.
+
+Speaker 7  16:01  
+And then, and this one is the most, the most current one, and it has copper wire in it, in case anybody's got some magnets and wants to play for Woodstock.
+
+Zach Fredin  16:22  
+Oh, Arthur. Arthur left this morning in a taxi, but
+
+Neil  16:26  
+somebody who was with him. Does anybody help out? I didn't have a lot
+
+Unknown Speaker  16:33  
+of this side of the project the so
+
+Zach Fredin  16:36  
+I know a little bit about it. I know, yeah, the algae was pressed. It was He was the press here,
+
+Unknown Speaker  16:47  
+and he left it, yeah, yeah. So when
+
+Zach Fredin  16:49  
+algae is just algae, so those are, like, cross algae fibers that are just bound with the sugars in the algae. And then he found them, and then he milled them.
+
+Neil  17:00  
+Oh, that's, I mean, there's lots of great pieces of PCB stock the
+
+Zach Fredin  17:06  
+silk, the silk blue plywood was like a layer of Marissa wood and a layer of silk blue and then a layer saw wood, heat, pressed and made This like really nice, fabulous little piece of plywood machine. So
+
+Unknown Speaker  17:29  
+kind of a weird,
+
+Unknown Speaker  17:36  
+tapered bit, but it's awesome. Wow. And then,
+
+Speaker 13  17:50  
+using the female circle with the newspaper, we've printed some algae ink that Rebecca made with the LG cake stamp. I No, oh, that's fine.
+
+Speaker 14  18:07  
+This was a bunch of small artifacts that we did throughout the week, but I think other people are better with juice
+
+Speaker 15  18:16  
+that will come up later. Kate told me, as a side quest, I had to make rings, and I got mildly obsessed, and stayed up till 3am every night. And
+
+Speaker 16  18:29  
+now I have a lot of brains. He taught a lot of us. She did jewelry classes every night. So
+
+Unknown Speaker  18:35  
+I now really want
+
+Unknown Speaker  18:37  
+small metal smithing. Um, bio lab.
+
+Speaker 15  18:45  
+We brought a lot of things that are here to say, we brought incubators, we brought disinfection things and petri dishes and bacteria and everything you need to culture bacteria, and many, many more things.
+
+Speaker 14  18:56  
+Next slide and people had a
+
+Speaker 15  18:59  
+great time culture in bacteria. I got great testimonials for the future of the bioethic haystack, where people said things like, this is like third grade craft. And Anne said a great thing, which said, like, biology is really no different than haystack itself, where, if you look at it, it's just like, like strong machines. But then you use the strong machines to make something really beautiful, and biology is very similar, and we're happy to contribute these types of strong machines, little microorganisms to mix beautiful things next slide. And then we colored one colored fabrics, which succeeded really well. And then people plated their own lady things which have which have been growing up. Wait and Rebecca's where she plated it on paper, and the balloon took off really nicely. So it's like a painting dance by the bacteria
+
+Unknown Speaker  19:59  
+you. Was all right, and then
+
+Speaker 15  20:08  
+Ayanna Cyrus will take it off, because
+
+Neil  20:12  
+they did beautiful. This is different from when you think that haystack, because you have to kill, yeah, you
+
+Speaker 15  20:17  
+have to kill it afterwards, which does actually fit in, still at the haystack model, which James said, when we're done, we have to clean up. We're really erasing everything. It only exists in our
+
+Unknown Speaker  20:28  
+memories. It is the beauty of biology.
+
+Speaker 5  20:41  
+It's such a five they say, an image is worth 1000 words. So then it's a sequence, they say. So then it's a sequence worth a billion years, arriving at hate, not knowing much about the lay of the land. Duo had dreams, but to sequence and uncover the molecular memories these organisms carry. To do this, they helped set up a temporary lab space in a building normally used for ceramics, a minimal viable bio lab or MVP. They bought DNA sequences or die trying. They set out the bioprospect. They divided the exploration into two parts, land and sea. They brought tools with them and procured others from the surrounding workstations to collect samples from the local environment, strolling down to the coast, they encountered a wide variety of species, lichens and moss clinging to trees, seaweed undulating with the waves, kelp that looked like a strange flower, black algae basking on the rocks, pools of red algae teeming with biofilms or sea foams, all containing multitude back on drier terrain, they set out for a mythical meadow, a short walk from haystack where they found early signs of summer, with the wind threading through the grass like a slow breath. They discovered flowers blooming or beginning to bloom, as if rehearsing for the main act, they sampled, carefully and respectfully, taking only what they needed. Returning to the lab, they prepared to extract DNA from the samples, some unwitting centrifuge
+
+Speaker 5  22:42  
+and vortex molecules to release their hidden information, but haystack is often a cold place at night, and many of the reagents and enzymes that were essential for experimentation solidified in these conditions. But fear not your sequencing team, or intrepid fold, they prepared a room where they could better control the temperature, and soon they were able to perform DNA extractions effectively on their samples. But that was only half the story to read back the sequences of DNA contained by these beings. They brought a portable sequencer with them. It said that this technology is capable of operating in the field, or was it capable of operating in a haystack? When the room temperature plummeted below the operational minimum, it seemed like the WISE MAN'S prophecy would be correct. I love coming to
+
+Neil  23:35  
+haystack, because I bring all sorts of things. I'm working on interesting technology, whatever it is when they come here, the artists find all kinds of ways to use things in ways you never thought of, all kinds of great things, so much fun. However,
+
+Speaker 5  23:51  
+with a little help, they were able to find a solution the drying cover of the ceramic studio, aka the hot box. They turned it into a temporary sequencing closet warmed by space heaters. And so preparing the sequences was long and arduous work, which involves some waiting and more waiting and more waiting. And once everything was ready, they loaded samples for day long and overnight sequencing runs, and it failed. It failed again, and then.
+
+Speaker 5  24:34  
+So it seemed like the duo achieved what they set out to do. They peered beneath the bark and pebbles, rocks and sea they saw into the spirals of DNA that encode ancient instructions. But this was just the beginning, the first on site DNA sequencing at haystack. And now that we know it can be done, the possibilities are endless. TTT.
+
+Speaker 7  25:20  
+Who is the screenwriter?
+
+Unknown Speaker  25:33  
+Also? Thank you to Tom, with the magical
+
+Unknown Speaker  25:36  
+voice, and Cyrus and him. Recorded this in Tom's bed.
+
+Unknown Speaker  25:42  
+It last, our first lab
+
+Speaker 17  25:50  
+setup that ended up being too cold, but was beautiful. Some bio prospecting that we did, DNA, traction, mosquito with cell defense. All kind of like the solidified chemistry the water baths we tried to make with the boiling water from the kitchen. How we tried to work with some things outside, because we didn't want spores fly around.
+
+Neil  26:13  
+What would DI water an issue? Who was the what did you need? DI water?
+
+Unknown Speaker  26:19  
+Yeah, we had some. Okay, but, but
+
+Speaker 17  26:22  
+we for the water bath, and then they really touched it in the sample. Then we set up in the bathroom with the clay shop. It also had an extractor fan, which was nice.
+
+Unknown Speaker  26:31  
+And then we did sequencing. And then finally, we worked in the end, the hot box, our best friend that saved us. It was weird. He literally got 69 cores.
+
+Speaker 17  26:48  
+I know what to say about that. What a core is. Oh, sorry, sorry. So basically you're in order for the in order for the portable influencer to understand, to read the DNA. Your DNA is basically four letters, A, T, G and C. Just like that image. And the pores, they pull the chemicals that we use,
+
+Speaker 17  27:10  
+pull the DNA through the pores, and as they travel through the pores, you can read the DNA instruments and in a library of DNA. So we chop up the genome, because it's 1000s and 1000s of these letters. When you chop it out, it comes in lots of different fragments. And so you need lots of pores to pull these fragments through, and then you end up getting a library with lots of fragments of various sizes that have been read. And then the more pores you have, the greater and
+
+Unknown Speaker  27:37  
+higher quality read of DNA. But
+
+Speaker 18  27:39  
+they're very, fragile, and there's many, many ways to make them not work. He found
+
+Neil  27:48  
+most of them. Pores are nanometer scale. Yeah, wow, yeah. An air
+
+Unknown Speaker  27:51  
+bubble can kill more than 10 pores. And then there's shout out to Kate.
+
+Speaker 17  28:00  
+Else, if you click next, shout out to Kate, who did a lot of side quests, and one of them was creating these like vessels to host DNA samples. Learned a lot and really appreciated that collaboration. One more thing, I hope, I hope you're aware. This. Kat illustrated a little heist for your living,
+
+Unknown Speaker  28:36  
+with consent from Laura. And
+
+Neil  28:38  
+this is you. Nice to meet you.
+
+Speaker 17  28:41  
+I'm gonna forge you into a ring. You
+
+Neil  28:44  
+into a ring in a
+
+Unknown Speaker  28:53  
+little bit. That's my DNA. That's
+
+Neil  29:00  
+what we needed. Let's see, did you check it with the haystack, informed consent, biohazard?
+
+Unknown Speaker  29:11  
+It doesn't violate our community guidelines.
+
+Neil  29:19  
+Actually, no, but that is confusing. So in respecting personal space, you probably didn't anticipate your molecular space.
+
+Speaker 19  29:27  
+So you know, like any good agreement, that gets longer and longer and longer as people find kinks and scenes that are included, this will definitely be the other just for labs, probably
+
+Speaker 7  29:41  
+Neil, you've got to clean up after yourself if you want us to do that, you're leaving parts of yourself
+
+Neil  29:47  
+just by example. Okay, this slide Christine
+
+Unknown Speaker  29:51  
+left this morning. Ah, okay.
+
+Neil  29:59  
+Oh. Was scanning this. Oh, this was, that's right, she was playing with the 3d scanner, yeah, she scanned some of my stuff. Was this on the big scanner or the little scanner? I
+
+Unknown Speaker  30:15  
+think she did it on her phone, I'm pretty sure. Yeah,
+
+Speaker 20  30:21  
+wow, yeah, that's an action shot of Victoria and in the glass. And then I just thought that just the random arrangement of things that people were going to use in cytotype was also beautiful to look at.
+
+Neil  30:42  
+I Oh,
+
+Speaker 21  30:44  
+that sound, yeah, this is a glass beads, which we fill, which Victoria knitted, and then we filled with water, and we decided that it could be really good paintballs or different could be really good, painful. So the next phase was to fill the cave ins and then put
+
+Neil  31:06  
+it underwater. I love these bizarre mashup sentences. These are glass beads that Rutter knitted and we put
+
+Unknown Speaker  31:15  
+underneath waterproof cell phones. Can be hydrophones. You
+
+Speaker 21  31:21  
+heard the bones. Oh, yeah. Is like a sequence of photos from all the CV so this is daylight. Barb took me out to find TV at low tide and for the drift buckets here.
+
+Speaker 21  31:37  
+And then I spent every night with Alex, just trying to extract pavements, and the ultimate goal is to find some type of just like get to water floor, use in different formats. And I this is actually a scene right here till seven this morning. Yeah.
+
+Speaker 21  32:02  
+Just etching. Just etching. And basically we got to, like, all of these different things. And then we were able to use Quentin's
+
+Unknown Speaker  32:13  
+scan for it was scan
+
+Speaker 21  32:14  
+a lot of file materials and then etch it onto wood. And then we were off with, like, a lot
+
+Unknown Speaker  32:21  
+of people, off with people
+
+Speaker 21  32:25  
+on the photos, and then play with, like, how it's etched as well. And then we had, like, we have the color card and
+
+Unknown Speaker  32:38  
+a zine of all the different algae,
+
+Unknown Speaker  32:40  
+oh yeah, from Zach's six part mold
+
+Zach Fredin  32:45  
+that's bound with embroidery thread and then encapsulated in a boat made of painting.
+
+Neil  32:56  
+What's the most material?
+
+Zach Fredin  33:00  
+It's one of the it's not one of the smooth on solar dogs with six minute pot light. So get ready for
+
+Unknown Speaker  33:20  
+scared. We can't let
+
+Speaker 22  33:42  
+him glue him
+
+Unknown Speaker  33:55  
+glue the floor.
+
+Speaker 23  34:02  
+Let me that's
+
+Unknown Speaker  34:15  
+where the water came in.
+
+Unknown Speaker  34:20  
+Figure out the
+
+Unknown Speaker  34:27  
+grab. We had to pet the screw
+
+Speaker 6  34:36  
+off. He's a right?
+
+Unknown Speaker  34:42  
+He's really, he's not very cold, so I
+
+Unknown Speaker  34:52  
+think he's for two
+
+Unknown Speaker  34:59  
+ha. Like time that's been From electricity.
+
+Speaker 24  35:42  
+Contour, I that's made from, like just a contour. And can I find a material that I can cut out before and then, by accretion, grow it, twist it, turn it upside down, so it has a repetitive but the repetition is disrupted by by the by my hand, by the kind of overlapping that I'm doing with another, with its the other side of the form, by the adjustment in space. And then I can grow so I don't know what the sub that I'm presently producing is just is very soft as a netting that collapses, and then I have to cover it with another substrate, that hard, that I read through it, and hard to have a true
+
+Speaker 24  36:44  
+so what I don't want to use for my my basic one, I don't I could use wire, but I, and I would still have to build it and I, and then I provided showing I want this kind of sorry, coordination.
+
+Unknown Speaker  37:05  
+The Christine.
+
+Speaker 24  37:19  
+I mean, you know, because she just took that time to do that. You know that every time I go someplace, I don't have a model of what I want. And now I can go back to DC with this very intricate, organic drawing and that has so much detail, and say, See you can do. I can go to their Fab Lab. And so I'm really grateful so she's not here, but my love is
+
+Speaker 16  37:43  
+there? Leah, yeah, so here's the Brady design tool, and then the collection breaks that I made in it. I was going to make a graph letter face, but then I thought I just used that for language JavaScript instead.
+
+Speaker 16  38:01  
+And then the next one. You can see it coming a little bit on the right where, yeah, you adjust the braid sequence. I didn't know anything about braiding, so I had to figure out, like, some way of actually describing a braid. And the basically, the description is really simple. It's two numbers for each step. One is like the index of the strand, but two indices of strands, the first one then goes over the second one, and then you just repeat these different blocks, and you can make these patterns, and then you just follow it by hand. So it's not computer control design, it's computer assisted fabrication. And this is a sludge grade a preview of what's become. Yeah,
+
+Unknown Speaker  38:42  
+tastes terrible.
+
+Speaker 16  38:44  
+And then here's some embroidery that we did in the embroidery design software that we made sponsored by the United States of America Trademark Office. So I did some collabs with Rebecca Thierry, Mickey
+
+Unknown Speaker  39:01  
+tentacle patches. And
+
+Speaker 16  39:06  
+then the last quick project was to help James out with his plotter project. I wrote a web driver so you can just plug in any computer and send over HTTP out from the browser. This
+
+Speaker 20  39:19  
+is cyanotype. Let me just open the doors for people to come in and do all kinds of things, and some of it printed on cement, and then was fugitive and went away. Other things people came in, what was inspiring to me were the things that people said, let's try it on this, or let's try it on that. And the materials are so accidental that that's part of what makes it fun. And I ended up with some new stenciling that I can use for there's two things that matter to me a lot. One was working on the sign on fresh seal, freshwater seal in Finland, trying to get those are horrible colors. But that was my throwaway fabric, trying to get a sense of the life size form of the animal, but to be able to intersperse cytotype With woodcut, my bigger victory, which doesn't look like too much, was thanks to Quentin getting that little mark in the upper right hand corner on the blue from that cyanotype. And that was the marking of a Mediterranean monk seal, which is only done through scarification, and that's how they identify them for their photo ID project. They weren't born with rings around them. So that's, I hope going to be big news when I phone it in. Yay. Out one of our
+
+Speaker 13  40:45  
+stencils on this sodium, alternate based biomaterial that we coated with this thickened, cyanotic paint and then exposed. We thought that was a major failure at first, because it basically melted in the sun. Melted in the sun, and then it kind of bend its way back to a more solid form. But that
+
+Speaker 20  41:09  
+says a lot for that material that can melt in the sun and then reconstitute. It's like a self healing magic. I just took these, and this is just part of I put in random pictures. Here's another one.
+
+Unknown Speaker  41:29  
+That's it, please?
+
+Janet Hollingsworth  41:32  
+The idea you can go through these pretty fast. Neil, they're just, yeah, so we were just, as everybody already knows, this, can we turn trash into treasure, and the answer is, keep going forward. You have to get the right equation. So it's not trash, we know that, but trash cuts trash, it works treasure. So we did a lot of different experimental material binder explorations with the sludge waste from the water jet machine. But the most promising, or one of the most promising, was with the waste from the play process, so we missed mixed that together, and then we experimented with
+
+Zach Fredin  42:09  
+it. Yeah, so this was testing to make sure sludge doesn't do sketchy shit when he put it to kiln. So thanks to Kate, we just
+
+Unknown Speaker  42:15  
+melt it all down, 115 pieces
+
+Zach Fredin  42:17  
+fired. So this is all of them, and then Marissa is wonderful, beautiful pieces next one like mudang, oh
+
+Janet Hollingsworth  42:30  
+yeah. So we threw it under the laser. And it was really funny, because
+
+Zach Fredin  42:38  
+the garden, the garden vitriplies into like obsidian, basically. So it gets shiny and black and glassy laser. It's really incredible. Yeah,
+
+Janet Hollingsworth  42:45  
+also a black pack work, because we used the woven material, which they were printed into the sludge clay, and it turned into a rasp. So it was a tool again. So using the soft material
+
+Unknown Speaker  42:58  
+became this amazing clay
+
+Speaker 25  43:00  
+beat steel or knitwear steel. Was there a picture of me flinging it? Oh, no, but I have when
+
+Zach Fredin  43:12  
+people ask me, you know, like the first dollar building,
+
+Unknown Speaker  43:16  
+yeah? Oh, sure. And I have
+
+Speaker 14  43:20  
+more slides on this later, but I had fun squishing the sludge into woodpecker made holes. There's like a peg tree with a ton of woodpecker evidence. So this is sludge craft.
+
+Zach Fredin  43:33  
+Josh wanted to make a file, additional Garnet on the file, supposed to fell off, but he was making a tool. Oh, Rebecca made the lovely ramen bowl, which
+
+Unknown Speaker  43:47  
+you saw earlier that Neil was showing off. But
+
+Zach Fredin  43:48  
+it makes good. Sounds good next, oh, so this was fun. Youth making tools. So it turns out, you know, grinding stone is just like centered clay and Garnet. So we made grinding stones, and you just soak in water. And you can take pieces of metal and, like, grind them flat, which is fun by hand. Or tools seven, this is a higher percentage of slip. I think this is like a 7030 instead of a
+
+Unknown Speaker  44:12  
+5050, by weight.
+
+Zach Fredin  44:18  
+Yeah. And then this is all, these are all the bits of water jet debris we found from Neil's water jet sludge. So thank you. And we were able to identify a couple of them, you know. So Jack showed his like him and me honest collaboration to make these modular building blocks. And that's what the cloud shape ones are. Those are clouds from that project. Just want to trace their lineage. And then these are all the other things we made. So if you can read that word quickly, those are all the other experiments that weren't clay that we did, including
+
+Unknown Speaker  44:45  
+soap and some other
+
+Unknown Speaker  44:50  
+home products. What's the name for it?
+
+Janet Hollingsworth  44:56  
+The other thing that we were trying to do was make documentation follow. So we documented everything in these and more to come on that.
+
+Speaker 13  45:12  
+This was just trying to test if there was some way we could make some kind of diversify versus piece using justice sludge, a lot of goofy failures but the one that worked best was the one that only had sludge and no slip. So that was a very pro sludge. Results to change the recipe a little bit, but you kind of dust it off with sawdust. So used to pump sawdust to coat the top of it. Oh, okay.
+
+Unknown Speaker  45:56  
+I tried this shit. It is not this. The shower with it, and it is, it is serious. I tried
+
+Speaker 26  46:14  
+even worse. You
+
+Neil  46:29  
+Yeah, who is making the soap is that? Yeah, I think this is at the peak of haystack labs, the concept of worst soap ever, laser
+
+Unknown Speaker  46:39  
+engraved at wrapping. We almost made it. Oh, this
+
+Speaker 14  46:44  
+is just more about the sledge and woodpecker tree. I became enamored with this tree down by the water with it's covered in woodpecker holes that Deborah and I discovered a couple days before we were out making rubbings, and the rubbing sort of failed. They were okay. And I was like, what if
+
+Unknown Speaker  47:00  
+I switched some slip in there. It kind of looks cool,
+
+Speaker 14  47:04  
+yeah. And then I started doing knots, which gave me a negative from a positive. So, oh, these are some of the Romans.
+
+Unknown Speaker  47:13  
+And then, yeah, and
+
+Speaker 14  47:15  
+they made scripture last night with wood from the scrap wood pile. And then I stuck a sight. I if
+
+Speaker 22  47:21  
+you
+
+Unknown Speaker  47:29  
+keep going, it rotates.
+
+Unknown Speaker  47:41  
+Yeah, it's almost, is
+
+Neil  47:43  
+that manual or program cube? Sorry, is that manual or program control? Program control?
+
+Unknown Speaker  47:49  
+Yeah, I wrote a little trajectory forward. This is my favorite part of the project,
+
+Neil  48:01  
+Sputnik. Yeah. How'd
+
+Unknown Speaker  48:06  
+you get
+
+Neil  48:08  
+that higher? It should be making Sputnik noises when it's home.
+
+Speaker 18  48:23  
+Continue. I think this is that nice? Oh, this is the Yeah. So we were able to get MIDI from Charles computer over and there's lots of cool, like, really easy to use MIDI networking, stuff that I had no idea about, which was interesting. You just like, put it out there, and then it's like, it's like, it comes out of the void. I don't know. I
+
+Unknown Speaker  49:09  
+I was at the last slide. No,
+
+Speaker 18  49:14  
+no, do 117 Oh, do you just some bugs I found it was 5am which honestly was,
+
+Unknown Speaker  49:42  
+like, I like, as a finer I'm like, This is so genius. The
+
+Unknown Speaker  49:45  
+colors are
+
+Unknown Speaker  49:53  
+amazing. Yeah, the
+
+Speaker 24  49:55  
+heat. They said that the sugar, somebody called the sugar in the. In the seaweed, when heated and fresh going together, and you make some will make that orange and great color. So it's pretty spectacular. During
+
+Unknown Speaker  50:07  
+the day, she told us in the class
+
+Speaker 27  50:12  
+was conducted, you thought of it, so we made some experiments that you want, and pretty excited to make a performance.
+
+Speaker 28  50:22  
+You mean to say? You made this copper soldier, and then, basically, two, three, sound corn.
+
+Unknown Speaker  50:39  
+Change the
+
+Speaker 26  50:53  
+sound the report. So this is like it got really heat and it cuts itself
+
+Speaker 29  50:58  
+really, really slow. Have you break from glass, 9899 100
+
+Neil  51:16  
+Wow Perry. How does this compare to previous haystack, molten glass, interactive music performances,
+
+Speaker 29  51:31  
+it's singular, and we burn some part. We so close to, like, burn the lithium battery, but we didn't. I
+
+Speaker 27  51:43  
+back. This is a working title. We started working on it collaborate with App record. We were thinking of embedding corporate data between layers of ology to make a TV and me.
+
+Unknown Speaker  52:07  
+This is a microscope scanning project. This is the feather that sac found from the
+
+Unknown Speaker  52:13  
+I guess it was given to me that
+
+Unknown Speaker  52:17  
+came into the padlab. Wow. It's
+
+Speaker 30  52:21  
+gorgeous. We can see the it's gorgeous.
+
+Unknown Speaker  52:32  
+We can see the angle, yeah, I show you what
+
+Unknown Speaker  52:36  
+is this? Is this Goshen splatting?
+
+Unknown Speaker  52:39  
+Yeah, yeah. And then here question scales, so you can get A sense
+
+Unknown Speaker  52:53  
+of how big and
+
+Unknown Speaker  53:02  
+cosmos are. Is it?
+
+Unknown Speaker  53:20  
+Winston, sorry, oh yeah, this is live
+
+Speaker 31  53:27  
+coding. The lights are cutter. This is just like, really simple. So as it goes through the different notes and changes, you guys saw the
+
+Speaker 31  53:40  
+postcards, and it was really fun that the bed was like configured for a larger material, so I just had to stack a ton of postcards. And these were the song. Painting of the song was pretty
+
+Speaker 31  54:02  
+loud. It was very fun. I really wanted to do like during like, when the flare winch was, like, across the street from Fab Lab, I was going to bring up a laser cutter so that we could have like a laser show.
+
+Speaker 12  54:17  
+Yeah, I'm sorry.
+
+Speaker 31  54:23  
+Oh, sorry about the videos. I didn't know, presumably, what's this one? Oh, yeah. And then Neil was like, Hey, here's an IU sensor. And I was like, great. And then I made it so that it controls the code. And this was just, I had to write a JavaScript interface to, like, make it, or like, yeah, that's just, this is, this is like a precursor to the wench pom pom. That is the next slide. You never, don't have to watch this whole thing. This is just, yeah, I. Oh yeah. And then MIDI we I have a slide of the MIDI kind of connection me and Jake were kind of configuring. Here we go, the next one. This is the clip we can go the next one. And then, oh yeah. Here's the when I put a pom pom on. It made it fun to, like, throw around many of you live coated the wench with the pom pom. And this is really cool, because you can, Jake made it. He didn't show in his slides, but he made it so that, if you, like, turn the pom pom towards like, you could, kind of like Harry Potter the winch. Like, you could go like this and then, like, go this way,
+
+Unknown Speaker  55:44  
+like, in person, yeah, it was like, kind
+
+Speaker 31  55:51  
+of connect our computers that would have, you know, this is Jack throwing it around. Yeah. Everyone did a really good job. And everyone has their own flavors. It's has their own flavors. Oh yeah, the acceleration controls
+
+Neil  56:11  
+the color. So it makes me happy. Is this with the X tool? This is I placed one of those teeny QFN parts barely has anything holding it down. And so I was waiting all night for it to come flying on. And so it is to
+
+Speaker 27  56:26  
+survive protected. There's one more maybe. And I know everyone was wondering,
+
+Speaker 31  56:39  
+did you get to let code the shop bot. And the answer is, I was sending it
+
+Unknown Speaker  56:51  
+commands and it was
+
+Neil  57:01  
+just giving me horrible jump back hand. Being
+
+Unknown Speaker  57:03  
+disappointed. Yeah, the five axes.
+

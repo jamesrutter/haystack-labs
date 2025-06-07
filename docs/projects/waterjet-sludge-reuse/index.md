@@ -1,26 +1,37 @@
 ---
-title: Waterjet Sludge Reuse
+title: Waterjet Sludge Recycling & Ceramics
 year: 2025
 url: ""
-category: digital-fabrication
+category: sustainability
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Waterjet Cutter", "Ceramic Tools", "Laser Engraver", "Kiln"]
 tags:
   - project
+  - sustainability
+  - waste-reuse
+  - ceramics
+  - waterjet
+  - sludge-recycling
 ---
 ## Project Overview
-*A one paragraph description of the project*
+Comprehensive sludge recycling project mixing garnet waterjet sludge with clay for ceramic tiles, grinding stones, and modular blocks, plus laser surface vitrification and experimental "worst soap ever" and woodpecker tree slip casting.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Recycle waterjet garnet sludge into useful ceramic materials
+- Create ceramic tiles, grinding stones, and modular blocks
+- Experiment with laser vitrification of ceramic surfaces
+- Develop soap-making from sludge materials
+- Create slip-cast forms using natural tree cavities
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project addresses industrial waste streams by transforming waterjet cutting byproducts into functional ceramic materials, demonstrating circular economy principles in the digital fabrication context.
 
 ## Contributors 
-*Who contributed to this project?*
+- Janet Hollingsworth
+- Zach Fredin
+- Rebecca Hui (woodpecker tree casting)
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

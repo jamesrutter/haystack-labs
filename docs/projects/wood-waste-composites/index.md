@@ -1,26 +1,36 @@
 ---
-title: Wood Waste Composites
+title: Silk-Wood Composite Panels
 year: 2025
 url: ""
-category: digital-fabrication
+category: biomaterials
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["CNC Mill", "Laminating Equipment", "3D Printer"]
 tags:
   - project
+  - biomaterials
+  - composites
+  - wood-working
+  - textiles
+  - sound-art
 ---
 ## Project Overview
-*A one paragraph description of the project*
+"Woodstock 25" laminated silk-wood panels combining silk, veneer, and copper wire in plywood composites, machined and milled for sound and art objects.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Develop novel silk-wood composite materials
+- Integrate conductive elements (copper wire) into composites
+- Create machinable panels for artistic applications
+- Explore acoustic properties of hybrid materials
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project explores the integration of traditional textile materials with wood composites, creating hybrid materials that can be digitally fabricated while maintaining organic properties.
 
 ## Contributors 
-*Who contributed to this project?*
+- Marco Lo Presti
+- Mickey McManus
+- Composite development team
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

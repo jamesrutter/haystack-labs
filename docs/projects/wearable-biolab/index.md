@@ -1,33 +1,47 @@
 ---
-title: Wearable Biolab
+title: Wearable Bio-Lab & DNA Ring
 year: 2025
 url: ""
-category: digital-fabrication
+category: biomaterials
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Lab Equipment", "Jewelry Tools", "DNA Extraction", "3D Printer"]
 tags:
   - project
+  - wearable-tech
+  - bio-lab
+  - dna-sequencing
+  - jewelry
+  - personal-genomics
 ---
+
 ## Project Overview
-*A one paragraph description of the project*
+Wearable bio-lab development including a DNA ring project using extracted DNA samples, exploring the intersection of personal genomics, jewelry, and portable biotechnology.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Create wearable biotechnology devices
+- Develop DNA extraction and preservation techniques
+- Design jewelry incorporating biological materials
+- Explore personal genomics in artistic contexts
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project investigates the integration of biotechnology with personal adornment, creating intimate connections between individuals and their genetic material through wearable art.
 
 ## Contributors 
-*Who contributed to this project?*
+- Ekaterina Kormilitsyna
+- Laura Preston (DNA sample donor)
+- Bio-lab team
 
 ## Technical Requirements
-*Equipment needed, materials required, software or other tools. Studio access?*
+- DNA extraction equipment
+- Jewelry fabrication tools
+- Preservation materials for biological samples
+- 3D printing capabilities for custom forms
+- Sterile working environment
 
 ## Applications & Integrations
-*How does this project fit into the larger context of craft?*
-*Does this project connect with any other projects? If so, please explain.*
+This project connects biotechnology with jewelry making and wearable technology, potentially linking to other bio-lab projects and craft-based work happening during Labs.
 
 ## Results
 *Outcomes, prototyping process, processes developed*
@@ -35,14 +49,13 @@ tags:
 *Future Direction, follow-up work, ongoing collaborations*
 *Challenges & Limitations*
 
-
 ## Documentation
 
 ### Process
 *Methodology, approach, process photos, video documentation, procedures*
 
 ### Artifacts
-*schematics, design files, code, manuals, instructions.*
+*Schematics, design files, code, manuals, instructions.*
 
 ## References & Related Work
 *Inspirations work, reference materials, related projects, etc.*

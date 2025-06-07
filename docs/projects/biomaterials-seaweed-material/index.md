@@ -1,65 +1,40 @@
 ---
-title: Biomaterials - Seaweed Material
+title: Algae Pigment & Cyanotype Suite
 year: 2025
-website_url: ""
+url: ""
 category: biomaterials
 type: project
-github_repo: ""
-documentation_folder: ""
 photos: []
 videos: []
-presentation_slides: ""
-deliverables: []
-code_repositories: []
-open_source_files: []
-publications: []
-technologies: []
-software_used: []
-hardware_used: []
-sustainability_focus: true
-community_benefit: ""
-educational_value: ""
+tools: ["UV Light", "Chemistry Equipment", "Laser Engraver", "Wood Tiles"]
 tags:
   - project
-  - labs-2025
   - biomaterials
   - seaweed
-  - marine-materials
+  - algae-pigments
+  - cyanotype
+  - printmaking
   - sustainability
+  - documentation
 ---
 
-# Biomaterials - Seaweed Material
-
 ## Project Overview
-
-[Project exploring seaweed-based biomaterials development - what it is, why it matters, what makes it interesting]
+Comprehensive exploration of seaweed and algae for artistic applications, including pigment extraction, cyanotype printing on algae film, laser-etched wood tiles, and zine compilation documenting the process.
 
 ## Goals & Objectives
-
-[What the project aims to achieve during Labs week]
-
-### Primary Goals
-- 
-
-### Secondary Goals
-- 
-
-### Success Metrics
-- 
+- Extract natural pigments from seaweed and algae
+- Develop cyanotype printing techniques on algae-based films
+- Create laser-etched wood tiles with organic patterns
+- Document the entire process in a comprehensive zine
 
 ## Background & Motivation
+This project explores the intersection of traditional printmaking techniques with sustainable materials harvested from the marine environment, creating new possibilities for eco-conscious artistic practice.
 
-[Context for the project - why now, what problem it addresses, inspiration]
-
-## Team Roles & Responsibilities
-
-### Lead Contributors
-- [To be assigned]
-
-### Expertise Areas
-- Seaweed processing
-- Marine biomaterials
-- Sustainable material development
+## Contributors 
+- Zach Fredin
+- Rebecca Hui
+- Barbara Putnam
+- Victoria Manganiello
 
 ## Methodology & Approach
 

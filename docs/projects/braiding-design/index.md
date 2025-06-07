@@ -1,26 +1,36 @@
 ---
-title: Braiding Design
+title: Braid & Embroidery Design Toolkit
 year: 2025
 url: ""
-category: digital-fabrication
+category: textiles
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Plotter", "Embroidery Machine", "JavaScript", "Web Browser"]
 tags:
   - project
+  - textiles
+  - braiding
+  - embroidery
+  - design-software
+  - web-tools
 ---
 ## Project Overview
-*A one paragraph description of the project*
+JavaScript braid-sequence editor, custom embroidery pattern generator, and HTTP plotter driver, creating a comprehensive toolkit for textile design and fabrication.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Develop interactive braid sequence design tools
+- Create embroidery pattern generation software
+- Build HTTP plotter driver for web-based control
+- Integrate textile design with digital fabrication workflows
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project creates accessible web-based tools for textile design, bridging traditional craft techniques with modern digital fabrication capabilities.
 
 ## Contributors 
-*Who contributed to this project?*
+- Leo McElroy
+- Rebecca Hui
+- Mickey McManus
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

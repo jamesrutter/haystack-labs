@@ -1,26 +1,36 @@
 ---
-title: Digital Knitting & Textiles
+title: Silver Reed Knitting Machine Restoration
 year: 2025
 url: ""
-category: digital-fabrication
+category: textiles
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["Silver Reed Knitting Machine", "Electronics", "Programming"]
 tags:
   - project
+  - textiles
+  - knitting-machine
+  - electronics-repair
+  - pattern-generation
 ---
 ## Project Overview
-*A one paragraph description of the project*
+Restoration of a Silver Reed typewriter-style knitting machine, including diagnosing burnt transistors and solenoids, rewinding coils, and writing control software for patterns and autostereograms.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Restore functionality to vintage knitting machine
+- Develop electronic control systems for pattern generation
+- Create software for autostereogram knitting
+- Document repair and modification processes
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project combines vintage textile machinery with modern electronics and programming, preserving and extending the capabilities of historic manufacturing equipment while exploring new creative possibilities.
 
 ## Contributors 
-*Who contributed to this project?*
+- Hannah Twigg-Smith
+- Zach Fredin
+- Leo McElroy
+- Nicole Yi Messier
 
 ## Technical Requirements
 *Equipment needed, materials required, software or other tools. Studio access?*

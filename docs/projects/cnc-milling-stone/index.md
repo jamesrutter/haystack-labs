@@ -1,33 +1,49 @@
 ---
-title: CNC Milling Stone
+title: CNC Stone Milling & Ring Making
 year: 2025
 url: ""
-category: digital-fabrication
+category: jewelry
 type: project
 photos: []
 videos: []
-tools: []
+tools: ["CNC Mill", "Diamond Bits", "Jewelry Tools", "Stone Working"]
 tags:
   - project
---- 
+  - jewelry
+  - cnc-milling
+  - stone-working
+  - ring-making
+  - precision-machining
+---
+
 ## Project Overview
-*A one paragraph description of the project*
+CNC milling machine setup with diamond-impregnated bits for stone and metal work, combined with ring making classes and heated copper performance work, exploring precision fabrication in jewelry contexts.
 
 ## Goals & Objectives
-*What were you aiming to achieve?*
+- Establish CNC capabilities for jewelry-scale work
+- Develop stone milling techniques using diamond bits
+- Teach ring making skills to multiple participants
+- Explore heated metal performance applications
 
 ## Background & Motivation
-*Context for the project. Why now? What problem does this address? Any inspiration?*
+This project brings industrial CNC precision to traditional jewelry making, enabling new possibilities for stone setting, metal forming, and precision craft work.
 
 ## Contributors 
-*Who contributed to this project?*
+- Neil Gershenfeld (CNC setup)
+- Kate Reed (ring making instruction)
+- Multiple ring making participants
+- Heated copper performance team
 
 ## Technical Requirements
-*Equipment needed, materials required, software or other tools. Studio access?*
+- CNC milling machine
+- Diamond-impregnated cutting bits
+- Various stones for testing
+- Jewelry fabrication tools
+- Heating equipment for copper work
+- Safety equipment for metalworking
 
 ## Applications & Integrations
-*How does this project fit into the larger context of craft?*
-*Does this project connect with any other projects? If so, please explain.*
+This project connects precision machining with traditional jewelry craft, potentially informing other projects involving precision fabrication and metal working.
 
 ## Results
 *Outcomes, prototyping process, processes developed*
@@ -35,14 +51,13 @@ tags:
 *Future Direction, follow-up work, ongoing collaborations*
 *Challenges & Limitations*
 
-
 ## Documentation
 
 ### Process
 *Methodology, approach, process photos, video documentation, procedures*
 
 ### Artifacts
-*schematics, design files, code, manuals, instructions.*
+*Schematics, design files, code, manuals, instructions.*
 
 ## References & Related Work
 *Inspirations work, reference materials, related projects, etc.*
