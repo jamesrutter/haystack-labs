@@ -176,15 +176,9 @@
     --breakpoint-xl: 1280px;
     --breakpoint-2xl: 1536px;
   }
+}
 
-  /* ==========================================================================
-   BASE STYLES
-   ========================================================================== */
-
-  * {
-    box-sizing: border-box;
-  }
-
+@layer base {
   html {
     font-family: var(--font-family-body);
     font-size: var(--font-size-base);
@@ -194,16 +188,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* ==========================================================================
-   TYPOGRAPHY UTILITIES
-   ========================================================================== */
-
   .font-display {
     font-family: var(--font-family-display);
   }
@@ -212,7 +196,6 @@
     font-family: var(--font-family-body);
   }
 
-  /* Heading styles using brand typography */
   h1,
   h2,
   h3,
@@ -223,6 +206,7 @@
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     margin: 0 0 var(--space-md) 0;
+    align-self: flex-start;
   }
 
   h1 {

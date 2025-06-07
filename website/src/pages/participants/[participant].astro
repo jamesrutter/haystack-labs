@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/layout.astro";
+import LayoutParticipant from "@/layouts/layout-participant.astro";
 import { getCollection, render } from "astro:content";
-import ArrowRight from "@/assets/arrow-right.svg";
+import Header from "./header.astro";
 
 export async function getStaticPaths() {
   const participants = await getCollection("participants");
@@ -15,206 +15,16 @@ const { participant } = Astro.props;
 const { Content } = await render(participant);
 ---
 
-<Layout
+<LayoutParticipant
   title={`${participant.data.name} - Haystack Labs`}
-  description={`Profile of ${participant.data.name}`}
+  description={`Profile of ${participant.data.name} for the Haystack Labs program.`}
 >
-  <section class="section">
-    <div class="wrapper">
-      <nav class="breadcrumb">
-        <a href="/participants/" class="breadcrumb-link">
-          <ArrowRight width="16" height="16" fill="currentColor" />
-          <span>Back to Participants</span>
-        </a>
-      </nav>
-      <header class="participant-header">
-        <div class="participant-info">
-          <h1 class="participant-name">{participant.data.name}</h1>
-          <div class="participant-contact">
-            <a href={`mailto:${participant.data.email}`} class="email-link">
-              {participant.data.email}
-            </a>
-          </div>
-        </div>
-        <div class="participant-badge">{participant.data.year}</div>
-      </header>
-    </div>
-  </section>
-  <div class="content">
+  <div class="wrapper">
+    <Header
+      name={participant.data.name}
+      email={participant.data.email}
+      year={participant.data.year.toString()}
+    />
     <Content />
   </div>
-
-  <style>
-    .breadcrumb {
-      padding-top: var(--space-lg);
-      margin-bottom: var(--space-sm);
-    }
-
-    .breadcrumb-link {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      font-family: var(--font-family-display);
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-text-muted);
-      text-decoration: none;
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      transition: var(--transition-normal);
-      position: relative;
-      background: transparent;
-    }
-
-    .breadcrumb-link svg {
-      transform: rotate(180deg);
-      transition: var(--transition-normal);
-    }
-
-    .breadcrumb-link:hover {
-      color: var(--color-haystack-seafoam-green);
-      background: var(--color-surface-secondary);
-      transform: translateX(-2px);
-    }
-
-    .breadcrumb-link:hover svg {
-      transform: rotate(180deg) translateX(2px);
-    }
-
-    .participant-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--space-lg);
-      padding: var(--space-xl) 0;
-    }
-
-    .participant-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .participant-name {
-      margin: 0;
-      font-family: var(--font-family-display);
-      font-size: var(--font-size-4xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-text-primary-dark);
-      line-height: var(--line-height-tight);
-    }
-
-    .participant-contact {
-      display: flex;
-      align-items: center;
-    }
-
-    .email-link {
-      font-family: var(--font-family-display);
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-haystack-seafoam-green);
-      text-decoration: none;
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      transition: var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .email-link::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--color-haystack-light-seafoam-green),
-        transparent
-      );
-      transition: var(--transition-normal);
-    }
-
-    .email-link:hover {
-      color: var(--color-haystack-navy);
-      background-color: var(--color-haystack-light-seafoam-green);
-      transform: translateY(-1px);
-    }
-
-    .email-link:hover::before {
-      left: 100%;
-    }
-
-    .participant-badge {
-      background: linear-gradient(
-        135deg,
-        var(--color-haystack-light-seafoam-green),
-        var(--color-haystack-seafoam-green)
-      );
-      color: var(--color-haystack-navy);
-      padding: var(--space-sm) var(--space-lg);
-      border-radius: var(--radius-xl);
-      font-family: var(--font-family-display);
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-semibold);
-      text-align: center;
-      min-width: 80px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--color-haystack-seafoam-green);
-    }
-
-    .content {
-      max-width: var(--container-7xl);
-      margin-inline: auto;
-      padding-inline: var(--space-xl);
-    }
-
-    .content :global(h2) {
-      align-self: flex-start;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .breadcrumb {
-        padding-top: var(--space-md);
-      }
-
-      .breadcrumb-link {
-        font-size: var(--font-size-xs);
-        gap: var(--space-xs);
-      }
-
-      .participant-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-lg);
-      }
-
-      .participant-name {
-        font-size: var(--font-size-3xl);
-      }
-
-      .email-link {
-        font-size: var(--font-size-base);
-      }
-
-      .participant-badge {
-        align-self: flex-start;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .participant-header {
-        padding: var(--space-lg) 0;
-      }
-
-      .participant-name {
-        font-size: var(--font-size-2xl);
-      }
-    }
-  </style>
-</Layout>
+</LayoutParticipant>

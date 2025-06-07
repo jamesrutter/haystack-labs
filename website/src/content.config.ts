@@ -34,7 +34,7 @@ const participants = defineCollection({
   schema: z.object({
     name: z.string(),
     year: z.number(),
-    email: z.string().optional(),
+    email: z.string(),
     website: z.string().optional(),
     type: z.enum(["participant", "staff"]),
     expertise: z.array(z.string()).optional(),
