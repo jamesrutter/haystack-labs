@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/layout.astro";
-import ArrowRight from "@/assets/arrow-right.svg";
+import ArrowLeft from "@/assets/left-double.svg";
 
 interface Props {
   title?: string;
@@ -11,62 +11,34 @@ const { title, description } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
-  <div class="detail-layout">
-    <nav class="breadcrumb">
-      <a href="/participants/" class="breadcrumb-link">
-        <ArrowRight width="16" height="16" fill="currentColor" />
+  <div class="wrapper">
+    <nav>
+      <a href="/participants/">
+        <ArrowLeft width="18" height="18" fill="currentColor" />
         <span>Back to Participants</span>
       </a>
     </nav>
-    <slot />
   </div>
+  <slot />
 </Layout>
 
 <style>
-  .breadcrumb {
+  nav {
     padding-top: var(--space-lg);
     margin-bottom: var(--space-sm);
-  }
-
-  .breadcrumb-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    text-decoration: none;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-md);
-    transition: var(--transition-normal);
-    position: relative;
-    background: transparent;
-  }
-
-  .breadcrumb-link svg {
-    transform: rotate(180deg);
-    transition: var(--transition-normal);
-  }
-
-  .breadcrumb-link:hover {
-    color: var(--color-haystack-seafoam-green);
-    background: var(--color-surface-secondary);
-    transform: translateX(-2px);
-  }
-
-  .breadcrumb-link:hover svg {
-    transform: rotate(180deg) translateX(2px);
-  }
-
-  @media (max-width: 768px) {
-    .breadcrumb {
-      padding-top: var(--space-md);
-    }
-
-    .breadcrumb-link {
-      font-size: var(--font-size-xs);
+    a {
+      display: flex;
+      align-items: center;
       gap: var(--space-xs);
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+    a:hover {
+      color: var(--color-text-primary-inverse);
     }
   }
 </style>
