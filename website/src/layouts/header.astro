@@ -3,7 +3,7 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="header">
+<header>
   <div class="wrapper">
     <div class="brand">
       <a href="/" class="logo">
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <style>
-  .header {
+  header {
     background-color: var(--color-surface-secondary-transparent);
     backdrop-filter: blur(10px);
     position: sticky;
@@ -119,6 +119,13 @@ const currentPath = Astro.url.pathname;
 
     .nav-link {
       font-size: var(--font-size-xs);
+    }
+  }
+  @media (max-width: 480px) {
+    .wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
     }
   }
 </style>

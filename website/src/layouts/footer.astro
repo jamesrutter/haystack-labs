@@ -1,157 +1,122 @@
-<footer>
-  <div class="footer__container">
-    <div class="footer__content">
-      <div class="footer__brand">
-        <div class="footer__logo">
-          <span class="footer__logo-icon"
-            ><img src="/logo-icon.png" height="32px" /></span
-          >
-          <span class="footer__logo-text">HAYSTACK LABS</span>
+<footer class="section">
+  <div class="wrapper">
+    <section>
+      <article class="brand">
+        <div class="logo">
+          <span class="icon"><img src="/logo-icon.png" height="32px" /></span>
+          <span class="text">HAYSTACK LABS</span>
         </div>
-        <p class="footer__description">
+        <p class="description">
           An experimental craft & technology research residency program at
           Haystack Mountain School of Crafts, in partnership with MIT Center for
           Bits and Atoms.
         </p>
-        <div class="footer__links">
-          <a href="https://haystack-mtn.org" class="footer__link"
-            >Official Site</a
-          >
-          <a href="mailto:fablab@haystack-mtn.org" class="footer__link"
-            >Contact</a
-          >
+        <div class="links">
+          <a href="https://haystack-mtn.org">Official Site</a>
+          <a href="mailto:fablab@haystack-mtn.org">Contact</a>
         </div>
-      </div>
+      </article>
 
-      <div class="footer__section">
-        <h3 class="footer__section-title">PROGRAM</h3>
-        <ul class="footer__section-list">
-          <li><a href="/years" class="footer__section-link">Years</a></li>
-          <li><a href="/projects" class="footer__section-link">Projects</a></li>
+      <article>
+        <h3 class="title">PROGRAM</h3>
+        <ul>
+          <li><a href="/years">Years</a></li>
+          <li><a href="/projects">Projects</a></li>
           <li>
-            <a href="/participants" class="footer__section-link">Participants</a
-            >
+            <a href="/participants">Participants</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </article>
+    </section>
+  </div>
 
-    <div class="footer__bottom">
-      <p class="footer__copyright">
-        © 2025 Haystack Mountain School of Crafts. All rights reserved.
-      </p>
-    </div>
+  <div class="bottom">
+    <p class="copyright">
+      © 2025 Haystack Mountain School of Crafts. All rights reserved.
+    </p>
   </div>
 </footer>
 
 <style>
-  .footer__container {
-    max-width: var(--container-7xl);
-    margin-inline: auto;
-    padding: var(--space-4xl) var(--space-lg) var(--space-xl);
-  }
-
-  .footer__content {
+  section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--space-4xl);
     margin-bottom: var(--space-3xl);
   }
 
-  .footer__brand {
+  .brand {
     max-width: 600px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      font-family: var(--font-family-display);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-xl);
+      letter-spacing: var(--letter-spacing-wide);
+    }
+    .description {
+      text-align: left;
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-lg);
+      color: var(--color-text-primary-dark);
+      text-wrap: balance;
+    }
   }
 
-  .footer__logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
-    font-family: var(--font-family-display);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-lg);
-    letter-spacing: var(--letter-spacing-wide);
-  }
-
-  .footer__logo-icon {
-    color: var(--color-primary);
-    font-size: var(--font-size-xl);
-  }
-
-  .footer__logo-text {
-    text-transform: uppercase;
-  }
-
-  .footer__description {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-lg);
-    color: var(--color-text-primary-dark);
-    text-wrap: balance;
-  }
-
-  .footer__links {
+  .links {
     display: flex;
     gap: var(--space-lg);
   }
 
-  .footer__link {
+  a {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-medium);
     text-decoration: none;
     color: var(--color-text-primary-dark);
     transition: var(--transition-fast);
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 
-  .footer__link:hover {
-    color: var(--color-primary);
-  }
-
-  .footer__section-title {
+  .title {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-base);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
     margin-bottom: var(--space-lg);
-    color: var(--color-text-primary-dark);
+    color: var(--color-golden-yellow);
   }
 
-  .footer__section-list {
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    li {
+      margin-bottom: var(--space-sm);
+    }
   }
 
-  .footer__section-list li {
-    margin-bottom: var(--space-sm);
-  }
-
-  .footer__section-link {
-    text-decoration: none;
-    color: var(--color-text-primary-dark);
-    transition: var(--transition-fast);
-  }
-
-  .footer__section-link:hover {
-    color: var(--color-primary);
-  }
-
-  .footer__bottom {
+  .bottom {
     padding-top: var(--space-lg);
     border-top: 1px solid var(--color-haystack-light-seafoam-green);
     text-align: center;
-  }
-
-  .footer__copyright {
-    font-size: var(--font-size-xs);
-    margin: 0;
+    .copyright {
+      font-size: var(--font-size-xs);
+      margin: 0;
+    }
   }
 
   @media (max-width: 768px) {
-    .footer__content {
+    section {
       grid-template-columns: 1fr;
-      gap: var(--space-2xl);
+      gap: var(--space-xl);
+      margin-bottom: var(--space-xl);
     }
   }
 </style>

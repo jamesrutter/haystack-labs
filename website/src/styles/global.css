@@ -220,7 +220,8 @@
   }
 
   h3 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
+    color: var(--color-golden-yellow);
   }
 
   h4 {
@@ -253,6 +254,10 @@
     max-width: var(--container-7xl);
     margin-inline: auto;
     padding-inline: var(--space-xl);
+
+    @media (max-width: 768px) {
+      padding-inline: var(--space-md);
+    }
   }
   .section {
     padding: var(--space-2xl) 0;
