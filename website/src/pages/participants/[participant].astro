@@ -1,7 +1,7 @@
 ---
 import LayoutParticipant from "@/layouts/layout-participant.astro";
 import { getCollection, render } from "astro:content";
-import Header from "./header.astro";
+import Header from "./header-participant.astro";
 
 export async function getStaticPaths() {
   const participants = await getCollection("participants");
