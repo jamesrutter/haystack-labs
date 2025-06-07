@@ -340,6 +340,17 @@
 }
 
 @layer component {
+  .badge {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-text-primary-dark);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    min-width: 80px;
+  }
   /* Buttons */
   .btn {
     display: inline-block;
