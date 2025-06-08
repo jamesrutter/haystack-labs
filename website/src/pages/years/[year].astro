@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/layout-year.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const years = await getCollection("years");
+  return years.map((year) => ({
+    params: { year: year.id },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+const { Content } = await render(year);
+---
+
+<Layout
+  title={`${year.data.title} - Haystack Labs`}
+  description={year.data.description || `Information about ${year.data.title}`}
+>
+  <section class="section">
+    <div class="wrapper">
+      <Content />
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,109 @@
+---
+import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
+
+const participants = await getCollection("participants");
+const sorted_participants = participants.sort((a, b) =>
+  a.data.name.localeCompare(b.data.name)
+);
+---
+
+<Layout
+  title="Participants - Haystack Labs"
+  description="A collection of participants from Haystack Labs"
+>
+  <section class="section">
+    <div class="wrapper">
+      <h1 class="title">Participants</h1>
+      <div class="grid-auto">
+        {
+          sorted_participants.map((participant) => (
+            <a
+              href={`/participants/${participant.id}`}
+              class="participant-card"
+            >
+              <div class="participant-card__content">
+                <h3 class="participant-card__name">{participant.data.name}</h3>
+                <div class="participant-card__arrow">
+                  <ArrowRight width="20" height="20" fill="currentColor" />
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .participant-card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .participant-card:hover::before {
+    left: 100%;
+  }
+
+  .participant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-haystack-blue);
+  }
+
+  .participant-card__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+  }
+
+  .participant-card__name {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    transition: color var(--transition-normal);
+  }
+
+  .participant-card:hover .participant-card__name {
+    color: var(--color-haystack-blue);
+  }
+
+  .participant-card__arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+  }
+
+  .participant-card:hover .participant-card__arrow {
+    color: var(--color-haystack-blue);
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .participants-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .participant-card {
+      padding: var(--space-md);
+    }
+
+    .participant-card__content {
+      min-height: 35px;
+    }
+  }
+</style>

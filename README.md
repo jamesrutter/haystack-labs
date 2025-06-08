@@ -29,8 +29,16 @@ You. All about you. The most important about Labs and documenting Labs is the am
 ### 🪵 Projects --- `docs/projects`
 1. First, check to see if a project already exists. 
 2. If it does not, go ahead and create a new folder, using kebab-case (e.g., blair-winch-project). 
-3. Create an `about.md` or an `index.md` - not really sure it matters.
-4. Each project will vary in the amount of documentation and structure. Some might be ongoing projects, some might be one-offs. Keep it simple to start with, and we can overengineer it later. 
+3. Copy the template from `docs/projects/project-template.md` and rename it to `index.md` in your project folder.
+4. Update the frontmatter (the section between `---` at the top) with your project details:
+   - `title`: Your project name
+   - `year`: Current year (2025)
+   - `url`: Project website or main link (leave empty if none)
+   - `category`: Type of project (e.g., digital-fabrication, craft, biomaterials)
+   - `tools`: List the main tools/equipment you'll use
+   - `tags`: Add relevant tags for discovery
+5. Fill in the markdown sections with your project details. The sections marked with `*italics*` are placeholders for your content.
+6. Each project will vary in the amount of documentation and structure. Some might be ongoing projects, some might be one-offs. Keep it simple to start with, and we can overengineer it later. 
 
 ### 🛠️ Tools --- `docs/tools` (?)
 This is for documentation of the new tools, or old tools. any tool really. Did you "wake up" a tool while at Labs? Go ahead and tell that story here. We're interested. Follow the same conventions as above. Tools might be best kept inside of projects, or associated with a specific project. I don't know, I'm open to suggestions and changing my mind. 

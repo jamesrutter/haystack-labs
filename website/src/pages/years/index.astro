@@ -1,0 +1,85 @@
+---
+import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
+
+const years = await getCollection("years");
+const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
+---
+
+<Layout
+  title="Years - Haystack Labs"
+  description="A collection of years from Haystack Labs"
+>
+  <section class="section">
+    <div class="wrapper">
+      <h1 class="title">Years</h1>
+      <div class="grid-auto sm compact">
+        {
+          sortedYears.map((year) => (
+            <a href={`/years/${year.id}`} class="card">
+              <div class="card-content">
+                <h3>{year.data.title}</h3>
+                <ArrowRight width="20" height="20" fill="currentColor" />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-haystack-blue);
+      color: var(--color-haystack-blue);
+      h3 {
+        color: var(--color-haystack-blue);
+      }
+      svg {
+        color: var(--color-haystack-blue);
+        transform: translateX(4px);
+        opacity: 1;
+      }
+    }
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+
+    h3 {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin: 0;
+      color: var(--color-text-primary);
+      transition: color var(--transition-normal);
+      line-height: 1.2;
+    }
+  }
+
+  svg {
+    color: var(--color-text-primary);
+    transition: all var(--transition-normal);
+    opacity: 0.9;
+    flex-shrink: 0;
+  }
+</style>

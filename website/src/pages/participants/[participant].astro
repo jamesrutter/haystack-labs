@@ -1,0 +1,30 @@
+---
+import LayoutParticipant from "@/layouts/layout-participant.astro";
+import { getCollection, render } from "astro:content";
+import Header from "./header-participant.astro";
+
+export async function getStaticPaths() {
+  const participants = await getCollection("participants");
+  return participants.map((participant) => ({
+    params: { participant: participant.id },
+    props: { participant },
+  }));
+}
+
+const { participant } = Astro.props;
+const { Content } = await render(participant);
+---
+
+<LayoutParticipant
+  title={`${participant.data.name} - Haystack Labs`}
+  description={`Profile of ${participant.data.name} for the Haystack Labs program.`}
+>
+  <div class="wrapper">
+    <Header
+      name={participant.data.name}
+      email={participant.data.email}
+      year={participant.data.year.toString()}
+    />
+    <Content />
+  </div>
+</LayoutParticipant>
