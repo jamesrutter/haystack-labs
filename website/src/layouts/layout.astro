@@ -1,3 +1,10 @@
+---
+import "@/styles/reset.css";
+import "@/styles/global.css";
+import Header from "./header.astro";
+import Footer from "./footer.astro";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +14,8 @@
     <title>Haystack Labs</title>
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
