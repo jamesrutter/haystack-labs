@@ -290,6 +290,40 @@
   .section-xs {
     padding: var(--space-sm) 0;
   }
+  .grid-auto {
+    /* Base variables with defaults */
+    --min-col-width: 280px;
+    --grid-gap: var(--space-lg);
+    --grid-padding: 0;
+
+    /* Base styles */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-col-width), 1fr));
+    gap: var(--grid-gap);
+    padding: var(--grid-padding);
+
+    &.sm {
+      --min-col-width: 155px;
+    }
+
+    &.lg {
+      --min-col-width: 350px;
+    }
+
+    &.compact {
+      --grid-gap: var(--space-sm);
+    }
+
+    &.spacious {
+      --grid-gap: var(--space-xl);
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 768px) {
+      --min-col-width: 100%;
+      --grid-gap: var(--space-md);
+    }
+  }
   .actions {
     display: flex;
     gap: var(--space-lg);

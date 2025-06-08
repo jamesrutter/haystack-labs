@@ -16,7 +16,7 @@ const sorted_participants = participants.sort((a, b) =>
   <section class="section">
     <div class="wrapper">
       <h1 class="title">Participants</h1>
-      <div class="participants-grid">
+      <div class="grid-auto">
         {
           sorted_participants.map((participant) => (
             <a
@@ -38,12 +38,6 @@ const sorted_participants = participants.sort((a, b) =>
 </Layout>
 
 <style>
-  .participants-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-lg);
-  }
-
   .participant-card {
     display: block;
     text-decoration: none;

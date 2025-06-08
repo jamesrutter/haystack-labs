@@ -14,21 +14,13 @@ const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
   <section class="section">
     <div class="wrapper">
       <h1 class="title">Years</h1>
-      <div class="years-grid">
+      <div class="grid-auto sm compact">
         {
           sortedYears.map((year) => (
-            <a href={`/years/${year.id}`} class="year-card">
-              <div class="year-card__content">
-                <div class="year-card__header">
-                  <h3 class="year-card__title">{year.data.title}</h3>
-                  <div class="year-card__arrow">
-                    <ArrowRight width="20" height="20" fill="currentColor" />
-                  </div>
-                </div>
-
-                {year.data.description && (
-                  <p class="year-card__description">{year.data.description}</p>
-                )}
+            <a href={`/years/${year.id}`} class="card">
+              <div class="card-content">
+                <h3>{year.data.title}</h3>
+                <ArrowRight width="20" height="20" fill="currentColor" />
               </div>
             </a>
           ))
@@ -39,13 +31,7 @@ const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
 </Layout>
 
 <style>
-  .years-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-lg);
-  }
-
-  .year-card {
+  .card {
     display: block;
     text-decoration: none;
     background: var(--color-haystack-navy-tint-10);
@@ -56,85 +42,44 @@ const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
     position: relative;
     overflow: hidden;
     height: 100%;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-haystack-blue);
+      color: var(--color-haystack-blue);
+      h3 {
+        color: var(--color-haystack-blue);
+      }
+      svg {
+        color: var(--color-haystack-blue);
+        transform: translateX(4px);
+        opacity: 1;
+      }
+    }
   }
 
-  .year-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-haystack-blue);
-  }
-
-  .year-card__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: var(--space-sm);
-  }
-
-  .year-card__header {
+  .card-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
+
+    h3 {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin: 0;
+      color: var(--color-text-primary);
+      transition: color var(--transition-normal);
+      line-height: 1.2;
+    }
   }
 
-  .year-card__title {
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
+  svg {
     color: var(--color-text-primary);
-    margin: 0;
-    transition: color var(--transition-normal);
-    line-height: 1.2;
-  }
-
-  .year-card:hover .year-card__title {
-    color: var(--color-haystack-blue);
-  }
-
-  .year-card__arrow {
-    color: var(--color-text-muted);
     transition: all var(--transition-normal);
-    opacity: 0.8;
+    opacity: 0.9;
     flex-shrink: 0;
-  }
-
-  .year-card:hover .year-card__arrow {
-    color: var(--color-haystack-blue);
-    transform: translateX(4px);
-    opacity: 1;
-  }
-
-  .year-card__description {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-base);
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .years-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
-
-    .year-card {
-      padding: var(--space-md);
-    }
-
-    .year-card__title {
-      font-size: var(--font-size-lg);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .years-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-sm);
-    }
-
-    .year-card {
-      padding: var(--space-sm);
-    }
   }
 </style>

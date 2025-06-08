@@ -14,7 +14,7 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
   <section class="section">
     <div class="wrapper">
       <h1 class="title">Projects</h1>
-      <div class="projects-grid">
+      <div class="grid-auto lg spacious">
         {
           sortedProjects.map((project) => (
             <a href={`/projects/${project.id}`} class="project-card">
@@ -79,12 +79,6 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
 </Layout>
 
 <style>
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: var(--space-lg);
-  }
-
   .project-card {
     display: block;
     text-decoration: none;
