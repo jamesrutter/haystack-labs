@@ -16,10 +16,10 @@ const projects = defineCollection({
   schema: z.object({
     // Basic project info
     title: z.string(),
-    year: z.number(),
+    year: z.number().transform((val) => val.toString()),
     url: z.string().optional(),
     category: z.string().optional(),
-    type: z.string().optional(),
+    type: z.string().default("project"),
 
     // Media and tools
     photos: z.array(z.string()).optional(),

@@ -1,7 +1,8 @@
 ---
-import Layout from "@/layouts/layout.astro";
 import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/layout-project.astro";
 import ArrowRight from "@/assets/arrow-right.svg";
+import Header from "./header-project.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -17,328 +18,94 @@ const { Content } = await render(project);
 
 <Layout
   title={`${project.data.title} - Haystack Labs`}
-  description={project.data.description ||
-    `${project.data.title} project documentation`}
+  description={`Information about ${project.data.title}`}
 >
-  <section class="section">
+  <section class="section section-xs">
     <div class="wrapper">
-      <!-- Breadcrumb Navigation -->
-      <nav class="breadcrumb">
-        <a href="/projects/" class="breadcrumb-link">
-          <ArrowRight width="16" height="16" fill="currentColor" />
-          <span>Back to Projects</span>
-        </a>
-      </nav>
-
-      <!-- Project Header -->
-      <header class="project-header">
-        <div class="project-info">
-          <h1 class="project-title">{project.data.title}</h1>
-          {
-            project.data.description && (
-              <p class="project-description">{project.data.description}</p>
-            )
-          }
-        </div>
-        <div class="project-badges">
-          <div class="project-badge">{project.data.year}</div>
-          {
-            project.data.category && (
-              <div class="category-badge">{project.data.category}</div>
-            )
-          }
-        </div>
-      </header>
+      <Header
+        title={project.data.title}
+        year={project.data.year}
+        type={project.data.type}
+      />
 
       <!-- Project Metadata -->
       <div class="project-meta">
+        <!-- Tools -->
         <div class="meta-cards">
-          <div class="meta-card">
-            <h3 class="meta-label">Status</h3>
-            <p class="meta-value">{project.data.status || "In Progress"}</p>
-          </div>
-
-          {
-            project.data.participants &&
-              project.data.participants.length > 0 && (
-                <div class="meta-card">
-                  <h3 class="meta-label">
-                    {project.data.participants.length === 1
-                      ? "Participant"
-                      : "Participants"}
-                  </h3>
-                  <div class="participants-list">
-                    {project.data.participants.map((participant: string) => (
-                      <a
-                        href={`/participants/${participant}`}
-                        class="participant-link"
-                      >
-                        {participant
-                          .replace("-", " ")
-                          .replace(/\b\w/g, (l) => l.toUpperCase())}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )
-          }
-
           {
             project.data.tools && project.data.tools.length > 0 && (
               <div class="meta-card">
                 <h3 class="meta-label">Tools</h3>
-                <div class="tools-list">
+                <div class="meta-list">
                   {project.data.tools.map((tool: string) => (
-                    <span class="tool-item">{tool}</span>
+                    <span class="meta-item">{tool}</span>
                   ))}
                 </div>
               </div>
             )
           }
-
+          <!-- Tags -->
           {
-            project.data.hardware_used &&
-              project.data.hardware_used.length > 0 && (
-                <div class="meta-card">
-                  <h3 class="meta-label">Hardware</h3>
-                  <div class="hardware-list">
-                    {project.data.hardware_used.map((hardware: string) => (
-                      <span class="hardware-item">{hardware}</span>
-                    ))}
-                  </div>
+            project.data.tags && project.data.tags.length > 0 && (
+              <div class="meta-card">
+                <h3 class="meta-label">Tags</h3>
+                <div class="meta-list">
+                  {project.data.tags.map((tag: string) => (
+                    <span class="meta-item">{tag}</span>
+                  ))}
                 </div>
-              )
+              </div>
+            )
+          }
+          <!-- Actions -->
+          {
+            project.data.url && (
+              <div class="meta-card">
+                <h3 class="meta-label">Actions</h3>
+                <div class="meta-list">
+                  <a
+                    href={project.data.url}
+                    target="_blank"
+                    class="action-link primary"
+                  >
+                    <span>View Project</span>
+                    <ArrowRight width="16" height="16" fill="currentColor" />
+                  </a>
+                </div>
+              </div>
+            )
           }
         </div>
-
-        <!-- Tags -->
-        {
-          project.data.tags && project.data.tags.length > 0 && (
-            <div class="tags-section">
-              <div class="tags-list">
-                {project.data.tags.map((tag: string) => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-          )
-        }
-
-        <!-- Action Links -->
-        {
-          (project.data.url ||
-            project.data.website_url ||
-            project.data.github_repo ||
-            project.data.documentation_folder ||
-            project.data.links) && (
-            <div class="actions-section">
-              {project.data.url && (
-                <a
-                  href={project.data.url}
-                  target="_blank"
-                  class="action-link primary"
-                >
-                  <span>Project URL</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-              {project.data.website_url && (
-                <a
-                  href={project.data.website_url}
-                  target="_blank"
-                  class="action-link primary"
-                >
-                  <span>Visit Website</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-              {project.data.github_repo && (
-                <a
-                  href={project.data.github_repo}
-                  target="_blank"
-                  class="action-link"
-                >
-                  <span>View on GitHub</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-              {project.data.documentation_folder && (
-                <a
-                  href={project.data.documentation_folder}
-                  target="_blank"
-                  class="action-link"
-                >
-                  <span>Documentation</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-              {project.data.links?.github && (
-                <a
-                  href={project.data.links.github}
-                  target="_blank"
-                  class="action-link"
-                >
-                  <span>GitHub Repository</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-              {project.data.links?.documentation && (
-                <a
-                  href={project.data.links.documentation}
-                  target="_blank"
-                  class="action-link"
-                >
-                  <span>View Documentation</span>
-                  <ArrowRight width="16" height="16" fill="currentColor" />
-                </a>
-              )}
-            </div>
-          )
-        }
       </div>
     </div>
   </section>
-
-  <!-- Project Content -->
-  <div class="content">
+  <div class="wrapper">
     <Content />
   </div>
 </Layout>
 
 <style>
-  /* Breadcrumb Navigation */
-  .breadcrumb {
-    padding-top: var(--space-lg);
-    margin-bottom: var(--space-sm);
-  }
-
-  .breadcrumb-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    text-decoration: none;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-md);
-    transition: var(--transition-normal);
-    background: transparent;
-  }
-
-  .breadcrumb-link svg {
-    transform: rotate(180deg);
-    transition: var(--transition-normal);
-  }
-
-  .breadcrumb-link:hover {
-    color: var(--color-haystack-seafoam-green);
-    background: var(--color-surface-secondary);
-    transform: translateX(-2px);
-  }
-
-  .breadcrumb-link:hover svg {
-    transform: rotate(180deg) translateX(2px);
-  }
-
-  /* Project Header */
-  .project-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-lg);
-    padding: var(--space-xl) 0;
-    border-bottom: 1px solid var(--color-border-subtle);
-    margin-bottom: var(--space-xl);
-  }
-
-  .project-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-  }
-
-  .project-title {
-    margin: 0;
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    line-height: var(--line-height-tight);
-  }
-
-  .project-description {
-    margin: 0;
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    max-width: 60ch;
-  }
-
-  .project-badges {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    align-items: flex-end;
-  }
-
-  .project-badge {
-    background: linear-gradient(
-      135deg,
-      var(--color-haystack-light-seafoam-green),
-      var(--color-haystack-seafoam-green)
-    );
-    color: var(--color-haystack-navy);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--radius-xl);
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    text-align: center;
-    min-width: 80px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-haystack-seafoam-green);
-  }
-
-  .category-badge {
-    background: var(--color-haystack-navy);
-    color: var(--color-haystack-light-seafoam-green);
-    padding: var(--space-xs) var(--space-md);
-    border-radius: var(--radius-lg);
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    text-transform: capitalize;
-    border: 1px solid var(--color-haystack-light-seafoam-green);
-  }
-
   /* Project Metadata */
   .project-meta {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
-    margin-bottom: var(--space-3xl);
+    margin-bottom: var(--space-xs);
   }
 
   .meta-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
   .meta-card {
-    background: var(--color-haystack-navy-tint-10);
+    background: transparent;
+    max-width: 450px;
     border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
     border-radius: var(--radius-lg);
     padding: var(--space-md);
     transition: var(--transition-normal);
-  }
-
-  .meta-card:hover {
-    border-color: var(--color-haystack-seafoam-green);
-    box-shadow: var(--shadow-sm);
   }
 
   .meta-label {
@@ -351,99 +118,19 @@ const { Content } = await render(project);
     letter-spacing: 0.05em;
   }
 
-  .meta-value {
-    margin: 0;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
-  }
-
-  .participants-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .participant-link {
-    color: var(--color-haystack-seafoam-green);
-    text-decoration: none;
-    font-weight: var(--font-weight-medium);
-    transition: var(--transition-normal);
-    padding: var(--space-xs) 0;
-    border-bottom: 1px solid transparent;
-  }
-
-  .participant-link:hover {
-    color: var(--color-haystack-light-seafoam-green);
-    border-bottom-color: var(--color-haystack-light-seafoam-green);
-  }
-
-  .tools-list {
+  .meta-list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
   }
 
-  .tool-item {
+  .meta-item {
     background: var(--color-haystack-seafoam-green);
     color: var(--color-haystack-navy);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-sm);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
-  }
-
-  .hardware-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-  }
-
-  .hardware-item {
-    background: var(--color-haystack-blue);
-    color: white;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-  }
-
-  /* Tags */
-  .tags-section {
-    padding: var(--space-md) 0;
-    border-top: 1px solid var(--color-border-subtle);
-  }
-
-  .tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-  }
-
-  .tag {
-    background: var(--color-haystack-navy);
-    color: var(--color-haystack-light-seafoam-green);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
-    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
-    transition: var(--transition-normal);
-  }
-
-  .tag:hover {
-    border-color: var(--color-haystack-seafoam-green);
-    background: var(--color-haystack-light-seafoam-green);
-    color: var(--color-haystack-navy);
-  }
-
-  /* Action Links */
-  .actions-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    padding: var(--space-md) 0;
-    border-top: 1px solid var(--color-border-subtle);
   }
 
   .action-link {
@@ -484,92 +171,5 @@ const { Content } = await render(project);
 
   .action-link:hover svg {
     transform: translateX(2px);
-  }
-
-  /* Content */
-  .content {
-    max-width: var(--container-7xl);
-    margin-inline: auto;
-    padding-inline: var(--space-xl);
-  }
-
-  .content :global(h2) {
-    margin-top: var(--space-3xl);
-    margin-bottom: var(--space-lg);
-    font-family: var(--font-family-display);
-    color: var(--color-text-primary);
-    border-bottom: 1px solid var(--color-border-subtle);
-    padding-bottom: var(--space-sm);
-  }
-
-  .content :global(h3) {
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-md);
-    font-family: var(--font-family-display);
-    color: var(--color-text-primary);
-  }
-
-  .content :global(p) {
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-md);
-  }
-
-  .content :global(ul),
-  .content :global(ol) {
-    margin-bottom: var(--space-md);
-    padding-left: var(--space-lg);
-  }
-
-  .content :global(li) {
-    margin-bottom: var(--space-xs);
-    line-height: var(--line-height-relaxed);
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .breadcrumb {
-      padding-top: var(--space-md);
-    }
-
-    .project-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-lg);
-    }
-
-    .project-title {
-      font-size: var(--font-size-3xl);
-    }
-
-    .project-badges {
-      align-items: flex-start;
-      flex-direction: row;
-    }
-
-    .meta-cards {
-      grid-template-columns: 1fr;
-    }
-
-    .actions-section {
-      flex-direction: column;
-    }
-
-    .action-link {
-      justify-content: center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .project-header {
-      padding: var(--space-lg) 0;
-    }
-
-    .project-title {
-      font-size: var(--font-size-2xl);
-    }
-
-    .project-description {
-      font-size: var(--font-size-base);
-    }
   }
 </style>

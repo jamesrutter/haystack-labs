@@ -287,6 +287,9 @@
       text-wrap: balance;
     }
   }
+  .section-xs {
+    padding: var(--space-sm) 0;
+  }
   .actions {
     display: flex;
     gap: var(--space-lg);

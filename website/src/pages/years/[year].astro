@@ -1,5 +1,5 @@
 ---
-import Layout from "@/layouts/layout.astro";
+import Layout from "@/layouts/layout-year.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -20,18 +20,7 @@ const { Content } = await render(year);
 >
   <section class="section">
     <div class="wrapper">
-      <header style="margin-bottom: var(--space-3xl);">
-        <h1 class="text-inverse">{year.data.title}</h1>
-        {
-          year.data.description && (
-            <p class="description">{year.data.description}</p>
-          )
-        }
-      </header>
-
-      <div class="content">
-        <Content />
-      </div>
+      <Content />
     </div>
   </section>
 </Layout>

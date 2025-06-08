@@ -1,7 +1,7 @@
 ---
 title: Braid & Embroidery Design Toolkit
 year: 2025
-url: ""
+url: https://drive.google.com/drive/folders/1G7_Ia6EMS4BOXTnx7B5y7qvQFbKeQXLH?usp=drive_link
 category: textiles
 type: project
 photos: []

@@ -1,0 +1,144 @@
+---
+interface Props {
+  title: string;
+  year: string;
+  type: string;
+}
+
+const { title, year, type } = Astro.props;
+---
+
+<header>
+  <div class="info">
+    <h1>{title}</h1>
+  </div>
+  <div class="badges">
+    <div class="badge">{year}</div>
+    <div class="badge">{type}</div>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-primary-dark);
+      line-height: var(--line-height-tight);
+    }
+    .badges {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-family-display);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary-dark);
+      text-decoration: none;
+      transition: var(--transition-normal);
+      .badge {
+        background-color: var(--color-golden-yellow);
+        color: var(--color-text-primary);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+      }
+      &:hover {
+        color: var(--color-text-primary-inverse);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
+    }
+  }
+
+  /* Project Header */
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .project-title {
+    margin: 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: var(--line-height-tight);
+  }
+
+  .project-description {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    max-width: 60ch;
+  }
+
+  .project-badges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-end;
+  }
+
+  .project-badge {
+    background: linear-gradient(
+      135deg,
+      var(--color-haystack-light-seafoam-green),
+      var(--color-haystack-seafoam-green)
+    );
+    color: var(--color-haystack-navy);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-xl);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    min-width: 80px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-haystack-seafoam-green);
+  }
+
+  .category-badge {
+    background: var(--color-haystack-navy);
+    color: var(--color-haystack-light-seafoam-green);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: capitalize;
+    border: 1px solid var(--color-haystack-light-seafoam-green);
+  }
+</style>
