@@ -30,7 +30,16 @@ const projects = await getCollection(
 >
   <section class="section">
     <div class="wrapper">
-      <Content />
+      <h2 class="title">Haystack Labs {year.data.title}</h2>
+      <div class="summary">
+        <Content />
+        <div class="dates">
+          <p>
+            {year.data.start.toLocaleDateString()} -{" "}
+            {year.data.end.toLocaleDateString()}
+          </p>
+        </div>
+      </div>
 
       <div class="grid grid--2col">
         {

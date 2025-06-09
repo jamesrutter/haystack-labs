@@ -8,6 +8,8 @@ const years = defineCollection({
     title: z.string(),
     description: z.string(),
     year: z.number(),
+    start: z.date(),
+    end: z.date(),
   }),
 });
 
