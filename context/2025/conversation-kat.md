@@ -1,53 +1,123 @@
-I. Kat’s work during Labs week
+# Biomaterials Lab Development Memo
+**Haystack Labs 2025 - Documentation Note**
 
-Biology-meets-craft experiments
+---
 
-Revived traditional skills (jewelry making, glass-blowing, cyanotypes) by embedding living materials—e.g., plating color-changing bacteria inside resin or glass beads, trapping DNA in jewelry blanks, and exposing cyanotype papers with biological motifs 2025-labs-kat.
+**Participant:** Kat Kormilitsyna  
+**Program:** Haystack Labs 2025  
+**Focus Area:** Biology-meets-craft experiments and on-campus biomaterials lab development  
+**Date:** June 2025  
 
-Collaboratively remixed supplies everyone brought under time pressure, proving that improvised “craft + bio” mash-ups can work surprisingly well 2025-labs-kat.
+---
 
-Hands-on microbiology demos
+## I. Lab Activities & Experiments During Labs Week
 
-Participants plated pigmented bacteria on paper, fibers, foods, etc.; next-day color shifts (“it’s pink!”) helped demystify lab work and made the process feel like primary-school crafts 2025-labs-kat.
+### Biology-Meets-Craft Experiments
 
-Experiments ranged from dyeing yarn and paper to a playful (and informative) failed attempt at screen-printing live cultures—bacteria grew everywhere except the printed region, yielding an accidental negative painting 2025-labs-kat.
+**Traditional Skills Revival with Living Materials**
+- Revived traditional crafts (jewelry making, glass-blowing, cyanotypes) by embedding living materials
+- Experiments included:
+  - Plating color-changing bacteria inside resin or glass beads
+  - Trapping DNA in jewelry blanks
+  - Exposing cyanotype papers with biological motifs
+- Successfully demonstrated that improvised "craft + bio" mashups work under time pressure through collaborative remixing of supplies
 
-DNA & molecular storytelling
+### Hands-On Microbiology Demonstrations
 
-Fast, visual DNA extractions captured the group’s imagination and sparked discussions about seeing every studio material at the molecular scale 2025-labs-kat.
+**Accessible Biology Education**
+- Participants plated pigmented bacteria on various substrates: paper, fibers, foods
+- Next-day color shifts ("it's pink!") effectively demystified lab work
+- Made the process feel approachable, similar to primary-school crafts
+- Experiments ranged from dyeing yarn and paper to screen-printing attempts
+- **Notable outcome:** Failed screen-printing attempt with live cultures resulted in bacteria growing everywhere *except* the printed region, creating an accidental negative painting
 
-Long-range idea: culture microbes for four weeks ahead of a session, then process them into ethanol-based “coral” paints grown entirely on site 2025-labs-kat.
+### DNA & Molecular Storytelling
 
-Key outcomes & insights
+**Engaging Scientific Visualization**
+- Fast, visual DNA extractions captured group imagination
+- Sparked discussions about viewing studio materials at the molecular scale
+- **Long-range concept:** Culture microbes for 4 weeks ahead of sessions, then process into ethanol-based "coral" paints grown entirely on-site
 
-Biosafety-Level-1 (BSL-1) biology dovetails naturally with craft because it is tactile, visually rewarding, and low-risk 2025-labs-kat.
+### Key Outcomes & Insights
 
-Color-producing strains are a reliable “gateway” activity; future sessions could layer in glow-in-the-dark dinoflagellates or mycelium forms for added wonder .
+- **Safety & Accessibility:** BSL-1 (Biosafety Level 1) biology integrates naturally with craft because it is:
+  - Tactile and visually rewarding
+  - Low-risk and safe for educational environments
+- **Gateway Activities:** Color-producing bacterial strains serve as reliable entry points
+- **Future Enhancements:** Sessions could incorporate:
+  - Glow-in-the-dark dinoflagellates
+  - Mycelium forms for added wonder
+- **Ethical Considerations:** Working with living organisms requires artists to design with growth, decay, and organism lifecycle in mind
 
-The experience reminded makers that collaborating with living organisms changes timelines and ethics—artists must design with growth, decay, and killing in mind 2025-labs-kat.
+---
 
-II. What Haystack needs to launch an on-campus biomaterials lab
+## II. Infrastructure Requirements for On-Campus Biomaterials Lab
 
-Component	Minimum spec / rationale	Notes on placement & use
-Clean work surface	One clearly sign-posted “clean table” kept free of clay-dust and sawdust for sterile tasks 2025-labs-kat	Should be within reach of a sink for easy hand-washing and bleach wipe-downs
-Sink with fresh water	Immediate access is essential for hand hygiene and dishwashing 2025-labs-kat	Many studios already qualify (photo darkroom, dye kitchen, fibers)
-Core equipment	• Table-top incubator (keeps cultures at 30–37 °C)	
-• Mini fridge (4 L) for media & strains		
-• Bleach / ethanol spray bottles, gloves, forceps, inoculation loops		
-• Small UV or alcohol torch for quick sterilization	All items came in Kat’s starter kit and are shelf-stable; nothing expires quickly 2025-labs-kat	
-Consumables	Dehydrated agar/media powders, Petri dishes, pipettes, disposable loops—powdered form stores indefinitely 2025-labs-kat	Re-order annually; very low cost
-Mobile storage	Design a wheeled BioCart with locking doors and a pull-out clean shelf so the whole setup can roll between Fab Lab, dye kitchen, outreach classrooms, etc.	Handles + towel/bleach caddy recommended
-BSL-1 protocol sheet	One-page poster of do’s/don’ts, color bacteria “recipes,” and spill response	Laminate and mount on the cart and next to the clean table
-Studio integration (“mycelium model”)	Treat the BioCart as a central rhizome; individual studios borrow strains/tools for local experiments (e.g., darkroom for cyanotypes, fibers for bacterial dyes) 2025-labs-kat	Mirrors the way DigiFab tools now sprout up campus-wide
+### Essential Components
 
-Programmatic suggestions
+| Component                | Minimum Specification                                                                                                                                                              | Placement & Usage Notes                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Clean Work Surface**   | One clearly sign-posted "clean table" kept free of clay-dust and sawdust                                                                                                           | Within reach of sink for hand-washing and bleach wipe-downs                                                          |
+| **Fresh Water Access**   | Immediate sink access                                                                                                                                                              | Essential for hand hygiene and equipment washing; many studios already qualify (photo darkroom, dye kitchen, fibers) |
+| **Core Equipment**       | • Table-top incubator (30–37°C)<br>• Mini fridge (4L) for media & strains<br>• Bleach/ethanol spray bottles<br>• Gloves, forceps, inoculation loops<br>• Small UV or alcohol torch | All items shelf-stable; nothing expires quickly                                                                      |
+| **Consumables**          | Dehydrated agar/media powders, Petri dishes, pipettes, disposable loops                                                                                                            | Powdered form stores indefinitely; re-order annually at low cost                                                     |
+| **Mobile Storage**       | Wheeled BioCart with locking doors and pull-out clean shelf                                                                                                                        | Enables movement between Fab Lab, dye kitchen, outreach classrooms; include handles + towel/bleach caddy             |
+| **Safety Documentation** | BSL-1 protocol sheet with do's/don'ts, bacteria "recipes," spill response                                                                                                          | Laminate and mount on cart and next to clean table                                                                   |
 
-Front-load longer cultures – Start pigment cultures 4 weeks before a workshop so participants can mill, decant, and paint with truly “site-grown” colors 2025-labs-kat.
+### Studio Integration Strategy
 
-Gateway activities – Kick off each session with color bacteria plating (1-day reveal) to hook newcomers; follow with fiber/paper dye baths, then DNA art or glowing dinoflagellates for deeper dives .
+**"Mycelium Model" Approach**
+- Treat BioCart as central rhizome/hub
+- Individual studios borrow strains/tools for local experiments:
+  - Darkroom: cyanotype work
+  - Fibers: bacterial dyes
+  - Other studios: material-specific applications
+- Mirrors current DigiFab tool distribution model across campus
 
-Residency fit – Two-week Labs residencies work, but month-long residencies would let artists shepherd slower biomaterials (mycelium, pigment fermentation) from start to finish 2025-labs-kat.
+---
 
-Open toolkit mindset – Provide the safe, sterile baseline; let visiting experts bring specialty vats, bespoke glassware, or silk scaffolds, just as indigo dyers tote their own vats 2025-labs-kat.
+## III. Programmatic Recommendations
 
-Takeaway: With nothing more than a sink-adjacent corner, a small fridge, an incubator, and a thoughtfully designed rolling cart, Haystack can seed a nimble BSL-1 biomaterials lab. This compact “kit” aligns with the school’s mycelium-style model—rooted in the Fab Lab but ready to pop up in any studio—so students and visiting makers can keep exploring the lively frontier between craft and the living world.
+### Timeline Optimization
+- **Front-load longer cultures:** Start pigment cultures 4 weeks before workshops so participants can mill, decant, and paint with truly "site-grown" colors
+- **Residency compatibility:** 
+  - Two-week Labs residencies: functional but limited
+  - Month-long residencies: ideal for shepherding slower biomaterials (mycelium, pigment fermentation) from start to finish
+
+### Activity Progression
+1. **Gateway Activities:** Begin sessions with color bacteria plating (1-day reveal) to engage newcomers
+2. **Intermediate Projects:** Follow with fiber/paper dye baths
+3. **Advanced Work:** DNA art or glowing dinoflagellates for deeper exploration
+
+### Resource Philosophy
+- **Open toolkit mindset:** Provide safe, sterile baseline infrastructure
+- Allow visiting experts to bring specialty equipment (vats, bespoke glassware, silk scaffolds)
+- Similar to how indigo dyers bring their own vats
+
+---
+
+## IV. Implementation Summary
+
+**Minimal Viable Setup:**
+- Sink-adjacent corner location
+- Small fridge and incubator
+- Thoughtfully designed rolling cart
+- Basic safety protocols
+
+**Alignment with Haystack Model:**
+- Compact "kit" approach fits school's philosophy
+- Rooted in Fab Lab but deployable to any studio
+- Enables continued exploration of craft-biology frontier
+- Supports both visiting makers and ongoing student work
+
+---
+
+**Next Steps:**
+1. Identify optimal studio location with sink access
+2. Source and configure mobile BioCart
+3. Develop safety protocols and training materials
+4. Plan initial programming with color bacteria gateway activities
+
+---
+
+*This memo serves as foundational documentation for developing Haystack's biomaterials lab capacity, based on successful experiments and observations from Labs 2025.*
