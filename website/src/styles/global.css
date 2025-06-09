@@ -382,6 +382,28 @@
 }
 
 @layer component {
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+  }
+  .tag {
+    background: var(--color-haystack-blue);
+    color: white;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-normal);
+
+    &.secondary {
+      background: var(--color-haystack-seafoam-green);
+      color: var(--color-haystack-navy);
+    }
+  }
+
   .badge {
     background: var(--color-haystack-seafoam-green);
     color: var(--color-text-primary-dark);
