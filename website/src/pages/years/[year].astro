@@ -12,6 +12,16 @@ export async function getStaticPaths() {
 
 const { year } = Astro.props;
 const { Content } = await render(year);
+
+// Get and filter participants and projects by year
+const participants = await getCollection(
+  "participants",
+  ({ data }) => data.year === year.data.year
+);
+const projects = await getCollection(
+  "projects",
+  ({ data }) => data.year === year.data.year
+);
 ---
 
 <Layout
@@ -21,6 +31,64 @@ const { Content } = await render(year);
   <section class="section">
     <div class="wrapper">
       <Content />
+
+      <div class="grid grid--2col">
+        {
+          participants.length > 0 && (
+            <section class="participants">
+              <h2>Participants</h2>
+              <div class="col">
+                {participants.map((participant) => (
+                  <article>
+                    <h3>
+                      <a href={`/participants/${participant.id}`}>
+                        {participant.data.name}
+                      </a>
+                    </h3>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          projects.length > 0 && (
+            <section class="projects">
+              <h2>Projects</h2>
+              <div class="col">
+                {projects.map((project) => (
+                  <h3>
+                    <a href={`/projects/${project.id}`}>{project.data.title}</a>
+                  </h3>
+                ))}
+              </div>
+            </section>
+          )
+        }
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  h2 {
+    text-align: left;
+    color: var(--color-golden-yellow);
+    margin-bottom: var(--space-sm);
+    font-weight: var(--font-weight-thin);
+  }
+
+  h3 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-thin);
+    margin-bottom: var(--space-sm);
+    a {
+      text-decoration: none;
+      color: var(--color-text-primary-dark);
+      &:hover {
+        color: var(--color-golden-yellow);
+      }
+    }
+  }
+</style>
