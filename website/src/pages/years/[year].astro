@@ -1,6 +1,8 @@
 ---
-import Layout from "@/layouts/layout-year.astro";
+import Layout from "@/layouts/layout.astro";
 import { getCollection, render } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
+import GroupPhoto from "@/assets/group-photo-1.jpg";
 
 export async function getStaticPaths() {
   const years = await getCollection("years");
@@ -12,15 +14,388 @@ export async function getStaticPaths() {
 
 const { year } = Astro.props;
 const { Content } = await render(year);
+
+// Get and filter participants and projects by year
+const participants = await getCollection(
+  "participants",
+  ({ data }) => data.year === year.data.year
+);
+const projects = await getCollection(
+  "projects",
+  ({ data }) => data.year === year.data.year
+);
 ---
 
 <Layout
   title={`${year.data.title} - Haystack Labs`}
   description={year.data.description || `Information about ${year.data.title}`}
 >
-  <section class="section">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <img
+        src={GroupPhoto.src}
+        alt="Haystack Labs group photo"
+        class="hero-image"
+      />
+      <div class="hero-overlay"></div>
+    </div>
     <div class="wrapper">
-      <Content />
+      <div class="hero-content">
+        <h1 class="title">Haystack Labs {year.data.title}</h1>
+        <div class="year-dates">
+          <time datetime={year.data.start.toISOString()}>
+            {
+              year.data.start.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }
+          </time>
+          <span class="date-separator">—</span>
+          <time datetime={year.data.end.toISOString()}>
+            {
+              year.data.end.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }
+          </time>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="wrapper">
+      <div class="year-description">
+        <Content />
+      </div>
+
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-number">{participants.length}</div>
+          <div class="stat-label">Participants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{projects.length}</div>
+          <div class="stat-label">Projects</div>
+        </div>
+      </div>
+
+      <div class="main-grid">
+        {
+          participants.length > 0 && (
+            <section class="participants">
+              <h2 class="section-title">Participants</h2>
+              <div class="participants-grid">
+                {participants.map((participant) => (
+                  <a
+                    href={`/participants/${participant.id}`}
+                    class="participant-card"
+                  >
+                    <div class="card-content">
+                      <h3 class="participant-name">{participant.data.name}</h3>
+                      <div class="card-arrow">
+                        <ArrowRight
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          projects.length > 0 && (
+            <section class="projects">
+              <h2 class="section-title">Projects</h2>
+              <div class="projects-grid">
+                {projects.map((project) => (
+                  <a href={`/projects/${project.id}`} class="project-card">
+                    <div class="card-content">
+                      <div class="header">
+                        <h3>{project.data.title}</h3>
+                        <div class="card-arrow">
+                          <ArrowRight
+                            width="20"
+                            height="20"
+                            fill="currentColor"
+                          />
+                        </div>
+                      </div>
+
+                      {project.data.category && (
+                        <div class="meta">
+                          <span class="category">{project.data.category}</span>
+                        </div>
+                      )}
+
+                      {project.data.tags && project.data.tags.length > 0 && (
+                        <div class="tags">
+                          {project.data.tags.slice(0, 3).map((tag: string) => (
+                            <span class="tag">{tag}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )
+        }
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    padding: var(--space-4xl) 0 var(--space-3xl) 0;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 51, 73, 0.4);
+    z-index: 2;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .title {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-bold);
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    align-self: center;
+    letter-spacing: var(--letter-spacing-tight);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .year-dates {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    color: var(--color-haystack-light-seafoam-green);
+    font-weight: var(--font-weight-medium);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .date-separator {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Content Section */
+  .content-section {
+    background: var(--color-background-dark);
+    padding: var(--space-2xl) 0;
+  }
+
+  .year-description {
+    max-width: var(--container-5xl);
+    margin-inline: auto;
+    text-align: center;
+    text-wrap: pretty;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary-dark);
+    margin-bottom: var(--space-4xl);
+  }
+
+  /* Stats Overview */
+  .stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    max-width: var(--container-sm);
+    margin-inline: auto;
+  }
+
+  /* Main Content Grid */
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5xl);
+  }
+
+  .section-title {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-golden-yellow);
+    margin-bottom: var(--space-xl);
+    text-align: left;
+  }
+
+  /* Participants Section */
+  .participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .participant-card {
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-haystack-seafoam-green);
+      .participant-name {
+        color: var(--color-haystack-blue);
+      }
+      .card-arrow {
+        color: var(--color-haystack-blue);
+        transform: translateX(4px);
+        opacity: 1;
+      }
+    }
+    .card-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 20px;
+    }
+    .participant-name {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-primary);
+      margin: 0;
+      transition: color var(--transition-normal);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+  }
+
+  .card-arrow {
+    color: var(--color-haystack-seafoam-green);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+    flex-shrink: 0;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .project-card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    transition: all var(--transition-normal);
+    height: 100%;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      height: 100%;
+    }
+
+    h3 {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-primary);
+      margin: 0;
+      flex: 1;
+      transition: color var(--transition-normal);
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-haystack-seafoam-green);
+      h3 {
+        color: var(--color-haystack-blue);
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .meta {
+    margin-top: auto;
+  }
+
+  .category {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-haystack-navy-transparent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+</style>
