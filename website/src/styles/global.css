@@ -381,8 +381,8 @@
   .title {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
-    text-transform: lowercase;
+    font-size: var(--font-size-6xl);
+    text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
   }
   .description {
