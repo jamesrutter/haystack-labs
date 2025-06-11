@@ -1,6 +1,6 @@
 ---
 name: "Debra Weisberg"
-year: 2025
+year: [2025]
 email: "debra.weisberg01@gmail.com"
 website: "https://www.debraweisberg.com/"
 type: "participant"
@@ -12,4 +12,4 @@ type: "participant"
 
 ## Projects
 
-## Resources 
+## Resources      

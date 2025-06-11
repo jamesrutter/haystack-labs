@@ -1,6 +1,6 @@
 ---
 name: "Ayan Abukar"
-year: 2025
+year: [2025]
 email: "ayanab@mit.edu"
 type: "participant"
 ---

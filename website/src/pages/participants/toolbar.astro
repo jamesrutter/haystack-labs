@@ -1,8 +1,29 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import SearchIcon from "@/assets/search.svg";
+
+type Props = {
+  years: CollectionEntry<"years">[];
+};
+
+const { years } = Astro.props as Props;
 ---
 
 <section>
+  <div class="filter-container">
+    <div class="filter-group">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-year="all">All Years</button>
+        {
+          years.map((year) => (
+            <button class="filter-btn" data-year={year.id}>
+              {year.data.title}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
   <div class="search-container">
     <SearchIcon width="20" height="20" fill="currentColor" />
     <input
@@ -19,12 +40,18 @@ import SearchIcon from "@/assets/search.svg";
     padding-block: var(--space-md);
     border-radius: var(--radius-lg);
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   .search-container {
     flex: 1;
-    max-width: 400px;
     min-width: 200px;
     position: relative;
     display: flex;
@@ -61,15 +88,89 @@ import SearchIcon from "@/assets/search.svg";
       color: var(--color-haystack-light-seafoam-green);
     }
   }
+
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .filter-label {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    white-space: nowrap;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-haystack-seafoam-green);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-primary-light);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+
+    &:hover {
+      background: var(--color-haystack-seafoam-green);
+      color: var(--color-haystack-navy);
+    }
+
+    &.active {
+      background: var(--color-haystack-blue);
+      border-color: var(--color-haystack-blue);
+      color: white;
+    }
+  }
 </style>
 
 <script>
   const search_input = document.getElementById("search") as HTMLInputElement;
+  const filter_buttons = document.querySelectorAll(".filter-btn");
 
   search_input?.addEventListener("input", (e) => {
     const search_term = (e.target as HTMLInputElement).value.toLowerCase();
     document.dispatchEvent(
       new CustomEvent("participant-search", { detail: search_term })
     );
+  });
+
+  filter_buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const clicked_button = e.target as HTMLButtonElement;
+      const year = clicked_button.dataset.year;
+
+      filter_buttons.forEach((btn) => btn.classList.remove("active"));
+      clicked_button.classList.add("active");
+
+      document.dispatchEvent(
+        new CustomEvent("participant-year-filter", { detail: year })
+      );
+    });
   });
 </script>

@@ -1,6 +1,6 @@
 ---
 name: "Hannah Twigg-Smith"
-year: 2025
+year: [2025, 2024]
 email: "hannah@topologic.io"
 website: "https://twigg.gg/"
 type: "participant"

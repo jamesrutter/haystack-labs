@@ -8,6 +8,7 @@ const participants = await getCollection("participants");
 const sorted_participants = participants.sort((a, b) =>
   a.data.name.localeCompare(b.data.name)
 );
+const years = await getCollection("years");
 ---
 
 <Layout
@@ -18,7 +19,7 @@ const sorted_participants = participants.sort((a, b) =>
     <div class="wrapper">
       <h1 class="title">Participants</h1>
 
-      <Toolbar />
+      <Toolbar years={years} />
 
       <div class="grid-auto" id="participants-grid">
         {
@@ -28,9 +29,15 @@ const sorted_participants = participants.sort((a, b) =>
               class="participant-card"
               data-name={participant.data.name.toLowerCase()}
               data-id={participant.id.toLowerCase()}
+              data-years={participant.data.year.join(",")}
             >
               <div class="participant-card__content">
                 <h3 class="participant-card__name">{participant.data.name}</h3>
+                <div class="participant-card__meta">
+                  <span class="participant-card__years">
+                    {participant.data.year.join(", ")}
+                  </span>
+                </div>
                 <div class="participant-card__arrow">
                   <ArrowRight width="20" height="20" fill="currentColor" />
                 </div>
@@ -80,6 +87,7 @@ const sorted_participants = participants.sort((a, b) =>
     align-items: center;
     justify-content: space-between;
     min-height: 60px;
+    gap: var(--space-sm);
   }
 
   .participant-card__name {
@@ -89,6 +97,21 @@ const sorted_participants = participants.sort((a, b) =>
     color: var(--color-text-primary);
     margin: 0;
     transition: color var(--transition-normal);
+    flex: 1;
+  }
+
+  .participant-card__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .participant-card__years {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
   }
 
   .participant-card:hover .participant-card__name {
@@ -99,6 +122,7 @@ const sorted_participants = participants.sort((a, b) =>
     color: var(--color-text-muted);
     transition: all var(--transition-normal);
     opacity: 0.8;
+    flex-shrink: 0;
   }
 
   .participant-card:hover .participant-card__arrow {
@@ -134,6 +158,11 @@ const sorted_participants = participants.sort((a, b) =>
     .participant-card__content {
       min-height: 35px;
     }
+
+    .participant-card__meta {
+      align-items: flex-start;
+      text-align: left;
+    }
   }
 </style>
 
@@ -142,10 +171,17 @@ const sorted_participants = participants.sort((a, b) =>
   const no_results = document.getElementById("no-results");
 
   let current_search_term = "";
+  let current_year_filter = "all";
 
   document.addEventListener("participant-search", (e) => {
     const custom_event = e as CustomEvent;
     current_search_term = custom_event.detail;
+    filter_participants();
+  });
+
+  document.addEventListener("participant-year-filter", (e) => {
+    const custom_event = e as CustomEvent;
+    current_year_filter = custom_event.detail;
     filter_participants();
   });
 
@@ -156,6 +192,7 @@ const sorted_participants = participants.sort((a, b) =>
       const card_element = card as HTMLElement;
       const name = card_element.dataset.name || "";
       const id = card_element.dataset.id || "";
+      const years = card_element.dataset.years || "";
 
       // Check search match
       const search_match =
@@ -163,8 +200,13 @@ const sorted_participants = participants.sort((a, b) =>
         name.includes(current_search_term) ||
         id.includes(current_search_term);
 
+      // Check year match - participant years are stored as comma-separated string
+      const year_match =
+        current_year_filter === "all" ||
+        years.split(",").includes(current_year_filter);
+
       // Show/hide card
-      if (search_match) {
+      if (search_match && year_match) {
         card_element.classList.remove("hidden");
         visible_count++;
       } else {
