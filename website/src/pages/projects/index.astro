@@ -1,10 +1,12 @@
 ---
-import Layout from "@/layouts/layout.astro";
 import { getCollection } from "astro:content";
+import Layout from "@/layouts/layout.astro";
 import ArrowRight from "@/assets/arrow-right.svg";
+import Toolbar from "./toolbar.astro";
 
 const projects = await getCollection("projects");
-const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
+const sorted_projects = projects.sort((a, b) => b.data.year - a.data.year);
+const years = await getCollection("years");
 ---
 
 <Layout
@@ -14,10 +16,20 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
   <section class="section">
     <div class="wrapper">
       <h1 class="title">Projects</h1>
-      <div class="grid-auto lg spacious">
+
+      <Toolbar years={years} />
+
+      <div class="grid-auto lg spacious" id="projects-grid">
         {
-          sortedProjects.map((project) => (
-            <a href={`/projects/${project.id}`} class="project-card">
+          sorted_projects.map((project) => (
+            <a
+              href={`/projects/${project.id}`}
+              class="project-card"
+              data-year={project.data.year}
+              data-title={project.data.title.toLowerCase()}
+              data-category={project.data.category?.toLowerCase() || ""}
+              data-tags={project.data.tags?.join(" ").toLowerCase() || ""}
+            >
               <div class="content">
                 <div class="header">
                   <h4>{project.data.title}</h4>
@@ -45,6 +57,11 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
             </a>
           ))
         }
+      </div>
+
+      <!-- No results message -->
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No projects found matching your search criteria.</p>
       </div>
     </div>
   </section>
@@ -81,6 +98,10 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
         transform: translateX(4px);
         opacity: 1;
       }
+    }
+
+    &.hidden {
+      display: none;
     }
   }
 
@@ -121,4 +142,78 @@ const sortedProjects = projects.sort((a, b) => b.data.year - a.data.year);
       }
     }
   }
+
+  .no-results {
+    text-align: center;
+    padding: var(--space-3xl);
+    background: var(--color-haystack-navy-tint-10);
+    border-radius: var(--radius-lg);
+
+    p {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-lg);
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+  }
 </style>
+
+<script>
+  const project_cards = document.querySelectorAll(".project-card");
+  const no_results = document.getElementById("no-results");
+
+  let current_search_term = "";
+  let current_year_filter = "all";
+
+  document.addEventListener("search", (e) => {
+    const custom_event = e as CustomEvent;
+    current_search_term = custom_event.detail;
+    filter_projects();
+  });
+
+  document.addEventListener("year-filter", (e) => {
+    const custom_event = e as CustomEvent;
+    current_year_filter = custom_event.detail;
+    filter_projects();
+  });
+
+  function filter_projects() {
+    let visible_count = 0;
+
+    project_cards.forEach((card) => {
+      const card_element = card as HTMLElement;
+      const title = card_element.dataset.title || "";
+      const category = card_element.dataset.category || "";
+      const tags = card_element.dataset.tags || "";
+      const year = card_element.dataset.year || "all";
+
+      // Check search match
+      const searchMatch =
+        !current_search_term ||
+        title.includes(current_search_term) ||
+        category.includes(current_search_term) ||
+        tags.includes(current_search_term);
+
+      // Check year match
+      const yearMatch =
+        current_year_filter === "all" || year === current_year_filter;
+
+      // Show/hide card
+      if (searchMatch && yearMatch) {
+        card_element.classList.remove("hidden");
+        visible_count++;
+      } else {
+        card_element.classList.add("hidden");
+      }
+    });
+
+    // Show/hide no results message
+    if (no_results) {
+      if (visible_count === 0) {
+        no_results.style.display = "block";
+      } else {
+        no_results.style.display = "none";
+      }
+    }
+  }
+</script>
