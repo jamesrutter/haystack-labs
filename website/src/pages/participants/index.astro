@@ -29,15 +29,10 @@ const years = await getCollection("years");
               class="participant-card"
               data-name={participant.data.name.toLowerCase()}
               data-id={participant.id.toLowerCase()}
-              data-years={participant.data.year.join(",")}
+              data-years={participant.data.year?.join(",")}
             >
               <div class="participant-card__content">
                 <h3 class="participant-card__name">{participant.data.name}</h3>
-                <div class="participant-card__meta">
-                  <span class="participant-card__years">
-                    {participant.data.year.join(", ")}
-                  </span>
-                </div>
                 <div class="participant-card__arrow">
                   <ArrowRight width="20" height="20" fill="currentColor" />
                 </div>
