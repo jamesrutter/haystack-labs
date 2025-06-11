@@ -24,6 +24,8 @@ const projects = await getCollection(
   "projects",
   ({ data }) => data.year === year.data.year
 );
+
+console.log(year);
 ---
 
 <Layout

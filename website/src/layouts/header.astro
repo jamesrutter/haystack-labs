@@ -1,6 +1,12 @@
 ---
 // Navigation.astro
+import { getCollection } from "astro:content";
+
 const currentPath = Astro.url.pathname;
+
+// Get years for dropdown
+const years = await getCollection("years");
+const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
 ---
 
 <header>
@@ -14,12 +20,22 @@ const currentPath = Astro.url.pathname;
     </div>
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item">
+        <li class="nav-item nav-item--dropdown">
           <a
             href="/years"
-            class={`nav-link ${currentPath === "/years" ? "nav-link--active" : ""}`}
-            >YEARS</a
+            class={`nav-link ${currentPath.startsWith("/years") ? "nav-link--active" : ""}`}
           >
+            YEARS
+          </a>
+          <div class="nav-dropdown">
+            {
+              sortedYears.map((year) => (
+                <a href={`/years/${year.id}`} class="nav-dropdown-link">
+                  {year.data.title}
+                </a>
+              ))
+            }
+          </div>
         </li>
         <li class="nav-item">
           <a
@@ -90,6 +106,10 @@ const currentPath = Astro.url.pathname;
     gap: var(--space-xl);
   }
 
+  .nav-item {
+    position: relative;
+  }
+
   .nav-link {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-medium);
@@ -100,12 +120,56 @@ const currentPath = Astro.url.pathname;
     color: var(--color-text-secondary);
     transition: var(--transition-fast);
     border-bottom: 2px solid transparent;
+    display: block;
+    padding: var(--space-xs) 0;
   }
 
   .nav-link:hover,
   .nav-link--active {
     color: var(--color-primary);
     border-bottom-color: var(--color-primary);
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background: var(--color-surface-secondary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-sm) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-fast);
+    z-index: 100;
+  }
+
+  .nav-item--dropdown:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown-link {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    transition: var(--transition-fast);
+    border-bottom: none;
+  }
+
+  .nav-dropdown-link:hover {
+    background: var(--color-surface-tertiary);
+    color: var(--color-primary);
   }
 
   @media (max-width: 768px) {
@@ -115,6 +179,15 @@ const currentPath = Astro.url.pathname;
 
     .nav-link {
       font-size: var(--font-size-xs);
+    }
+
+    .nav-dropdown {
+      min-width: 140px;
+    }
+
+    .nav-dropdown-link {
+      font-size: var(--font-size-xs);
+      padding: var(--space-xs) var(--space-sm);
     }
   }
 
@@ -130,5 +203,23 @@ const currentPath = Astro.url.pathname;
     }
 
     .nav-link {
+      font-size: var(--font-size-xs);
+    }
+
+    .nav-dropdown {
+      position: static;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+      transform: none;
+      padding: var(--space-xs) 0 0 var(--space-md);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-dropdown-link {
+      color: var(--color-text-tertiary);
+      padding: var(--space-xs) 0;
+    }
   }
 </style>
