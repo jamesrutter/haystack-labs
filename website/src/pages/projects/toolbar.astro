@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import SearchIcon from "@/assets/search.svg";
 
 type Props = {
   years: CollectionEntry<"years">[];
@@ -8,19 +9,9 @@ type Props = {
 const { years } = Astro.props as Props;
 ---
 
-<div class="filter-toolbar">
-  <div class="search-container">
-    <input
-      type="text"
-      id="search"
-      placeholder="Search projects..."
-      class="search-input"
-    />
-  </div>
-
+<section>
   <div class="filter-container">
     <div class="filter-group">
-      <label class="filter-label">Filter by year:</label>
       <div class="filter-buttons">
         <button class="filter-btn active" data-year="all">All Years</button>
         {
@@ -33,17 +24,19 @@ const { years } = Astro.props as Props;
       </div>
     </div>
   </div>
-</div>
+  <div class="search-container">
+    <SearchIcon width="20" height="20" fill="currentColor" />
+    <input type="text" id="search" class="search-input" placeholder="Search" />
+  </div>
+</section>
 
 <style>
-  .filter-toolbar {
-    background: var(--color-haystack-navy-tint-10);
+  section {
+    padding-block: var(--space-md);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -54,18 +47,32 @@ const { years } = Astro.props as Props;
 
   .search-container {
     flex: 1;
-    min-width: 280px;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-container svg {
+    position: absolute;
+    top: 25%;
+    left: var(--space-md);
+    z-index: 1;
+    color: var(--color-haystack-light-seafoam-green);
+    pointer-events: none;
   }
 
   .search-input {
     width: 100%;
-    padding: var(--space-md);
-    border: 2px solid var(--color-haystack-light-seafoam-green);
+    padding: var(--space-sm) var(--space-md) var(--space-sm)
+      calc(var(--space-md) + 20px + var(--space-sm));
+    border: 2px solid var(--color-haystack-seafoam-green);
+
     border-radius: var(--radius-md);
-    font-family: var(--font-family-body);
-    font-size: var(--font-size-base);
-    background: var(--color-surface);
-    color: var(--color-text-primary);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary-light);
     transition: border-color var(--transition-normal);
 
     &:focus {
@@ -74,20 +81,20 @@ const { years } = Astro.props as Props;
     }
 
     &::placeholder {
-      color: var(--color-text-muted);
+      color: var(--color-haystack-light-seafoam-green);
     }
   }
 
   .filter-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
   }
 
   .filter-group {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -107,7 +114,7 @@ const { years } = Astro.props as Props;
 
   .filter-buttons {
     display: flex;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
     flex-wrap: wrap;
   }
 
@@ -116,7 +123,7 @@ const { years } = Astro.props as Props;
     border: 2px solid var(--color-haystack-seafoam-green);
     border-radius: var(--radius-md);
     background: transparent;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary-light);
     font-family: var(--font-family-display);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
