@@ -1,6 +1,6 @@
 ---
-name: "Tajah"
-year: 2025
+name: "Tajah Ellis"
+year: [2025]
 email: "tajah@media.mit.edu"
 website: "https://tajahebbon.com/"
 type: "participant"

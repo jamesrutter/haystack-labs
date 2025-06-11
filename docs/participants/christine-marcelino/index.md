@@ -1,6 +1,6 @@
 ---
 name: "Christine Marcelino"
-year: 2025
+year: [2025]
 email: "cmarcelino@berkeley.edu"
 website: "https://cmarcelino.com/"
 type: "participant"

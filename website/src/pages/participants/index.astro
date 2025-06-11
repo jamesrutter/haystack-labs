@@ -2,6 +2,7 @@
 import Layout from "@/layouts/layout.astro";
 import { getCollection } from "astro:content";
 import ArrowRight from "@/assets/arrow-right.svg";
+import Toolbar from "./toolbar.astro";
 
 const participants = await getCollection("participants");
 const sorted_participants = participants.sort((a, b) =>
@@ -16,12 +17,17 @@ const sorted_participants = participants.sort((a, b) =>
   <section class="section">
     <div class="wrapper">
       <h1 class="title">Participants</h1>
-      <div class="grid-auto">
+
+      <Toolbar />
+
+      <div class="grid-auto" id="participants-grid">
         {
           sorted_participants.map((participant) => (
             <a
               href={`/participants/${participant.id}`}
               class="participant-card"
+              data-name={participant.data.name.toLowerCase()}
+              data-id={participant.id.toLowerCase()}
             >
               <div class="participant-card__content">
                 <h3 class="participant-card__name">{participant.data.name}</h3>
@@ -32,6 +38,11 @@ const sorted_participants = participants.sort((a, b) =>
             </a>
           ))
         }
+      </div>
+
+      <!-- No results message -->
+      <div id="no-results" class="no-results" style="display: none;">
+        <p>No participants found matching your search criteria.</p>
       </div>
     </div>
   </section>
@@ -48,6 +59,10 @@ const sorted_participants = participants.sort((a, b) =>
     transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
+
+    &.hidden {
+      display: none;
+    }
   }
 
   .participant-card:hover::before {
@@ -92,6 +107,20 @@ const sorted_participants = participants.sort((a, b) =>
     opacity: 1;
   }
 
+  .no-results {
+    text-align: center;
+    padding: var(--space-3xl);
+    background: var(--color-haystack-navy-tint-10);
+    border-radius: var(--radius-lg);
+
+    p {
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-lg);
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+  }
+
   @media (max-width: 768px) {
     .participants-grid {
       grid-template-columns: 1fr;
@@ -107,3 +136,49 @@ const sorted_participants = participants.sort((a, b) =>
     }
   }
 </style>
+
+<script>
+  const participant_cards = document.querySelectorAll(".participant-card");
+  const no_results = document.getElementById("no-results");
+
+  let current_search_term = "";
+
+  document.addEventListener("participant-search", (e) => {
+    const custom_event = e as CustomEvent;
+    current_search_term = custom_event.detail;
+    filter_participants();
+  });
+
+  function filter_participants() {
+    let visible_count = 0;
+
+    participant_cards.forEach((card) => {
+      const card_element = card as HTMLElement;
+      const name = card_element.dataset.name || "";
+      const id = card_element.dataset.id || "";
+
+      // Check search match
+      const search_match =
+        !current_search_term ||
+        name.includes(current_search_term) ||
+        id.includes(current_search_term);
+
+      // Show/hide card
+      if (search_match) {
+        card_element.classList.remove("hidden");
+        visible_count++;
+      } else {
+        card_element.classList.add("hidden");
+      }
+    });
+
+    // Show/hide no results message
+    if (no_results) {
+      if (visible_count === 0) {
+        no_results.style.display = "block";
+      } else {
+        no_results.style.display = "none";
+      }
+    }
+  }
+</script>

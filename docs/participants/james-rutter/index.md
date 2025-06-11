@@ -1,6 +1,6 @@
 --- 
-name: James Rutter # full name 
-year: 2025
+name: James Rutter 
+year: [2025, 2024, 2023, 2022, 2021]
 email: james@haystack-mtn.org
 website: https://www.haystack-mtn.org
 type: staff # participant or staff  

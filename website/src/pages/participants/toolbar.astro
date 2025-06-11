@@ -1,0 +1,75 @@
+---
+import SearchIcon from "@/assets/search.svg";
+---
+
+<section>
+  <div class="search-container">
+    <SearchIcon width="20" height="20" fill="currentColor" />
+    <input
+      type="text"
+      id="search"
+      class="search-input"
+      placeholder="Search participants"
+    />
+  </div>
+</section>
+
+<style>
+  section {
+    padding-block: var(--space-md);
+    border-radius: var(--radius-lg);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .search-container {
+    flex: 1;
+    max-width: 400px;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-container svg {
+    position: absolute;
+    top: 25%;
+    left: var(--space-md);
+    z-index: 1;
+    color: var(--color-haystack-light-seafoam-green);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md) var(--space-sm)
+      calc(var(--space-md) + 20px + var(--space-sm));
+    border: 2px solid var(--color-haystack-seafoam-green);
+    border-radius: var(--radius-md);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary-light);
+    transition: border-color var(--transition-normal);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-haystack-blue);
+    }
+
+    &::placeholder {
+      color: var(--color-haystack-light-seafoam-green);
+    }
+  }
+</style>
+
+<script>
+  const search_input = document.getElementById("search") as HTMLInputElement;
+
+  search_input?.addEventListener("input", (e) => {
+    const search_term = (e.target as HTMLInputElement).value.toLowerCase();
+    document.dispatchEvent(
+      new CustomEvent("participant-search", { detail: search_term })
+    );
+  });
+</script>

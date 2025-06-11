@@ -1,6 +1,6 @@
 ---
 name: "Tom Bodett"
-year: 2025
+year: [2025]
 email: "lbod1@nycap.rr.com"
 type: "participant"
 ---

@@ -35,7 +35,7 @@ const participants = defineCollection({
   loader: glob({ pattern: "**/index.md", base: "../docs/participants" }),
   schema: z.object({
     name: z.string(),
-    year: z.number(),
+    year: z.array(z.number()).optional(),
     email: z.string(),
     website: z.string().optional(),
     type: z.enum(["participant", "staff"]),
