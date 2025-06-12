@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/layout.astro";
 import ArrowRight from "@/assets/arrow-right.svg";
-import Toolbar from "./toolbar.astro";
+import Toolbar from "@/components/toolbar.astro";
 
 const projects = await getCollection("projects");
 const sorted_projects = projects.sort((a, b) => b.data.year - a.data.year);
