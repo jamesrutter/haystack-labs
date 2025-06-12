@@ -54,3 +54,18 @@ A random content picker for serendipity. Could be part of the top-level menu, or
 | **Person**          | short bio card, skills, contact, list of their Projects & Processes                                       |
 | **Material / Tool** | intro, key specs/settings, linked Processes & Projects                                                    |
 | **Event**           | overview, cohort list, gallery                                                                            |
+### Physical ↔ Digital touch-point
+
+QR-code stickers on Samples/tools open the relevant Process page, and each Process page prints its own QR for lab signage.
+
+## CMS
+| Collection Type | Relations                                                          |
+| --------------- | ------------------------------------------------------------------ |
+| persons         | many Projects, many Processes                                      |
+| processes       | many Persons, many Materials, many Tools, many Projects, many Tags |
+| projects        | many Processes, many Persons, one Event, many Tags                 |
+| materials       | many Processes                                                     |
+| tools           | many Processes                                                     |
+| events          | many Projects, many Persons                                        |
+| samples         | one Process                                                        |
+| tags            | many * (polymorphic)                                               |
