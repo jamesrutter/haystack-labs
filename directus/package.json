@@ -1,0 +1,43 @@
+{
+  "name": "haystack-labs-directus",
+  "version": "1.0.0",
+  "description": "Directus CMS setup for Haystack Labs",
+  "type": "module",
+  "scripts": {
+    "setup-schema": "node setup-schema.js",
+    "dev": "docker-compose up -d",
+    "down": "docker-compose down",
+    "logs": "docker-compose logs -f"
+  },
+  "dependencies": {
+    "@directus/sdk": "^17.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "directus:template": {
+    "name": "CMS",
+    "description": "A ready-to-use CMS with block builder, visual editing, and integration with your favorite framework. ",
+    "template": "./directus/template",
+    "frontends": {
+      "nextjs": {
+        "name": "Next.js",
+        "path": "./nextjs"
+      },
+      "nuxt": {
+        "name": "Nuxt",
+        "path": "./nuxt"
+      },
+      "astro": {
+        "name": "Astro",
+        "path": "./astro"
+      },
+      "svelte": {
+        "name": "Svelte",
+        "path": "./sveltekit"
+      }
+    }
+  },
+  "keywords": [],
+  "author": ""
+}
