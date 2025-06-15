@@ -1,7 +1,7 @@
 # Directus Specific
-directus/data/
-directus/uploads/
-directus/extensions/.registry
+data/
+uploads/
+extensions/.registry
 
 # Dependencies
 node_modules/
