@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/layout.astro";
+import ArrowLeft from "@/assets/left-double.svg";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <div class="wrapper">
+    <nav>
+      <a href="/tools/">
+        <ArrowLeft width="18" height="18" fill="currentColor" />
+        <span>Back to Tools</span>
+      </a>
+    </nav>
+  </div>
+  <slot />
+</Layout>
+
+<style>
+  nav {
+    padding-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    a {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-family-display);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+    a:hover {
+      color: var(--color-text-primary-inverse);
+    }
+  }
+</style>

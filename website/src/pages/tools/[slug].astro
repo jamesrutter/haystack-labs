@@ -1,0 +1,154 @@
+---
+import Layout from "@/layouts/layout-tool.astro";
+import directus from "@/lib/directus";
+import { readItems, readItem } from "@directus/sdk";
+
+export async function getStaticPaths() {
+  const tools = await directus.request(
+    readItems("tools", {
+      fields: ["*", { relation: ["*"] }],
+    })
+  );
+  return tools.map((tool) => ({ params: { slug: tool.slug }, props: tool }));
+}
+const tool = Astro.props;
+---
+
+<Layout title={`${tool.name} - Tools - Haystack Labs`}>
+  <article class="tool-detail">
+    <header>
+      <h1>{tool.name}</h1>
+      <div class="tool-meta">
+        {tool.category && <span class="category">{tool.category}</span>}
+        {tool.location && <span class="location">📍 {tool.location}</span>}
+        {
+          tool.status && (
+            <span class={`status status-${tool.status}`}>
+              {tool.status === "available" && "✅ Available"}
+              {tool.status === "in_use" && "⚠️ In Use"}
+              {tool.status === "maintenance" && "🔧 Maintenance"}
+            </span>
+          )
+        }
+      </div>
+    </header>
+
+    {
+      tool.image && (
+        <div class="tool-image">
+          <img
+            src={`http://localhost:8055/assets/${tool.image}`}
+            alt={tool.name}
+          />
+        </div>
+      )
+    }
+
+    {
+      tool.description && (
+        <div class="tool-description">
+          <h2>Description</h2>
+          <p>{tool.description}</p>
+        </div>
+      )
+    }
+
+    <div class="tool-actions">
+      <a href="/tools" class="back-link">← Back to Tools</a>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .tool-detail header {
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .category,
+  .location,
+  .status {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .category {
+    background: #e6f3ff;
+    color: #0066cc;
+  }
+
+  .location {
+    background: #f0f9ff;
+    color: #0369a1;
+  }
+
+  .status {
+    background: #f0fdf4;
+    color: #15803d;
+  }
+
+  .status-in_use {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  .status-maintenance {
+    background: #fecaca;
+    color: #dc2626;
+  }
+
+  .tool-image {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .tool-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .tool-description {
+    margin: 2rem 0;
+  }
+
+  .tool-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-description p {
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .tool-actions {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .back-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>

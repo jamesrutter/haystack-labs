@@ -51,6 +51,13 @@ const sortedYears = years.sort((a, b) => parseInt(b.id) - parseInt(a.id));
             >PARTICIPANTS</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            href="/tools"
+            class={`nav-link ${currentPath.startsWith("/tools") ? "nav-link--active" : ""}`}
+            >TOOLS</a
+          >
+        </li>
       </ul>
     </nav>
   </div>

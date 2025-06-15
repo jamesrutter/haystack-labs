@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.5.3",
+    "@directus/sdk": "^19.1.0",
     "astro": "^5.8.1"
   },
   "devDependencies": {
