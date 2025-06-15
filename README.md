@@ -1,58 +1,107 @@
-# Haystack Labs
+# Haystack Fab Lab Documentation Hub
 
-This is the repository for Haystack Labs. The goal of this repo is to provide a better way to document the projects and participants of Labs. 
+This repository houses the comprehensive documentation platform for all research activities at the Haystack Mountain School of Crafts Fab Lab. Our mission is to create a living digital archive that captures the innovation happening at the intersection of craft and technology.
 
-**##Website** | `/website`
-I would like to make a nice looking website to host all of the documentation, participant, archive, etc. 
+## Scope & Programs
 
-**Website URL:** [https://labs.haystack-mtn.org](https://labs.haystack-mtn.org). 
+This platform encompasses all research and residency programs coordinated through the Fab Lab:
 
-### Technical Details
-- Astro (Static Site Generator) 
-- Markdown (Astro pulls in an render markdown)
-- Deployed to Cloudflare Workers 
+- **Haystack Labs** - The week-long intensive exploring craft-technology intersections
+- **Fab Lab Residents** - Long-term makers developing projects and maintaining the lab
+- **Research Projects** - Cross-program experimental work and collaborations
+- **Community Workshops** - Educational programs and skill-sharing sessions
 
-**##Documentation** | `/docs`
-This is where the core content of this project will reside. I am thinking this will be an interesting "open source" way to build contributions among Labs Participants. Unless we implement a proper CMS down the road (see next section), this will effectively be the content management system. Just a bunch of markdown (or mdx) files that Astro will automatically load and render into the website. I can create some specific content schemas and conventions for people to follow so things look nice and consistent, or I take a fast and loose approach. See some of my content examples for different ways to write markdown content. It's a little strange if you have never written before, but it does not take too long to get used to. I'll add some documentation to the documenation on how to write proper documentation with markdown 🤓. 
+## Website | `/website`
 
+A dynamic documentation platform that serves as both archive and active workspace for our community.
 
-For, now, to get started, I made the following directory structure. My mind is open if you have suggestions for alternative organization, but this seemed to make the most sense without over thinking things: 
+**Website URL:** [https://labs.haystack-mtn.org](https://labs.haystack-mtn.org)
 
-### 🥳 Participants -- `docs/participants/` 
-You. All about you. The most important about Labs and documenting Labs is the amazing people who come and collaborate. Please document who you are, what you do, and whatever else you want people (and the internet) to know about you. 
+### Technical Architecture
+- **Frontend**: Astro (Static Site Generator)
+- **CMS**: Directus (relational content management)
+- **Hosting**: Cloudflare Workers
+- **Media Storage**: Cloudflare R2
+- **Search**: (TBD)
+- **Analytics**: Umami (self-hosted)
 
-1. Make yourself a folder in the participant directory. 
-2. Use your name as the folder name, using kebab-case please (e.g. james-rutter). 
-3. Create a `about.md` file about yourself
-4. Go nuts with what you put into this folder, just don't add a bunch of videos or copywritten material. 
+## Content Model & Information Architecture
 
-### 🪵 Projects --- `docs/projects`
-1. First, check to see if a project already exists. 
-2. If it does not, go ahead and create a new folder, using kebab-case (e.g., blair-winch-project). 
-3. Copy the template from `docs/projects/project-template.md` and rename it to `index.md` in your project folder.
-4. Update the frontmatter (the section between `---` at the top) with your project details:
-   - `title`: Your project name
-   - `year`: Current year (2025)
-   - `url`: Project website or main link (leave empty if none)
-   - `category`: Type of project (e.g., digital-fabrication, craft, biomaterials)
-   - `tools`: List the main tools/equipment you'll use
-   - `tags`: Add relevant tags for discovery
-5. Fill in the markdown sections with your project details. The sections marked with `*italics*` are placeholders for your content.
-6. Each project will vary in the amount of documentation and structure. Some might be ongoing projects, some might be one-offs. Keep it simple to start with, and we can overengineer it later. 
+The platform is built around interconnected core entities that capture the full spectrum of research activities:
 
-### 🛠️ Tools --- `docs/tools` (?)
-This is for documentation of the new tools, or old tools. any tool really. Did you "wake up" a tool while at Labs? Go ahead and tell that story here. We're interested. Follow the same conventions as above. Tools might be best kept inside of projects, or associated with a specific project. I don't know, I'm open to suggestions and changing my mind. 
+### Core Entities
 
-### ⚙️ Resources --- `docs/resources` (?)
-Anything that is not a project or a tool, but is still useful to the community. In general, try to keep project-related guides and tutorials out of here and into their respective project folders. I may delete this folder if it becomes too confusing. 
+| Entity            | Purpose                                                            | Key Relationships                             |
+| ----------------- | ------------------------------------------------------------------ | --------------------------------------------- |
+| **Person**        | Anyone who contributes - participants, residents, staff, alumni    | Authors Processes, contributes to Projects    |
+| **Process**       | Smallest unit of know-how - methods, recipes, techniques, swatches | Uses Materials/Tools, part of Projects        |
+| **Project**       | Bounded work that bundles Processes into cohesive outcomes         | Aggregates Processes, involves People         |
+| **Material**      | Physical substrates being explored                                 | Used in Processes, linked to Projects         |
+| **Tool**          | Machines and software required for work                            | Used in Processes, documented for safety      |
+| **Program/Event** | Context where work happens - Labs cohorts, residencies             | Contains Projects, attended by People         |
+| **Sample**        | Physical artifacts with QR codes linking digital documentation     | Documents Processes, bridges physical-digital |
 
-## Content Managemen System (Future Idea...)
-I am considering implementing a simple content management system so that there is a more user friendly way to structure the content, have people contribute, etc. I am looking into: 
+### Navigation Structure
 
-- Strapi 
-- Directus 
+1. **Processes** - Filterable library of techniques and methods
+2. **Projects** - Showcase of completed and ongoing work  
+3. **Materials** - Encyclopedia of substrates and their properties
+4. **Tools & Machines** - Setup guides and safety documentation
+5. **People** - Community directory and contributor profiles
+6. **Programs** - Historical archive of events and cohorts
 
-Open to other suggestions, both those are both open-source and self-hostable options. 
+## Content Contribution Workflow
 
+### For Contributors (Flexible Input)
+Contributors can document their work through multiple channels:
+- **Markdown files** in this repository
+- **Google Docs** for collaborative writing  
+- **Direct Directus interface** for structured data entry
+- **Media uploads** through the web interface
 
->😒 If you hate everything about what you just read and refuse to use markdown to write your docs, please let me know! If you are interested in using it, but are not sure how to get started and feel confused by all of this, also let me know - I will help you. Markdown is a great portable format to keep your notes/docs in. Google Docs can import/export markdown now. Obsidian is my favorite markdown editor. I have lots of other opinions if you want to hear them. 
+### Content Processing Pipeline
+1. **Flexible Input** - Accept content in contributor's preferred format
+2. **Editorial Review** - Ensure quality and completeness  
+3. **CMS Integration** - Structure content in Directus with proper relationships
+4. **Website Generation** - Astro pulls from Directus API to generate static pages
+5. **Cross-linking** - Automatic relationship building between entities
+
+## Key Features
+
+### Physical-Digital Bridge
+- QR codes on physical samples link to digital documentation
+- Lab inventory management integrated with project documentation
+- Tool status and availability tracking
+
+### Knowledge Discovery
+- **Global search** across all content types
+- **Tag-based filtering** with controlled vocabulary
+- **"Surprise Me"** random content discovery
+- **"Read Everything"** linear browsing for comprehensive exploration
+
+### Community Building
+- Contributor profiles highlighting expertise and interests
+- Project collaboration history and networks
+- Alumni connection to ongoing work
+
+## Getting Started
+
+### For New Contributors
+1. Create your profile in `/docs/people/[your-name]/`
+2. Document your projects in `/docs/projects/[project-name]/`
+3. Add process documentation as you develop techniques
+4. Tag everything for discoverability
+
+### For Developers
+See `/website/README.md` for technical setup and deployment instructions.
+
+### For Content Editors
+Access the Directus admin interface to manage structured content and relationships.
+
+---
+
+## Philosophy
+
+This platform embodies our belief that innovation emerges from the intersection of making and documentation. By capturing not just outcomes but processes, failures, and iterations, we build a living library that serves both current makers and future innovators.
+
+The physical lab and digital documentation are designed as complementary spaces - the digital extends and amplifies the physical, while the physical grounds the digital in tangible experimentation. 
