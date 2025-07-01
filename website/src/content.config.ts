@@ -3,7 +3,10 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const years = defineCollection({
-  loader: glob({ pattern: "**/index.md", base: "../docs/years" }),
+  loader: glob({
+    pattern: "**/index.md",
+    base: "../docs",
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -14,7 +17,7 @@ const years = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ pattern: "**/index.md", base: "../docs/projects" }),
+  loader: glob({ pattern: "**/projects/**/index.md", base: "../docs" }),
   schema: z.object({
     // Basic project info
     title: z.string(),
@@ -32,7 +35,7 @@ const projects = defineCollection({
 });
 
 const participants = defineCollection({
-  loader: glob({ pattern: "**/index.md", base: "../docs/participants" }),
+  loader: glob({ pattern: "**/participants/**/index.md", base: "../docs" }),
   schema: z.object({
     name: z.string(),
     year: z.number(),
