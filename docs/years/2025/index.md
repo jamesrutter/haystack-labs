@@ -10,3 +10,5 @@ The 2025 Haystack Labs brought together 30+ makers, researchers, and artists fro
 
 
 
+[Google Slides](https://docs.google.com/presentation/d/1uK8aZi6VBzGO3SOtihuMx_3TYvgFdAiiuBY65ItaMO0/edit?slide=id.g360de2af50a_19_51#slide=id.g360de2af50a_19_51)
+

@@ -1,6 +1,6 @@
 ---
 name: "Jonathan Wolfman"
-year: 2025
+year: [2025]
 email: "jonnyvermont@me.com"
 type: "participant"
 ---
