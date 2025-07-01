@@ -1,0 +1,4 @@
+# 2-Channel Theremin
+
+Tags: Electronics, Music
+👩‍🔬 People: Ivana Dama (../People%20e15607f12c9542229f6890e1fa0afce1/Ivana%20Dama%20bcfa5c97ef9940e79f561f2f8256052d.md), Jake Read (../People%20e15607f12c9542229f6890e1fa0afce1/Jake%20Read%20b49ba5c9e30d435d8c16b5c42088b9e2.md), Neil Gershenfeld (../People%20e15607f12c9542229f6890e1fa0afce1/Neil%20Gershenfeld%20a9d2fa84bd1b4fa4b6b69d4680b70777.md), Quentin Bolsee (../People%20e15607f12c9542229f6890e1fa0afce1/Quentin%20Bolsee%20a4bcb2fbb02846b8b1c0d701c6c13cd5.md), Christopher Taylor (../People%20e15607f12c9542229f6890e1fa0afce1/Christopher%20Taylor%20b99cab5eb8484fe28e3311895fc463f2.md)
