@@ -15,14 +15,12 @@ export async function getStaticPaths() {
 const { year } = Astro.props;
 const { Content } = await render(year);
 
-// Get and filter participants and projects by year
-const participants = await getCollection(
-  "participants",
-  ({ data }) => data.year === year.data.year
+// Get participants and projects for this year using ID pattern matching
+const participants = await getCollection("participants", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
 );
-const projects = await getCollection(
-  "projects",
-  ({ data }) => data.year === year.data.year
+const projects = await getCollection("projects", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
 );
 
 console.log(year);
@@ -94,23 +92,28 @@ console.log(year);
             <section class="participants">
               <h2 class="section-title">Participants</h2>
               <div class="participants-grid">
-                {participants.map((participant) => (
-                  <a
-                    href={`/participants/${participant.id}`}
-                    class="participant-card"
-                  >
-                    <div class="card-content">
-                      <h3 class="participant-name">{participant.data.name}</h3>
-                      <div class="card-arrow">
-                        <ArrowRight
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                        />
+                {participants.map((participant) => {
+                  const participantSlug = participant.id.split("/").pop();
+                  return (
+                    <a
+                      href={`/${year.data.year}/participants/${participantSlug}`}
+                      class="participant-card"
+                    >
+                      <div class="card-content">
+                        <h3 class="participant-name">
+                          {participant.data.name}
+                        </h3>
+                        <div class="card-arrow">
+                          <ArrowRight
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                ))}
+                    </a>
+                  );
+                })}
               </div>
             </section>
           )
@@ -121,36 +124,46 @@ console.log(year);
             <section class="projects">
               <h2 class="section-title">Projects</h2>
               <div class="projects-grid">
-                {projects.map((project) => (
-                  <a href={`/projects/${project.id}`} class="project-card">
-                    <div class="card-content">
-                      <div class="header">
-                        <h3>{project.data.title}</h3>
-                        <div class="card-arrow">
-                          <ArrowRight
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                          />
+                {projects.map((project) => {
+                  const projectSlug = project.id.split("/").pop();
+                  return (
+                    <a
+                      href={`/${year.data.year}/projects/${projectSlug}`}
+                      class="project-card"
+                    >
+                      <div class="card-content">
+                        <div class="header">
+                          <h3>{project.data.title}</h3>
+                          <div class="card-arrow">
+                            <ArrowRight
+                              width="20"
+                              height="20"
+                              fill="currentColor"
+                            />
+                          </div>
                         </div>
+
+                        {project.data.category && (
+                          <div class="meta">
+                            <span class="category">
+                              {project.data.category}
+                            </span>
+                          </div>
+                        )}
+
+                        {project.data.tags && project.data.tags.length > 0 && (
+                          <div class="tags">
+                            {project.data.tags
+                              .slice(0, 3)
+                              .map((tag: string) => (
+                                <span class="tag">{tag}</span>
+                              ))}
+                          </div>
+                        )}
                       </div>
-
-                      {project.data.category && (
-                        <div class="meta">
-                          <span class="category">{project.data.category}</span>
-                        </div>
-                      )}
-
-                      {project.data.tags && project.data.tags.length > 0 && (
-                        <div class="tags">
-                          {project.data.tags.slice(0, 3).map((tag: string) => (
-                            <span class="tag">{tag}</span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </a>
-                ))}
+                    </a>
+                  );
+                })}
               </div>
             </section>
           )
@@ -168,9 +181,7 @@ console.log(year);
           frameborder="0"
           width="960"
           height="569"
-          allowfullscreen="true"
-          mozallowfullscreen="true"
-          webkitallowfullscreen="true"></iframe>
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>

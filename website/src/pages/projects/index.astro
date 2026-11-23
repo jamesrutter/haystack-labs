@@ -21,41 +21,47 @@ const years = await getCollection("years");
 
       <div class="grid-auto lg spacious" id="projects-grid">
         {
-          sorted_projects.map((project) => (
-            <a
-              href={`/projects/${project.id}`}
-              class="project-card"
-              data-year={project.data.year}
-              data-title={project.data.title.toLowerCase()}
-              data-category={project.data.category?.toLowerCase() || ""}
-              data-tags={project.data.tags?.join(" ").toLowerCase() || ""}
-            >
-              <div class="content">
-                <div class="header">
-                  <h4>{project.data.title}</h4>
-                  <div class="arrow">
-                    <ArrowRight width="20" height="20" fill="currentColor" />
+          sorted_projects.map((project) => {
+            const [year, , projectSlug] = project.id.split("/");
+            return (
+              <a
+                href={`/${year}/projects/${projectSlug}`}
+                class="project-card"
+                data-year={project.data.year}
+                data-title={project.data.title.toLowerCase()}
+                data-category={project.data.category?.toLowerCase() || ""}
+                data-tags={project.data.tags?.join(" ").toLowerCase() || ""}
+              >
+                <div class="content">
+                  <div class="header">
+                    <h4>{project.data.title}</h4>
+                    <div class="arrow">
+                      <ArrowRight width="20" height="20" fill="currentColor" />
+                    </div>
+                  </div>
+
+                  <div class="meta">
+                    <div class="project-year">
+                      <strong>Year:</strong> {year}
+                    </div>
+                    {project.data.category && (
+                      <article class="category">
+                        <strong>Category:</strong> {project.data.category}
+                      </article>
+                    )}
+
+                    {project.data.tags && (
+                      <article class="tags">
+                        {project.data.tags.map((tag: string) => (
+                          <span class="tag">{tag}</span>
+                        ))}
+                      </article>
+                    )}
                   </div>
                 </div>
-
-                <div class="meta">
-                  {project.data.category && (
-                    <article class="category">
-                      <strong>Category:</strong> {project.data.category}
-                    </article>
-                  )}
-
-                  {project.data.tags && (
-                    <article class="tags">
-                      {project.data.tags.map((tag: string) => (
-                        <span class="tag">{tag}</span>
-                      ))}
-                    </article>
-                  )}
-                </div>
-              </div>
-            </a>
-          ))
+              </a>
+            );
+          })
         }
       </div>
 

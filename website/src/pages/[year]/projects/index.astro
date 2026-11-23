@@ -1,0 +1,211 @@
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/layout.astro";
+import ArrowRight from "@/assets/arrow-right.svg";
+
+export async function getStaticPaths() {
+  const years = await getCollection("years");
+  return years.map((year) => ({
+    params: { year: year.data.year.toString() },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+
+// Get projects for this specific year
+const projects = await getCollection("projects", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
+);
+
+const sorted_projects = projects.sort((a, b) => 
+  a.data.title.localeCompare(b.data.title)
+);
+
+<Layout
+  title={`${year.data.year} Projects - Haystack Labs`}
+  description={`Projects from Haystack Labs ${year.data.year}`}
+>
+  <section class="section">
+    <div class="wrapper">
+      <div class="page-header">
+        <nav class="breadcrumb">
+          <a href={`/${year.data.year}`}>{year.data.year}</a>
+          <span class="separator">/</span>
+          <span class="current">Projects</span>
+        </nav>
+        <h1 class="title">
+          {year.data.year} Projects
+          <span class="count">({sorted_projects.length})</span>
+        </h1>
+        <p class="description">
+          Explore the {sorted_projects.length} projects from Haystack Labs {year.data.year}
+        </p>
+      </div>
+
+      <div class="grid-auto lg spacious">
+        {
+          sorted_projects.map((project) => {
+            const projectSlug = project.id.split("/").pop();
+            return (
+              <a
+                href={`/${year.data.year}/projects/${projectSlug}`}
+                class="project-card"
+              >
+                <div class="content">
+                  <div class="header">
+                    <h4>{project.data.title}</h4>
+                    <div class="arrow">
+                      <ArrowRight width="20" height="20" fill="currentColor" />
+                    </div>
+                  </div>
+
+                  <div class="meta">
+                    {project.data.category && (
+                      <article class="category">
+                        <strong>Category:</strong> {project.data.category}
+                      </article>
+                    )}
+
+                    {project.data.tags && (
+                      <article class="tags">
+                        {project.data.tags.map((tag: string) => (
+                          <span class="tag">{tag}</span>
+                        ))}
+                      </article>
+                    )}
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .breadcrumb {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+  }
+
+  .breadcrumb a {
+    color: var(--color-haystack-blue);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    margin: 0 var(--space-xs);
+    color: var(--color-text-muted);
+  }
+
+  .current {
+    color: var(--color-text-muted);
+  }
+
+  .count {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-xl);
+  }
+
+  .project-card {
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .project-card:hover h4 {
+    color: var(--color-haystack-blue);
+  }
+
+  .project-card:hover svg {
+    color: var(--color-haystack-blue);
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--space-sm);
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  h4 {
+    margin: 0;
+    flex: 1;
+    transition: color var(--transition-normal);
+  }
+
+  .arrow svg {
+    color: var(--color-text-primary);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .meta {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: auto;
+    padding-top: var(--space-sm);
+  }
+
+  .meta article {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+  }
+
+  .meta strong {
+    color: var(--color-haystack-navy);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-haystack-navy);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+  }
+</style> 

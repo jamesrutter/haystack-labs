@@ -1,0 +1,190 @@
+      import Layout from "@/layouts/layout.astro";
+import { getCollection } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
+
+export async function getStaticPaths() {
+  const years = await getCollection("years");
+  return years.map((year) => ({
+    params: { year: year.data.year.toString() },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+
+// Get participants for this specific year
+const participants = await getCollection("participants", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
+);
+
+const sorted_participants = participants.sort((a, b) =>
+  a.data.name.localeCompare(b.data.name)
+);
+
+<Layout
+  title={`${year.data.year} Participants - Haystack Labs`}
+  description={`Participants from Haystack Labs ${year.data.year}`}
+>
+  <section class="section">
+    <div class="wrapper">
+      <div class="page-header">
+        <nav class="breadcrumb">
+          <a href={`/${year.data.year}`}>{year.data.year}</a>
+          <span class="separator">/</span>
+          <span class="current">Participants</span>
+        </nav>
+        <h1 class="title">
+          {year.data.year} Participants
+          <span class="count">({sorted_participants.length})</span>
+        </h1>
+        <p class="description">
+          Meet the {sorted_participants.length} participants from Haystack Labs {year.data.year}
+        </p>
+      </div>
+
+      <div class="grid-auto">
+        {
+          sorted_participants.map((participant) => {
+            const participantSlug = participant.id.split("/").pop();
+            return (
+              <a
+                href={`/${year.data.year}/participants/${participantSlug}`}
+                class="participant-card"
+              >
+                <div class="participant-card__content">
+                  <div class="participant-info">
+                    <h3 class="participant-card__name">
+                      {participant.data.name}
+                    </h3>
+                    {participant.data.type && (
+                      <span class="participant-type">
+                        {participant.data.type}
+                      </span>
+                    )}
+                  </div>
+                  <div class="participant-card__arrow">
+                    <ArrowRight width="20" height="20" fill="currentColor" />
+                  </div>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-3xl);
+    text-align: center;
+  }
+
+  .breadcrumb {
+    margin-bottom: var(--space-md);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+  }
+
+  .breadcrumb a {
+    color: var(--color-haystack-blue);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    margin: 0 var(--space-xs);
+    color: var(--color-text-muted);
+  }
+
+  .current {
+    color: var(--color-text-muted);
+  }
+
+  .count {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-xl);
+  }
+
+  .participant-card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .participant-card:hover::before {
+    left: 100%;
+  }
+
+  .participant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-haystack-blue);
+  }
+
+  .participant-card__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+  }
+
+  .participant-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .participant-card__name {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    transition: color var(--transition-normal);
+  }
+
+  .participant-type {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
+    text-transform: capitalize;
+  }
+
+  .participant-card:hover .participant-card__name {
+    color: var(--color-haystack-blue);
+  }
+
+  .participant-card__arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+  }
+
+  .participant-card:hover .participant-card__arrow {
+    color: var(--color-haystack-blue);
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .participant-card {
+      padding: var(--space-md);
+    }
+
+    .participant-card__content {
+      min-height: 35px;
+    }
+  }
+</style> 

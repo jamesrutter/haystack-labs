@@ -1,0 +1,433 @@
+import Layout from "@/layouts/layout.astro";
+import { getCollection, render } from "astro:content";
+import ArrowRight from "@/assets/arrow-right.svg";
+import GroupPhoto from "@/assets/group-photo-1.jpg";
+
+export async function getStaticPaths() {
+  const years = await getCollection("years");
+  return years.map((year) => ({
+    params: { year: year.data.year.toString() },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+const { Content } = await render(year);
+
+// Get participants and projects for this year using ID pattern matching
+const participants = await getCollection("participants", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
+);
+const projects = await getCollection("projects", ({ id }) =>
+  id.startsWith(`${year.data.year}/`)
+);
+
+<Layout
+  title={`${year.data.title} - Haystack Labs`}
+  description={year.data.description || `Information about ${year.data.title}`}
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-background">
+      <img
+        src={GroupPhoto.src}
+        alt="Haystack Labs group photo"
+        class="hero-image"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="wrapper">
+      <div class="hero-content">
+        <h1 class="title">Haystack Labs {year.data.title}</h1>
+        <div class="year-dates">
+          <time datetime={year.data.start.toISOString()}>
+            {
+              year.data.start.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }
+          </time>
+          <span class="date-separator">—</span>
+          <time datetime={year.data.end.toISOString()}>
+            {
+              year.data.end.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }
+          </time>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="wrapper">
+      <div class="year-description">
+        <Content />
+      </div>
+
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-number">{participants.length}</div>
+          <div class="stat-label">Participants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{projects.length}</div>
+          <div class="stat-label">Projects</div>
+        </div>
+      </div>
+
+      <div class="main-grid">
+        {
+          participants.length > 0 && (
+            <section class="participants">
+              <div class="section-header">
+                <h2 class="section-title">Participants</h2>
+                <a
+                  href={`/${year.data.year}/participants`}
+                  class="view-all-link"
+                >
+                  View All
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              </div>
+              <div class="participants-grid">
+                {participants.slice(0, 6).map((participant) => {
+                  const participantSlug = participant.id.split("/").pop();
+                  return (
+                    <a
+                      href={`/${year.data.year}/participants/${participantSlug}`}
+                      class="participant-card"
+                    >
+                      <div class="card-content">
+                        <h3 class="participant-name">
+                          {participant.data.name}
+                        </h3>
+                        <div class="card-arrow">
+                          <ArrowRight
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                          />
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          )
+        }
+
+        {
+          projects.length > 0 && (
+            <section class="projects">
+              <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <a href={`/${year.data.year}/projects`} class="view-all-link">
+                  View All
+                  <ArrowRight width="16" height="16" fill="currentColor" />
+                </a>
+              </div>
+              <div class="projects-grid">
+                {projects.slice(0, 6).map((project) => {
+                  const projectSlug = project.id.split("/").pop();
+                  return (
+                    <a
+                      href={`/${year.data.year}/projects/${projectSlug}`}
+                      class="project-card"
+                    >
+                      <div class="card-content">
+                        <div class="header">
+                          <h3>{project.data.title}</h3>
+                          <div class="card-arrow">
+                            <ArrowRight
+                              width="20"
+                              height="20"
+                              fill="currentColor"
+                            />
+                          </div>
+                        </div>
+
+                        {project.data.category && (
+                          <div class="meta">
+                            <span class="category">
+                              {project.data.category}
+                            </span>
+                          </div>
+                        )}
+
+                        {project.data.tags && project.data.tags.length > 0 && (
+                          <div class="tags">
+                            {project.data.tags
+                              .slice(0, 3)
+                              .map((tag: string) => (
+                                <span class="tag">{tag}</span>
+                              ))}
+                          </div>
+                        )}
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          )
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    padding: var(--space-4xl) 0 var(--space-3xl) 0;
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 33, 71, 0.8) 0%,
+      rgba(0, 33, 71, 0.6) 50%,
+      rgba(0, 33, 71, 0.4) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding-top: var(--space-3xl);
+  }
+
+  .title {
+    color: white;
+    margin-bottom: var(--space-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .year-dates {
+    color: var(--color-haystack-light-seafoam-green);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .date-separator {
+    margin: 0 var(--space-sm);
+  }
+
+  /* Content Section */
+  .content-section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .year-description {
+    max-width: 800px;
+    margin: 0 auto var(--space-3xl) auto;
+    text-align: center;
+  }
+
+  .stats-overview {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-haystack-blue);
+    text-decoration: none;
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-normal);
+  }
+
+  .view-all-link:hover {
+    color: var(--color-haystack-navy);
+  }
+
+  .view-all-link svg {
+    transition: var(--transition-normal);
+  }
+
+  .view-all-link:hover svg {
+    transform: translateX(2px);
+  }
+
+  /* Grid Styles */
+  .participants-grid,
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .participant-card,
+  .project-card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-haystack-navy-tint-10);
+    border: 1px solid var(--color-haystack-light-seafoam-green-transparent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-normal);
+    height: 100%;
+  }
+
+  .participant-card:hover,
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-haystack-blue);
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .participant-card .card-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .participant-name,
+  .project-card h3 {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    transition: color var(--transition-normal);
+  }
+
+  .participant-card:hover .participant-name,
+  .project-card:hover h3 {
+    color: var(--color-haystack-blue);
+  }
+
+  .card-arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+  }
+
+  .participant-card:hover .card-arrow,
+  .project-card:hover .card-arrow {
+    color: var(--color-haystack-blue);
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  .project-card .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .meta {
+    margin-bottom: var(--space-sm);
+  }
+
+  .category {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: auto;
+  }
+
+  .tag {
+    background: var(--color-haystack-seafoam-green);
+    color: var(--color-haystack-navy);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      padding-top: var(--space-xl);
+    }
+
+    .main-grid {
+      gap: var(--space-xl);
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .participants-grid,
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-overview {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style> 

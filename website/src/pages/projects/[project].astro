@@ -6,13 +6,16 @@ import Header from "./header-project.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
-  return projects.map((project) => ({
-    params: { project: project.id },
-    props: { project },
-  }));
+  return projects.map((project) => {
+    const [year, , projectSlug] = project.id.split("/");
+    return {
+      params: { project: projectSlug },
+      props: { project, year },
+    };
+  });
 }
 
-const { project } = Astro.props;
+const { project, year } = Astro.props;
 const { Content } = await render(project);
 ---
 
@@ -22,11 +25,7 @@ const { Content } = await render(project);
 >
   <section class="section section-xs">
     <div class="wrapper">
-      <Header
-        title={project.data.title}
-        year={project.data.year.toString()}
-        type={project.data.type}
-      />
+      <Header title={project.data.title} year={year} type={project.data.type} />
 
       <!-- Project Metadata -->
       <div class="project-meta">

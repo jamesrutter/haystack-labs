@@ -5,13 +5,16 @@ import Header from "./header-participant.astro";
 
 export async function getStaticPaths() {
   const participants = await getCollection("participants");
-  return participants.map((participant) => ({
-    params: { participant: participant.id },
-    props: { participant },
-  }));
+  return participants.map((participant) => {
+    const [year, , participantSlug] = participant.id.split("/");
+    return {
+      params: { participant: participantSlug },
+      props: { participant, year },
+    };
+  });
 }
 
-const { participant } = Astro.props;
+const { participant, year } = Astro.props;
 const { Content } = await render(participant);
 ---
 
@@ -23,7 +26,7 @@ const { Content } = await render(participant);
     <Header
       name={participant.data.name}
       email={participant.data.email}
-      year={participant.data.year.toString()}
+      year={year}
     />
     <Content />
   </div>
